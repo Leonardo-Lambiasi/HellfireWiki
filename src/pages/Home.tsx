@@ -1,0 +1,91 @@
+import { Link } from "react-router-dom";
+import { Swords, BookOpen, Map, Gamepad2, Info, ChevronRight, Flame } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { herois, npcs } from "@/data/personagens";
+import { historias } from "@/data/historias";
+import { jogadores } from "@/data/jogadores";
+import { regioesExploradas, temporadas } from "@/data/mapas";
+
+const stats = [
+  { label: "Heróis",            value: herois.length,                            color: "text-hellfire-orange" },
+  { label: "NPCs",              value: npcs.length,                              color: "text-hellfire-gold"   },
+  { label: "Histórias",         value: historias.length,                         color: "text-hellfire-red"    },
+  { label: "Jogadores ativos",  value: jogadores.filter(j => j.ativo).length,    color: "text-hellfire-ember"  },
+  { label: "Regiões exploradas",           value: regioesExploradas,                        color: "text-hellfire-gold"   },
+  { label: "Temporadas",        value: temporadas,                               color: "text-hellfire-orange" },
+];
+
+const navCards = [
+  { title: "Personagens", description: "Heróis e NPCs que habitam Ark",         url: "/personagens/pcs", icon: Swords   },
+  { title: "Jogadores",   description: "Os aventureiros por trás dos heróis",     url: "/jogadores",       icon: Gamepad2 },
+  { title: "Histórias",   description: "Lendas e eventos que moldaram o mundo",   url: "/historias",       icon: BookOpen },
+  { title: "Mapas",       description: "Regiões exploradas de Ark",          url: "/mapas",           icon: Map      },
+  { title: "Sobre",       description: "A campanha, regras e convenções",         url: "/sobre",           icon: Info     },
+];
+
+const Home = () => (
+  <div className="space-y-16 animate-fade-in-up">
+
+    {/* Hero */}
+    <div className="text-center pt-6">
+      <p className="text-xs tracking-[0.4em] text-hellfire-gold uppercase mb-4">
+        Campanha de D&D
+      </p>
+      <h1 className="text-7xl font-bold text-gradient-hellfire mb-6 animate-ember-glow tracking-widest">
+        HELLFIRE
+      </h1>
+      <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
+        Crônicas das chamas eternas — onde heróis são forjados e destinos queimam nas terras de Ark
+      </p>
+
+      {/* Stats grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-4xl mx-auto gap-3">
+        {stats.map((stat) => (
+          <div key={stat.label} className="border border-hellfire-ash/60 rounded-xl bg-card/40 backdrop-blur py-7 text-center">
+            <p className={`text-5xl font-bold ${stat.color}`}>{stat.value}</p>
+            <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Flame divider */}
+    <div className="relative h-px bg-gradient-to-r from-transparent via-hellfire-orange/50 to-transparent">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4">
+        <Flame className="w-4 h-4 text-hellfire-orange" />
+      </div>
+    </div>
+
+    {/* Navigation cards */}
+    <div>
+      <p className="text-xs tracking-[0.3em] text-muted-foreground uppercase mb-6">
+        Explorar o mundo
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {navCards.map((card) => (
+          <Link key={card.url} to={card.url}>
+            <Card className="group h-full hover:border-hellfire-orange/50 hover:shadow-[0_0_30px_rgba(255,107,53,0.12)] transition-all duration-300">
+              <CardContent className="p-6 flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-hellfire-orange/10 border border-hellfire-orange/20 shrink-0 group-hover:bg-hellfire-orange/20 transition-colors">
+                  <card.icon className="w-6 h-6 text-hellfire-orange" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-foreground mb-0.5 group-hover:text-hellfire-gold transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+                <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0 group-hover:text-hellfire-orange group-hover:translate-x-1 transition-all" />
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </div>
+
+  </div>
+);
+
+export default Home;

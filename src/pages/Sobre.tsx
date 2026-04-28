@@ -1,71 +1,146 @@
-import { Flame, Users, BookOpen, Calendar, Scroll } from "lucide-react";
+import { Flame, Shield, Sword, Scroll, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import PageHeader from "@/components/PageHeader";
-import type { LucideIcon } from "lucide-react";
+import { herois } from "@/data/personagens";
 
-interface SobreSection {
-  icon: LucideIcon;
-  titulo: string;
-  conteudo: string;
-  destaque?: boolean;
-}
+const statusColor: Record<string, string> = {
+  Vivo:         "bg-green-700",
+  Desconhecido: "bg-purple-700",
+  MIA:          "bg-yellow-700",
+  Morto:        "bg-red-700",
+};
 
-const sections: SobreSection[] = [
-  {
-    icon: Flame,
-    titulo: "A Campanha",
-    conteudo:
-      "Hellfire é uma campanha de D&D 5e ambientada em Ark, um mundo à beira do colapso infernal. Três aventureiros descobrem que seus destinos estão entrelaçados com uma profecia milenar — e que as escolhas que fazem determinarão se Ark sobrevive ou perece nas chamas eternas.",
-    destaque: true,
-  },
-  {
-    icon: Users,
-    titulo: "A Mesa",
-    conteudo:
-      "Grupo de 6 jogadores. Sessões semanais. Tone: drama sério com momentos de humor orgânico. Mortes de personagem são possíveis mas raramente arbitrárias — o mundo reage às escolhas dos jogadores.",
-  },
-  {
-    icon: BookOpen,
-    titulo: "Sistema",
-    conteudo:
-      "Dungeons & Dragons 5ª Edição com algumas regras da casa: dados de vida máximos no nível 1, pontos de inspiração concedidos por roleplay notável, e morte permanente com falha crítica em 3 death saves consecutivos.",
-  },
-  {
-    icon: Calendar,
-    titulo: "Regras de Mesa",
-    conteudo:
-      "Avisar ausência com antecedência. Personagem ausente entra em modo 'background' (não morre, não age). Telefone no silencioso durante cenas dramáticas. Sessão zero obrigatória para novos jogadores. Metagaming moderado é ok, metagaming intenso não.",
-  },
-  {
-    icon: Scroll,
-    titulo: "Convenções de Lore",
-    conteudo:
-      "Esta wiki é o registro oficial da campanha. Datas in-game seguem o calendário de Ark (Luas Carmesim, Negra e Prateada). Eventos retcon são marcados com [RETCON]. O Mestre tem palavra final em ambiguidades de lore.",
-  },
+const regrasCasa = [
+  { icone: "🎲", regra: "Dados de vida máximos no nível 1" },
+  { icone: "✨", regra: "Inspiração concedida por roleplay notável" },
+  { icone: "💀", regra: "Morte permanente com 3 death saves consecutivos falhos" },
+  { icone: "🫥", regra: "Personagem ausente entra em modo background — não age, não morre" },
+  { icone: "📋", regra: "Sessão zero obrigatória para novos jogadores" },
+  { icone: "🎭", regra: "Metagaming moderado ok — metagaming intenso não" },
 ];
 
 const Sobre = () => (
-  <div className="space-y-8 animate-fade-in-up">
+  <div className="space-y-10 animate-fade-in-up">
     <PageHeader
       titulo="Sobre"
-      descricao="A campanha, as regras e o mundo de Ark"
+      descricao="A campanha, o mundo e os heróis de Hellfire"
     />
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {sections.map((section, i) => (
-        <Card key={i} className={section.destaque ? "lg:col-span-2" : ""}>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 text-hellfire-gold">
-              <section.icon className="w-5 h-5 text-hellfire-orange" />
-              {section.titulo}
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed">{section.conteudo}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    {/* ── Premissa ────────────────────────────────────────────────────────── */}
+    <Card className="border-hellfire-orange/60 bg-gradient-to-br from-hellfire-charcoal via-card to-hellfire-charcoal">
+      <CardContent className="pt-8 pb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <Flame className="w-6 h-6 text-hellfire-orange" />
+          <h3 className="text-xl font-cinzel font-bold text-hellfire-gold">A Campanha</h3>
+        </div>
+        <p className="text-lg text-foreground leading-relaxed mb-4">
+          <span className="text-hellfire-gold font-bold">Hellfire</span> é uma campanha de{" "}
+          <span className="text-hellfire-orange">D&D 5ª Edição</span> ambientada em{" "}
+          <span className="text-hellfire-gold font-bold">Ark</span> — um mundo à beira do colapso
+          infernal. Um portal selado há séculos começa a fraquear. Uma profecia milenar aponta para
+          três ungidos pela chama. E cinco heróis, cada um carregando seu próprio fardo, descobrem
+          que seus destinos estão entrelaçados de formas que não escolheram — nem todos sobreviveram para ver o fim.
+        </p>
+        <p className="text-muted-foreground leading-relaxed italic border-l-2 border-hellfire-orange/50 pl-4">
+          "Salvação e destruição como faces da mesma moeda." — A Profecia dos Três Ungidos, Ano 1201
+        </p>
+      </CardContent>
+    </Card>
+
+    {/* ── Os Heróis ───────────────────────────────────────────────────────── */}
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-3 text-hellfire-gold">
+          <Sword className="w-5 h-5 text-hellfire-orange" />
+          Os Heróis
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {herois.filter(h => h.status === "Vivo").map(h => (
+            <div
+              key={h.nome}
+              className={`flex items-center gap-3 p-3 rounded-lg border border-hellfire-ash/50 bg-hellfire-charcoal/40 hover:border-hellfire-orange/40 transition-colors ${h.status === "Morto" ? "opacity-60" : ""}`}
+            >
+              <span className="text-3xl">{h.icon}</span>
+              <div className="min-w-0">
+                <p className="font-semibold text-foreground text-sm truncate">{h.nome}</p>
+                <p className="text-xs text-muted-foreground truncate">{h.classe}</p>
+              </div>
+              <Badge className={`${statusColor[h.status]} text-white text-xs ml-auto shrink-0`}>
+                {h.status}
+              </Badge>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+
+    {/* ── Sessões ─────────────────────────────────────────────────────────── */}
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-3 text-hellfire-gold">
+          <BookOpen className="w-5 h-5 text-hellfire-orange" />
+          Sessões
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-sm text-center">
+          {[
+            { label: "Frequência",  valor: "Semanal"                              },
+            { label: "Horário",     valor: "Quartas à noite"                      },
+            { label: "Temporadas",  valor: "5",  destaque: true                   },
+            { label: "Tom",         valor: "Drama · Humor · História"             },
+            { label: "Mortes",      valor: "Possíveis - Bem Possíveis"        },
+          ].map(item => (
+            <div key={item.label} className="flex flex-col gap-1 p-3 rounded-lg border border-hellfire-ash/30 bg-hellfire-charcoal/30">
+              <span className="text-muted-foreground text-xs">{item.label}</span>
+              <span className={`font-semibold ${item.destaque ? "text-hellfire-gold text-lg" : "text-foreground"}`}>
+                {item.valor}
+              </span>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+
+    {/* ── Regras da Casa ──────────────────────────────────────────────────── */}
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-3 text-hellfire-gold">
+          <Shield className="w-5 h-5 text-hellfire-orange" />
+          Regras da Casa
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {regrasCasa.map((r, i) => (
+            <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-hellfire-charcoal/30 border border-hellfire-ash/30">
+              <span className="text-xl shrink-0">{r.icone}</span>
+              <p className="text-sm text-muted-foreground leading-snug">{r.regra}</p>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+
+    {/* ── Sobre esta Wiki ─────────────────────────────────────────────────── */}
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-3 text-hellfire-gold">
+          <Scroll className="w-5 h-5 text-hellfire-orange" />
+          Sobre esta Wiki
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground leading-relaxed">
+          Esta wiki é o{" "}
+          <span className="text-foreground font-semibold">registro oficial da campanha Hellfire</span>.
+          Tudo aqui — heróis, NPCs, histórias, regiões — reflete os eventos canônicos da mesa. Em caso de conflito entre a wiki e a memória dos jogadores, o Mestre tem palavra final.
+        </p>
+      </CardContent>
+    </Card>
   </div>
 );
 

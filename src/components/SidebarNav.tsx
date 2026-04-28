@@ -15,7 +15,12 @@ export interface NavItem {
   subitems?: SubItem[];
 }
 
-const SidebarNav = ({ items }: { items: NavItem[] }) => {
+interface SidebarNavProps {
+  items: NavItem[];
+  onNavigate?: () => void;
+}
+
+const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
   const location = useLocation();
 
   const [expanded, setExpanded] = useState<Set<string>>(() => {
@@ -71,6 +76,7 @@ const SidebarNav = ({ items }: { items: NavItem[] }) => {
                     <NavLink
                       key={sub.url}
                       to={sub.url}
+                      onClick={onNavigate}
                       className={({ isActive }) =>
                         `block px-3 py-2 rounded-md text-sm transition-all duration-200 ${
                           isActive
@@ -93,6 +99,7 @@ const SidebarNav = ({ items }: { items: NavItem[] }) => {
             key={item.url}
             to={item.url!}
             end={item.url === "/"}
+            onClick={onNavigate}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-md mb-1 transition-all duration-200 ${
                 isActive

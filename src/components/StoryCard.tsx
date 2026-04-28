@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import type { Historia } from "@/data/historias";
 
 const StoryCard = ({ historia }: { historia: Historia }) => (
@@ -16,33 +15,9 @@ const StoryCard = ({ historia }: { historia: Historia }) => (
     </CardHeader>
 
     <CardContent>
-      <p className="text-muted-foreground leading-relaxed mb-4">
+      <p className="text-muted-foreground leading-relaxed">
         {historia.resumo}
       </p>
-
-      {historia.personagensEnvolvidos.length > 0 && (
-        <div className="mb-4">
-          <p className="text-xs text-muted-foreground mb-1.5">Personagens envolvidos:</p>
-          <div className="flex flex-wrap gap-1.5">
-            {historia.personagensEnvolvidos.map((p, i) => (
-              <Badge key={i} variant="gold" className="text-xs">
-                {p}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="flex flex-wrap gap-2 pt-3 border-t border-border">
-        {historia.tags.map((tag, idx) => (
-          <span
-            key={idx}
-            className="px-3 py-1 rounded-md bg-hellfire-orange/20 text-hellfire-orange text-sm border border-hellfire-orange/30"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
     </CardContent>
   </Card>
 );

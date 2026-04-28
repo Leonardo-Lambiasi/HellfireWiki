@@ -3,8 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import type { Personagem } from "@/data/personagens";
 
 function getClasseVariant(classe: string): "hellfire" | "destructive" | "default" | "gold" | "secondary" {
-  if (classe.startsWith("Mago") || classe.startsWith("Clér")) return "hellfire";
-  if (classe.startsWith("Guerr") || classe.startsWith("Bar")) return "destructive";
+  if (classe.startsWith("Mago") || classe.startsWith("Clér") || classe.startsWith("Feit")) return "hellfire";
+  if (classe.startsWith("Guerr") || classe.startsWith("Bárb") || classe.startsWith("Bar")) return "destructive";
   if (classe.startsWith("Ladino") || classe.startsWith("Ranger")) return "default";
   if (classe === "Nobre" || classe === "Sábio") return "gold";
   return "secondary";
@@ -12,12 +12,12 @@ function getClasseVariant(classe: string): "hellfire" | "destructive" | "default
 
 function getStatusColor(status: string): string {
   switch (status) {
-    case "Vivo":        return "bg-green-700";
-    case "MIA":         return "bg-yellow-700";
-    case "Morto":       return "bg-red-700";
-    case "Aliado":      return "bg-blue-700";
-    case "Desconhecido":return "bg-purple-700";
-    default:            return "bg-gray-700";
+    case "Vivo":         return "bg-green-700";
+    case "MIA":          return "bg-yellow-700";
+    case "Morto":        return "bg-red-700";
+    case "Aliado":       return "bg-blue-700";
+    case "Desconhecido": return "bg-purple-700";
+    default:             return "bg-gray-700";
   }
 }
 
@@ -49,17 +49,6 @@ const CharacterCard = ({ personagem }: { personagem: Personagem }) => (
       <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
         {personagem.descricao}
       </p>
-
-      <div className="mb-4">
-        <h4 className="text-sm font-semibold text-foreground mb-2">Habilidades:</h4>
-        <div className="flex flex-wrap gap-1.5">
-          {personagem.habilidades.map((habilidade, idx) => (
-            <Badge key={idx} variant="outline" className="text-xs">
-              {habilidade}
-            </Badge>
-          ))}
-        </div>
-      </div>
 
       <div className="pt-4 border-t border-border text-sm text-muted-foreground">
         <strong>Origem:</strong> {personagem.origem}

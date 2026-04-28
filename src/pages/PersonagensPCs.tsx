@@ -9,7 +9,7 @@ const PersonagensPCs = () => (
       descricao="Os heróis que forjam seu destino nas terras de Ark"
       breadcrumb="Personagens / Heróis"
     />
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {herois.map(heroi => (
         <CharacterCard key={heroi.id} personagem={heroi} />
       ))}

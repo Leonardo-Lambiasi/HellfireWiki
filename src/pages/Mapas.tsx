@@ -7,7 +7,7 @@ const Mapas = () => (
   <div className="space-y-8">
     <PageHeader
       titulo="Mapas"
-      descricao="Regiões exploradas nas terras de Ark"
+      descricao="Regiões e territórios das terras de Ark"
     />
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -22,11 +22,7 @@ const Mapas = () => (
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">{regiao.descricao}</p>
-            <div className="flex items-center gap-2 text-sm">
-              <span className="text-muted-foreground">Status:</span>
-              <span className="text-hellfire-orange font-semibold">{regiao.status}</span>
-            </div>
+            <p className="text-muted-foreground">{regiao.descricao}</p>
           </CardContent>
         </Card>
       ))}

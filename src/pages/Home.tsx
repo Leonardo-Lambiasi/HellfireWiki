@@ -1,26 +1,28 @@
 import { Link } from "react-router-dom";
-import { Swords, BookOpen, Map, Gamepad2, Info, ChevronRight, Flame } from "lucide-react";
+import { Swords, BookOpen, Map, Gamepad2, Info, ChevronRight, Flame, Image, ScrollText } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { herois, npcs } from "@/data/personagens";
 import { historias } from "@/data/historias";
 import { jogadores } from "@/data/jogadores";
-import { regioesExploradas, temporadas } from "@/data/mapas";
+import { regioes, temporadas } from "@/data/mapas";
 
 const stats = [
-  { label: "Heróis",            value: herois.length,                            color: "text-hellfire-orange" },
-  { label: "NPCs",              value: npcs.length,                              color: "text-hellfire-gold"   },
-  { label: "Histórias",         value: historias.length,                         color: "text-hellfire-red"    },
-  { label: "Jogadores ativos",  value: jogadores.filter(j => j.ativo).length,    color: "text-hellfire-ember"  },
-  { label: "Regiões exploradas",           value: regioesExploradas,                        color: "text-hellfire-gold"   },
-  { label: "Temporadas",        value: temporadas,                               color: "text-hellfire-orange" },
+  { label: "Heróis",           value: herois.length,                         color: "text-hellfire-orange" },
+  { label: "NPCs",             value: npcs.length,                           color: "text-hellfire-gold"   },
+  { label: "Histórias",        value: historias.length,                      color: "text-hellfire-red"    },
+  { label: "Jogadores ativos", value: jogadores.filter(j => j.ativo).length, color: "text-hellfire-ember"  },
+  { label: "Regiões",          value: regioes.length,                        color: "text-hellfire-gold"   },
+  { label: "Temporadas",       value: temporadas,                            color: "text-hellfire-orange" },
 ];
 
 const navCards = [
-  { title: "Personagens", description: "Heróis e NPCs que habitam Ark",         url: "/personagens/pcs", icon: Swords   },
-  { title: "Jogadores",   description: "Os aventureiros por trás dos heróis",     url: "/jogadores",       icon: Gamepad2 },
-  { title: "Histórias",   description: "Lendas e eventos que moldaram o mundo",   url: "/historias",       icon: BookOpen },
-  { title: "Mapas",       description: "Regiões exploradas de Ark",          url: "/mapas",           icon: Map      },
-  { title: "Sobre",       description: "A campanha, regras e convenções",         url: "/sobre",           icon: Info     },
+  { title: "Personagens", description: "Heróis e NPCs que moldam o destino de Ark",  url: "/personagens/pcs", icon: Swords     },
+  { title: "Álbum",       description: "Retratos dos heróis e figuras da campanha",   url: "/album",           icon: Image      },
+  { title: "Histórias",   description: "Do lore de Ark às crônicas das sessões",      url: "/historias",       icon: BookOpen   },
+  { title: "Mapas",       description: `${regioes.length} regiões do mundo de Ark`,  url: "/mapas",           icon: Map        },
+  { title: "Jogadores",   description: "A mesa — quem comanda os destinos de Ark",    url: "/jogadores",       icon: Gamepad2   },
+  { title: "Regras",      description: "Regras da casa e mecânicas da campanha",       url: "/regras",          icon: ScrollText },
+  { title: "Sobre",       description: "A campanha Hellfire — premissa e convenções",  url: "/sobre",           icon: Info       },
 ];
 
 const Home = () => (

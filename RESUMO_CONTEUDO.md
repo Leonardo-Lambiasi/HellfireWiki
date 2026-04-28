@@ -1,163 +1,141 @@
-# Hellfire Wiki — Resumo de Todo o Conteúdo
+# Hellfire Wiki — Resumo de Conteúdo
 
 ---
 
 ## A Campanha
 
-**Nome:** Hellfire
-**Sistema:** Dungeons & Dragons 5ª Edição
-**Mundo:** Ark — um mundo à beira do colapso infernal
-**Premissa:** Três aventureiros descobrem que seus destinos estão entrelaçados com uma profecia milenar. As escolhas que fazem determinarão se Ark sobrevive ou perece nas chamas eternas.
-**Sessões:** Quinzenais, tipicamente sábados à noite. Drama sério com momentos de humor orgânico.
-**Temporadas:** 5
+**Nome:** Hellfire · **Sistema:** D&D 5ª Edição · **Mundo:** Ark
+**Temporadas:** 5 · **Frequência:** Semanal, quartas à noite
+**Tom:** Drama · Humor · História · Mortes bem possíveis
 
----
+**Premissa:** Um portal selado há séculos começa a fraquear. Uma profecia milenar aponta para três ungidos pela chama. Heróis descobrem que seus destinos estão entrelaçados de formas que não escolheram — nem todos sobreviveram para ver o fim.
 
-## Regras da Casa
-
+**Regras da Casa:**
 - Dados de vida máximos no nível 1
-- Pontos de inspiração concedidos por roleplay notável
-- Morte permanente com falha crítica em 3 death saves consecutivos
-- Personagem ausente entra em modo "background" (não morre, não age)
+- Inspiração concedida por roleplay notável
+- Morte permanente com 3 death saves consecutivos falhos
+- Personagem ausente entra em modo background — não age, não morre
 - Sessão zero obrigatória para novos jogadores
-- Metagaming moderado é ok, metagaming intenso não
+- Metagaming moderado ok — metagaming intenso não
 
 ---
 
-## Calendário de Ark
+## Jogadores (7 ativos)
 
-Datas in-game seguem o calendário de Ark com três luas: **Lua Carmesim**, **Lua Negra** e **Lua Prateada**.
-Eventos retcon são marcados com `[RETCON]`. O Mestre tem palavra final em ambiguidades de lore.
+| Jogador | Avatar | Personagens |
+|---|---|---|
+| Henrique | 🐉 | Dungeon Master, Ragnar Wolfside |
+| Leonardo | ⚒️ | Adrik Lahabrea, Leomir Holdheck, Oggam Vambag |
+| João Pedro | 🐺 | Mason, Iorin Stenson |
+| Giovani | 🌳 | Iluvathar, Yasura |
+| Robert | 🎩 | Salazar, Mordekai, Geraz, Fávaro |
+| Guilherme | 🐾 | Shadow |
+| Murilo | 🧙‍♂️ | Djakaro |
 
 ---
 
-## Jogadores
+## Heróis — PCs (6)
 
-| Jogador | Avatar | Status | Personagens |
+| Herói | Classe | Raça | Status |
 |---|---|---|---|
-| Henrique Riserio | 🐉 | Ativo | Dungeon Master, Ragnar Wolfside |
-| Leonardo Lambiasi | ⚒️ | Ativo | Adrik Lahabrea, Leomir Holdheck, Oggam |
+| 🐺 Iorin Stenson | Bárbaro / Patrulheiro | Humano (Nortenho) | Vivo |
+| 🎩 Fávaro | Mago | Humano | Vivo |
+| 🐾 Shadow | Ladino | Drow | Desconhecido |
+| 🌳 Iluvathar | Clérigo | Meio-elfo | Vivo |
+| ⚒️ Adrik Lahabrea | Guerreiro | Anão | Vivo |
+| 🪓 Oggam Vambag | Bárbaro | Orc | **Morto** |
+
+> Na página `/sobre`, seção "Os Heróis", exibe apenas os com status `Vivo` (4 heróis).
 
 ---
 
-## Heróis (PCs)
+## NPCs (17)
 
-### 🐺 Iorin Stenson
-- **Classe:** Bárbaro / Patrulheiro
-- **Raça:** Humano (Nortenho)
-- **Status:** Vivo
-- **Origem:** Virmir, Clãs do Norte — Jarl de Virmir
-- **Bio:** Jarl de Virmir e líder respeitado entre os Clãs do Norte. Expulsou as forças de Nilfgard de suas terras e buscou um tratado de paz com os orcs. Viveu dez anos em exílio antes de retornar com mais sabedoria e aliados.
-- **Habilidades:** Mestre em armas múltiplas · Liderança · Sobrevivência · Estratégia · Resiliência
+### Gangue do Sirocco (7)
+| NPC | Emoji | Raça | Papel |
+|---|---|---|---|
+| Sirocco | 🐍 | Desconhecida | Líder |
+| Suutha | ⚔️ | Desconhecida | Braço direito |
+| Gunarsh | 💪 | Orc | Linha de frente |
+| Caesar | 🎖️ | Humano | Ex-nilfgaardiano |
+| Sarah | 🌹 | Desconhecida | Relação com Iorin |
+| Bolgrin | 🔧 | Gnomo | Suporte técnico |
+| Zelitch | 🔮 | Tiefling | Feiticeira |
 
----
-
-### 🎩 Fávaro
-- **Classe:** Mago (Arcanista)
-- **Raça:** Humano
-- **Status:** Vivo
-- **Origem:** Oxenfurt — ex-aluno expulso da Universidade
-- **Bio:** Expulso por métodos não ortodoxos, mergulhou no submundo e participou de rituais proibidos. Morreu em combate contra os Cavaleiros do Caos e foi ressuscitado pelo clérigo Djakaro. Agora dedica sua vida a exterminar a magia necromântica.
-- **Habilidades:** Magia Arcana · Conhecimento Obscuro · Criatividade Tática · Blefe e Artimanha · Sobrevivência nas ruas
-
----
-
-### 🐾 Shadow
-- **Classe:** Ladino (Assassino)
-- **Raça:** Drow (Elfo Escuro)
-- **Status:** Desconhecido
-- **Origem:** Mezoberranzam — cresceu órfão nas ruas
-- **Bio:** Capturado pelos Cavaleiros da Rosa Flamejante e submetido a torturas e experimentos. Escapou graças ao sacrifício de seus amigos Drake e Lylith. Vaga pelo mundo em busca de vingança, carregando uma lista de nomes.
-- **Habilidades:** Furtividade · Lâmina Silenciosa · Acrobacia · Ladinagem · Resistência Drow
-
----
-
-### 🌳 Iluvathar
-- **Classe:** Clérigo
-- **Raça:** Meio-elfo
-- **Status:** Vivo
-- **Origem:** High Forest — Clérigo de Ein-Sof-Sefirot
-- **Bio:** Uma das figuras mais respeitadas de Ark. Liderou a defesa da High Forest contra Nilfgard e confrontou pessoalmente o Imperador Radovan. Símbolo de esperança para refugiados e não-humanos.
-- **Habilidades:** Magia Divina · Estratégia · Diplomacia · Conhecimento · Liderança
-
----
-
-### ⚒️ Adrik Lahabrea
-- **Classe:** Guerreiro (Lanceiro)
-- **Raça:** Anão
-- **Status:** Vivo
-- **Origem:** Khazak — Casa Lahabrea (Renegado), seguidor de Moradin
-- **Bio:** Expurgado de sua nobre casa após um erro imperdoável. Testemunhou a queda de Khazak para Ancalagon, o Dragão Vermelho. Vaga como mercenário buscando expurgar a magia negra e reconquistar seu direito de voltar para casa.
-- **Habilidades:** Lanceiro · Escudo · Combate Pesado · Estratégia de Campo · Detecção de Magia
-
----
-
-## NPCs
-
-Nenhum NPC cadastrado ainda.
-
----
-
-## Álbum de Retratos
-
-| Personagem | Arquivo | Tipo |
+### Jarls dos Clãs do Norte (4)
+| NPC | Emoji | Clã |
 |---|---|---|
-| Iorin Stenson | `Iorin Stenson.png` | Herói |
-| Fávaro | `Favaro.png` | Herói |
-| Shadow | `Shadow.png` | Herói |
-| Iluvathar | `Iluvatar.png` | Herói |
-| Adrik Lahabrea | `Adrik Lahabrea.png` | Herói |
-| Ragnar Wolfside | `Ragnar Wolfside.png` | NPC / DM |
+| Drakø | 🪓 | Clã Rok |
+| Kjartan | 🔨 | Clã Draumr |
+| Gunnhild | 🛡️ | Clã Feldr (matriarcal) |
+| Ulf | ⚙️ | Clã Skegg |
 
----
-
-## Histórias
-
-### Lore Geral
-
-**A Fundação de Emberfall** · *Ano 800 — Era das Chamas*
-> Nas cinzas de uma guerra entre demônios e mortais, o primeiro Lorde Ashen ergueu a cidade-fortaleza sobre um portal selado ao Plano Infernal. O preço do selo: um juramento de sangue renovado a cada geração, vinculando a linhagem ao portal para sempre.
-
-**O Pacto das Sombras Drow** · *2º dia da Lua Negra, 1183 — Era das Chamas*
-> Elfos das profundezas infiltraram a corte de Emberfall, forjando um pacto secreto com membros corruptos da guarda. Décadas depois, esse pacto ainda drena recursos para o Underdark — e explica os infiltrados drow recém-descobertos nas câmaras do conselho.
-
----
-
-### Temporada 1
-
-**A Profecia dos Três Ungidos** · *Ano 1201 — Era das Chamas*
-> O arquivista Rydan Silvertongue registrou uma profecia encontrada em tomos antigos da Torre dos Sábios: três seres marcados pela chama teriam em suas mãos o destino de Ark. Um dos tomos estava assinado com o símbolo pessoal de Thorne Wildrunner — datado de 200 anos antes de seu nascimento.
-
----
-
-### Temporada 2
-
-**O Despertar do Portal** · *1º dia da Lua Carmesim, 1247 — Era das Chamas*
-> Tremores sísmicos sacudiram Emberfall durante três noites consecutivas. O Culto da Chama Eterna intensificou suas atividades — o portal selado em 800 estava fraquejando, e o ritual para reabri-lo já havia começado sob a liderança de Serafine Brasacin.
-
----
-
-### Temporadas 3, 4 e 5 — sem histórias cadastradas
-
----
-
-## Regiões de Ark
-
-| Região | Status | Descrição |
+### Clã Koongan e aliados (4)
+| NPC | Emoji | Papel |
 |---|---|---|
-| Reino de Ark | Explorado | O reino principal da campanha, marcado por vulcões ativos e ruínas antigas. |
-| Underdark | Parcialmente Explorado | Rede de cavernas profundas habitadas por criaturas das trevas. Thorne desapareceu aqui. |
-| Cidade de Emberfall | Base de Operações | Cidade-fortaleza governada por Lorde Ashen, construída sobre ruínas infernais. |
-| Floresta Sombria | Explorado | Floresta densa onde Thorne foi guardião antes de se juntar ao grupo. |
+| Roxak | 🩸 | Filho do chefe do Clã Lua Sangrenta |
+| Uak | 🔮 | Líder xamânica do Clã Koongan |
+| Krogmar | ⛓️ | Filho de Rexxar |
+| Rexxar | 👁️ | Figura de autoridade |
 
-**Total de regiões exploradas (contador):** 20
+### Figuras misteriosas (2)
+| NPC | Emoji | Nota |
+|---|---|---|
+| Jacob Amal | ❓ | Origem desconhecida |
+| Yall | 💀 | Entidade morto-viva |
 
 ---
 
-## O que ainda falta
+## Álbum de Retratos (6 imagens em `public/portraits/`)
 
-- NPCs: nenhum cadastrado
-- Jogadores: 4 jogadores sem dados (apenas 2 de 6 preenchidos)
-- Histórias: Temporadas 3, 4 e 5 vazias
-- Regiões: apenas 4 cadastradas de 20 exploradas
-- Álbum: sem retratos de NPCs
+| Personagem | Arquivo |
+|---|---|
+| Iorin Stenson | `Iorin Stenson.png` |
+| Fávaro | `Favaro.png` |
+| Shadow | `Shadow.png` |
+| Iluvathar | `Iluvatar.png` |
+| Adrik Lahabrea | `Adrik Lahabrea.png` |
+| Ragnar Wolfside | `Ragnar Wolfside.png` |
+
+---
+
+## Histórias (7)
+
+### Lore Geral (6)
+
+| ID | Título | Data |
+|---|---|---|
+| 1 | Divindades de Ark | Ano 0 |
+| 2 | Kazak Abul Kazhak | 100 A.A. |
+| 3 | A Fundação de Emberfall | Ano 800 — Era das Chamas |
+| 4 | O Pacto das Sombras Drow | 2º dia da Lua Negra, 1183 |
+| 5 | A Guerra de Velen | 1195 — Era das Chamas |
+| 10 | Reino de Lyria | Ano 0001 |
+
+### Temporada 3 (1)
+
+| ID | Título | Data |
+|---|---|---|
+| 8 | A Queda de Kazak e o Exílio de Adrik | 1100 D.A |
+
+> T1, T2 e T4 não têm histórias cadastradas no momento.
+
+---
+
+## Regiões de Ark (34 — sem status, listagem simples)
+
+Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkevia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis
+
+---
+
+## Stats do site (calculados automaticamente)
+
+| Dado | Valor |
+|---|---|
+| Heróis | 6 |
+| NPCs | 17 |
+| Histórias | 7 |
+| Jogadores ativos | 7 |
+| Regiões | 34 |
+| Temporadas | 5 |
+| Retratos no álbum | 6 |

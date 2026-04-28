@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 import PageHeader from "@/components/PageHeader";
 
-import FavaroImg from "@/assets/Favaro.png";
-import IluvatarImg from "@/assets/Iluvatar.png";
-import IorinImg from "@/assets/Iorin Stenson.png";
-import RagnarImg from "@/assets/Ragnar Wolfside.png";
-import ShadowImg from "@/assets/Shadow.png";
-import AdrikImg from "@/assets/Adrik Lahabrea.png";
-
 interface CardFigurinha {
   id: number;
   nome: string;
@@ -17,12 +10,12 @@ interface CardFigurinha {
 }
 
 const cards: CardFigurinha[] = [
-  { id: 1, nome: "Iorin Stenson",   classe: "Bárbaro / Patrulheiro",  icon: "🐺", imagem: IorinImg   },
-  { id: 2, nome: "Fávaro",          classe: "Mago (Arcanista)",        icon: "🎩", imagem: FavaroImg  },
-  { id: 3, nome: "Shadow",          classe: "Ladino (Assassino)",      icon: "🐾", imagem: ShadowImg  },
-  { id: 4, nome: "Iluvathar",       classe: "Clérigo",                 icon: "🌳", imagem: IluvatarImg },
-  { id: 5, nome: "Adrik Lahabrea",  classe: "Guerreiro (Lanceiro)",    icon: "⚒️", imagem: AdrikImg   },
-  { id: 6, nome: "Ragnar Wolfside", classe: "Guerreiro",               icon: "🐺", imagem: RagnarImg  },
+  { id: 1, nome: "Iorin",   classe: "Bárbaro / Patrulheiro",  icon: "🐺", imagem: "/portraits/Iorin Stenson.png"   },
+  { id: 2, nome: "Fávaro",          classe: "Mago (Arcanista)",        icon: "🎩", imagem: "/portraits/Favaro.png"          },
+  { id: 3, nome: "Shadow",          classe: "Ladino (Assassino)",      icon: "🐾", imagem: "/portraits/Shadow.png"          },
+  { id: 4, nome: "Iluvathar",       classe: "Clérigo",                 icon: "🌳", imagem: "/portraits/Iluvatar.png"        },
+  { id: 5, nome: "Adrik",  classe: "Guerreiro (Lanceiro)",    icon: "⚒️", imagem: "/portraits/Adrik Lahabrea.png" },
+  { id: 6, nome: "Ragnar Wolfside", classe: "Guerreiro",               icon: "🐺", imagem: "/portraits/Ragnar Wolfside.png" },
 ];
 
 const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void }) => {
@@ -46,8 +39,6 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
           alt={card.nome}
           className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl shadow-2xl"
         />
-
-        {/* Botão fechar */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-hellfire-orange/80 transition-colors text-lg font-bold"
@@ -64,7 +55,6 @@ const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void })
     className={`group relative rounded-xl overflow-hidden border border-hellfire-ash/60 hover:border-hellfire-orange/70 bg-hellfire-charcoal transition-all duration-300 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)] hover:scale-[1.02] select-none ${card.imagem ? "cursor-pointer" : "cursor-default"}`}
     onClick={card.imagem ? onClick : undefined}
   >
-    {/* Imagem */}
     <div className="w-full aspect-[3/4] overflow-hidden bg-gradient-to-b from-hellfire-charcoal to-card relative">
       {card.imagem ? (
         <img
@@ -78,11 +68,9 @@ const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void })
           <span className="text-sm text-muted-foreground italic">Imagem em breve</span>
         </div>
       )}
-      {/* Gradiente base para o texto */}
       <div className="absolute bottom-0 inset-x-0 h-2/5 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
     </div>
 
-    {/* Info */}
     <div className="absolute bottom-0 inset-x-0 p-4">
       <h3 className="font-cinzel font-bold text-hellfire-gold text-base leading-tight drop-shadow-lg">
         {card.nome}
@@ -102,7 +90,7 @@ const AlbumFigurinhas = () => {
         descricao="Retratos dos heróis e figuras da campanha"
       />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {cards.map(card => (
           <Painel key={card.id} card={card} onClick={() => setAberto(card)} />
         ))}

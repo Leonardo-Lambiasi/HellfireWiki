@@ -80,12 +80,6 @@ const Historias = () => {
           🔥
         </div>
       </div>
-
-      <div className="text-center text-muted-foreground">
-        <p className="italic">
-          {historias.length} eventos registrados nos Anais da campanha
-        </p>
-      </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const cards: CardFigurinha[] = [
   { id: 3, nome: "Shadow",          classe: "Ladino",                icon: "🐾", imagem: "/portraits/Shadow.png"          },
   { id: 4, nome: "Iluvathar",       classe: "Clérigo",               icon: "🌳", imagem: "/portraits/Iluvatar.png",        heroi: true },
   { id: 5, nome: "Adrik",           classe: "Guerreiro",             icon: "⚒️", imagem: "/portraits/Adrik Lahabrea.png", heroi: true },
-  { id: 6, nome: "Ragnar Wolfside", classe: "Guerreiro",             icon: "🐺", imagem: "/portraits/Ragnar Wolfside.png" },
+  { id: 6, nome: "Ragnar Wolfside", classe: "Patrulheiro",             icon: "🐺", imagem: "/portraits/Ragnar Wolfside.png" },
   { id: 7, nome: "Aramil",          classe: "",                      icon: "❓", imagem: "/portraits/Aramil.png"          },
   { id: 8, nome: "Tatiane Vesper",  classe: "",                      icon: "❓", imagem: "/portraits/TatianeVesper.png"   },
 ];

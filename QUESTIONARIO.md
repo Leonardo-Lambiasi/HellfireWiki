@@ -51,7 +51,7 @@ _Página:_ `/jogadores`
 - **Personagens:** Shadow
 
 ### ✅ Murilo
-- **Avatar:** 🧙‍♂️ · **Ativo:** sim
+- **Avatar:** ⛪ · **Ativo:** sim
 - **Bio:** O cara é uma incógnita, ninguém sabe seu próximo movimento, excelente ator no jogo, mesmo jogando de clérigo. Gênio.
 - **Personagens:** Djakaro
 
@@ -97,6 +97,11 @@ _Página:_ `/personagens/pcs`
 - **Classe:** Bárbaro · **Raça:** Orc · **Status:** Morto · **Emoji:** 🪓
 - **Origem:** Clã Koongan — terras geladas do norte, Passagem Glacial
 - **Descrição:** Guerreiro do clã Koongan, forjado nas terras congeladas onde apenas os fortes sobrevivem. Foi deixado para trás após uma batalha brutal, despertou sozinho num mundo mais hostil do que lembrava. Em sua jornada, testemunhou rituais sombrios e começou a mudar — onde antes via apenas força e sobrevivência, passou a enxergar empatia, proteção e significado. Em seu último ato, lutou por algo maior do que ele mesmo, tentando provar que os orcs podiam escolher um caminho diferente. E foi nesse momento que caiu. Sua morte não foi em vão.
+
+### ✅ Djakaro
+- **Classe:** Clérigo · **Raça:** Anão · **Status:** Vivo · **Emoji:** ⛪
+- **Origem:** Nildaf — fortaleza subterrânea, devoto de Moradin
+- **Descrição:** Nascido nas profundezas de Nildaf, Djakaro sempre foi diferente — um sonhador que unia forja e magia rúnica, buscando ir além da tradição. Após uma avalanche devastar sua comunidade, partiu em busca de redenção, isolando-se por anos até descobrir o Hammer of the Forgefather, uma relíquia ancestral de Moradin. Por meio de uma visão profética que revelou a ascensão de forças sombrias, compreendeu seu verdadeiro propósito: não apenas criar, mas proteger. Retornou ao mundo como defensor da ordem, forjando armas sagradas e enfrentando o caos. Ressuscitou Fávaro após este cair diante dos Cavaleiros do Caos, provando que suas mãos não servem apenas à destruição, mas à vida.
 
 ### ⬜ Novo Herói _(copie este bloco)_
 - **Classe:** · **Raça:** · **Status:** Vivo / Morto / MIA / Desconhecido · **Emoji:**
@@ -157,8 +162,8 @@ Resumo:
 
 _Página:_ `/mapas` · Apenas nome e descrição curta (sem status)
 
-### ✅ Cadastradas (34)
-Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkevia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis
+### ✅ Cadastradas (35)
+Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkevia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis · Nildaf
 
 ### ⬜ Nova Região _(copie este bloco)_
 ```

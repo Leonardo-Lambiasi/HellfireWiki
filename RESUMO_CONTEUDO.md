@@ -30,22 +30,23 @@
 | Giovani | 🌳 | Iluvathar, Yasura |
 | Robert | 🎩 | Salazar, Mordekai, Geraz, Fávaro |
 | Guilherme | 🐾 | Shadow |
-| Murilo | 🧙‍♂️ | Djakaro |
+| Murilo | ⛪ | Djakaro |
 
 ---
 
-## Heróis — PCs (6)
+## Heróis — PCs (7)
 
 | Herói | Classe | Raça | Status |
 |---|---|---|---|
-| 🐺 Iorin Stenson | Bárbaro / Patrulheiro | Humano (Nortenho) | Vivo |
+| 🐺 Iorin | Bárbaro / Patrulheiro | Humano (Nortenho) | Vivo |
 | 🎩 Fávaro | Mago | Humano | Vivo |
 | 🐾 Shadow | Ladino | Drow | Desconhecido |
 | 🌳 Iluvathar | Clérigo | Meio-elfo | Vivo |
-| ⚒️ Adrik Lahabrea | Guerreiro | Anão | Vivo |
+| ⚒️ Adrik | Guerreiro | Anão | Vivo |
+| ⛪ Djakaro | Clérigo | Anão | Vivo |
 | 🪓 Oggam Vambag | Bárbaro | Orc | **Morto** |
 
-> Na página `/sobre`, seção "Os Heróis", exibe apenas os com status `Vivo` (4 heróis).
+> Na página `/sobre`, seção "Os Heróis", exibe apenas os com status `Vivo` (5 heróis).
 
 ---
 

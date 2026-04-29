@@ -48,6 +48,14 @@ export const jogadores: Jogador[] = [
     avatar: "🎩",
     ativo: true,
   },
+    {
+    id: 7,
+    nome: "Murilo",
+    personagens: ["Djakaro"],
+    bio: "O cara pe uma icógnita, ninguem sabe seu proximo movimento, excelente ator no jogo, mesmo jogando de clérigo. Gênio.",
+    avatar: "⛪",
+    ativo: true,
+  },
    {
     id: 6,
     nome: "Guilherme",
@@ -55,13 +63,5 @@ export const jogadores: Jogador[] = [
     bio: "Estressado por natureza, curte jogadas arriscadas e mirabolantes. Seu personagem é tão misterioso quanto ele — e tão propenso a morrer quanto os outros.",
     avatar: "🐾",
     ativo: false,
-  },
-     {
-    id: 7,
-    nome: "Murilo",
-    personagens: ["Djakaro"],
-    bio: "O cara pe uma icógnita, ninguem sabe seu proximo movimento, excelente ator no jogo, mesmo jogando de clérigo. Gênio.",
-    avatar: "🧙‍♂️",
-    ativo: true,
   },
 ];

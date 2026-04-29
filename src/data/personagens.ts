@@ -35,17 +35,6 @@ export const herois: Personagem[] = [
     icon: "🎩",
   },
   {
-    id: 3,
-    nome: "Shadow",
-    classe: "Ladino ",
-    raca: "Drow ",
-    origem: "Mezoberranzam — cresceu órfão nas ruas",
-    descricao:
-      "Shadow cresceu órfão nas ruas de Mezoberranzam, sobrevivendo entre criminosos e traidores. Foi capturado pelos Cavaleiros da Rosa Flamejante e submetido a torturas e experimentos cruéis, escapando apenas graças ao sacrifício de seus melhores amigos Drake e Lylith. Desde então, vaga pelo mundo em busca de poder e vingança, carregando uma lista de nomes que jamais serão esquecidos.",
-    status: "Desconhecido",
-    icon: "🐾",
-  },
-  {
     id: 4,
     nome: "Iluvathar",
     classe: "Clérigo",
@@ -68,15 +57,26 @@ export const herois: Personagem[] = [
     icon: "⚒️",
   },
   {
-    id: 7,
+    id: 3,
     nome: "Djakaro",
     classe: "Clérigo",
     raca: "Anão",
-    origem: "Cidade de Velen — Templo de Eibon",
+    origem: "Nildaf — fortaleza subterrânea, devoto de Moradin",
     descricao:
-      "Clérigo de Eibon, dedicado à proteção dos vivos e à destruição dos mortos-vivos. Sua fé é inabalável e sua determinação é inspiradora. Trabalha incansavelmente para manter o equilíbrio entre a vida e a morte.",
+      "Nascido nas profundezas de Nildaf, Djakaro sempre foi diferente — um sonhador que unia forja e magia rúnica, buscando ir além da tradição. Após uma avalanche devastar sua comunidade, partiu em busca de redenção, isolando-se por anos até descobrir o Hammer of the Forgefather, uma relíquia ancestral de Moradin. Por meio de uma visão profética que revelou a ascensão de forças sombrias, compreendeu seu verdadeiro propósito: não apenas criar, mas proteger. Retornou ao mundo como defensor da ordem, forjando armas sagradas e enfrentando o caos. Ressuscitou Fávaro após este cair diante dos Cavaleiros do Caos, provando que suas mãos não servem apenas à destruição, mas à vida.",
     status: "Vivo",
     icon: "⛪",
+  },
+    {
+    id: 7,
+    nome: "Shadow",
+    classe: "Ladino ",
+    raca: "Drow ",
+    origem: "Mezoberranzam — cresceu órfão nas ruas",
+    descricao:
+      "Shadow cresceu órfão nas ruas de Mezoberranzam, sobrevivendo entre criminosos e traidores. Foi capturado pelos Cavaleiros da Rosa Flamejante e submetido a torturas e experimentos cruéis, escapando apenas graças ao sacrifício de seus melhores amigos Drake e Lylith. Desde então, vaga pelo mundo em busca de poder e vingança, carregando uma lista de nomes que jamais serão esquecidos.",
+    status: "Desconhecido",
+    icon: "🐾",
   },
   {
     id: 6,

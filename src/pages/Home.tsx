@@ -44,7 +44,11 @@ const Home = () => (
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-4xl mx-auto gap-3">
         {stats.map((stat) => (
           <div key={stat.label} className="border border-hellfire-ash/60 rounded-xl bg-card/40 backdrop-blur py-7 text-center">
-            <p className={`text-5xl font-bold ${stat.color}`}>{stat.value}</p>
+            {stat.value > 0 ? (
+              <p className={`text-5xl font-bold ${stat.color}`}>{stat.value}</p>
+            ) : (
+              <p className="text-5xl font-bold text-hellfire-ash/40">—</p>
+            )}
             <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
           </div>
         ))}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PageHeader from "@/components/PageHeader";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -512,7 +512,26 @@ const CONTENT: Record<Tab, React.ReactNode> = {
 };
 
 const Regras = () => {
-  const [tab, setTab] = useState<Tab>("atributos");
+  const [tab, setTab]       = useState<Tab>("atributos");
+  const [visible, setVisible] = useState(true);
+  const pendingTab            = useRef<Tab | null>(null);
+
+  const changeTab = (next: Tab) => {
+    if (next === tab) return;
+    pendingTab.current = next;
+    setVisible(false);
+  };
+
+  useEffect(() => {
+    if (!visible && pendingTab.current) {
+      const id = setTimeout(() => {
+        setTab(pendingTab.current!);
+        pendingTab.current = null;
+        setVisible(true);
+      }, 120);
+      return () => clearTimeout(id);
+    }
+  }, [visible]);
 
   return (
     <div className="space-y-8 animate-fade-in-up">
@@ -523,7 +542,7 @@ const Regras = () => {
         {TABS.map(t => (
           <button
             key={t.id}
-            onClick={() => setTab(t.id)}
+            onClick={() => changeTab(t.id)}
             className={`px-4 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all flex items-center gap-1.5 ${
               tab === t.id
                 ? "border-hellfire-orange bg-hellfire-orange/20 text-hellfire-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
@@ -536,8 +555,16 @@ const Regras = () => {
         ))}
       </div>
 
-      {/* Content */}
-      <div>{CONTENT[tab]}</div>
+      {/* Content com fade */}
+      <div
+        style={{
+          opacity:    visible ? 1 : 0,
+          transform:  visible ? "translateY(0)" : "translateY(6px)",
+          transition: "opacity 0.12s ease, transform 0.12s ease",
+        }}
+      >
+        {CONTENT[tab]}
+      </div>
     </div>
   );
 };

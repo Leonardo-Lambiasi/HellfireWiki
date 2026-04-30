@@ -37,13 +37,12 @@ const Sobre = () => (
         <p className="text-lg text-foreground leading-relaxed mb-4">
           <span className="text-hellfire-gold font-bold">Hellfire</span> é uma campanha de{" "}
           <span className="text-hellfire-orange">D&D 5ª Edição</span> ambientada em{" "}
-          <span className="text-hellfire-gold font-bold">Ark</span> — um mundo à beira do colapso
-          infernal. Um portal selado há séculos começa a fraquear. Uma profecia milenar aponta para
-          três ungidos pela chama. E cinco heróis, cada um carregando seu próprio fardo, descobrem
-          que seus destinos estão entrelaçados de formas que não escolheram — nem todos sobreviveram para ver o fim.
+          <span className="text-hellfire-gold font-bold">Ark</span> — um mundo de guerra, política
+          e escolhas que custam caro. Heróis de histórias quebradas se encontram no momento errado,
+          pelo motivo certo, e descobrem que o destino raramente pede permissão.
         </p>
         <p className="text-muted-foreground leading-relaxed italic border-l-2 border-hellfire-orange/50 pl-4">
-          "Salvação e destruição como faces da mesma moeda." — A Profecia dos Três Ungidos, Ano 1201
+          "Hehehe... Magia...." Krusk - Ano: 1244
         </p>
       </CardContent>
     </Card>

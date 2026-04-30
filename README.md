@@ -1,6 +1,6 @@
 # HELLFIRE WIKI
 
-Wiki estática para a campanha de D&D **Hellfire**. Centraliza heróis, NPCs, álbum de retratos, histórias por temporada, mapas, jogadores e uma referência completa de regras D&D 5e com regras da mesa — tudo num único lugar com visual dark temático.
+Wiki estática para a campanha de D&D **Hellfire**. Centraliza heróis, NPCs, álbum de retratos com zoom, histórias por temporada, mapas, jogadores e referência completa de regras D&D 5e com regras da mesa — tudo num único lugar com visual dark temático.
 
 ---
 
@@ -42,39 +42,41 @@ npm run lint     # lint com ESLint
 hellfire-wiki/
 ├── public/
 │   ├── favicon.svg
-│   └── icons.svg
+│   └── portraits/              # Retratos dos personagens (PNG/JPEG)
 ├── src/
 │   ├── components/
 │   │   ├── ui/
 │   │   │   ├── badge.tsx          # Badge com variantes: hellfire, gold, destructive…
 │   │   │   └── card.tsx           # Card com glow ao hover
-│   │   ├── CharacterCard.tsx      # Card reutilizável para Heróis e NPCs
+│   │   ├── CharacterCard.tsx      # Card reutilizável para Heróis
+│   │   ├── GlobalSearch.tsx       # Barra de pesquisa global (sidebar) com dropdown
 │   │   ├── PageHeader.tsx         # Header de página com título, descrição e breadcrumb
 │   │   ├── PlayerCard.tsx         # Card de jogador com status ativo/ausente
 │   │   ├── SidebarNav.tsx         # Sidebar com suporte a subitems colapsáveis
 │   │   └── StoryCard.tsx          # Card de evento de lore
 │   ├── data/
-│   │   ├── historias.ts           # Eventos de lore do mundo
+│   │   ├── historias.ts           # Eventos de lore por temporada e lore geral
 │   │   ├── jogadores.ts           # Players da mesa
-│   │   ├── mapas.ts               # Regiões + contadores (temporadas, regiões exploradas)
+│   │   ├── mapas.ts               # Regiões + total de temporadas
 │   │   └── personagens.ts         # Heróis (PCs) e NPCs
 │   ├── lib/
 │   │   └── utils.ts               # Helper cn() para composição de classes
 │   ├── pages/
 │   │   ├── Home.tsx               # Landing page com stats e navegação rápida
-│   │   ├── AlbumFigurinhas.tsx    # Painel de retratos com lightbox
-│   │   ├── PersonagensPCs.tsx     # Grid de heróis
-│   │   ├── PersonagensNPCs.tsx    # Grid de NPCs
+│   │   ├── AlbumFigurinhas.tsx    # Painel de retratos com lightbox + zoom
+│   │   ├── PersonagensPCs.tsx     # Grid de heróis com busca
+│   │   ├── PersonagensNPCs.tsx    # Grid de NPCs com busca
 │   │   ├── Jogadores.tsx          # Grid de players
-│   │   ├── Historias.tsx          # Histórias separadas por temporada + Lore Geral
-│   │   ├── Mapas.tsx              # Regiões exploradas
+│   │   ├── Historias.tsx          # Histórias por temporada + Lore Geral com busca
+│   │   ├── Mapas.tsx              # Regiões de Ark com busca
 │   │   ├── Regras.tsx             # Referência rápida D&D 5e + regras da mesa (8 abas)
-│   │   └── Sobre.tsx              # Sobre a campanha, regras, convenções
+│   │   └── Sobre.tsx              # Sobre a campanha, heróis ativos, regras de mesa
 │   ├── App.tsx                    # Layout raiz: sidebar + rotas
 │   ├── index.css                  # Tema global e configuração Tailwind v4
 │   ├── main.tsx                   # Entry point React
 │   └── vite-env.d.ts              # Tipos Vite
-├── CAMPANHA.md                    # Questionário para popular o site com dados reais
+├── QUESTIONARIO.md                # Guia para popular o site com dados reais
+├── RESUMO_CONTEUDO.md             # Snapshot do conteúdo atual do site
 ├── vite.config.ts
 ├── tsconfig.app.json
 └── package.json
@@ -88,13 +90,14 @@ hellfire-wiki/
 |---|---|---|
 | `/` | Home | Stats da campanha + navegação rápida |
 | `/personagens` | — | Redireciona para `/personagens/pcs` |
-| `/personagens/pcs` | PersonagensPCs | Grid de heróis jogadores |
-| `/personagens/npcs` | PersonagensNPCs | Grid de NPCs relevantes |
-| `/album` | AlbumFigurinhas | Álbum de figurinhas com retratos dos personagens |
+| `/personagens/pcs` | PersonagensPCs | Grid de heróis com busca |
+| `/personagens/npcs` | PersonagensNPCs | Grid de NPCs com busca |
+| `/album` | AlbumFigurinhas | Álbum de retratos com lightbox e zoom |
 | `/jogadores` | Jogadores | Cards dos players da mesa |
-| `/historias` | Historias | Histórias por temporada + Lore Geral |
-| `/mapas` | Mapas | Regiões exploradas de Ark |
-| `/sobre` | Sobre | Campanha, sistema, regras de mesa |
+| `/historias` | Historias | Histórias por temporada + Lore Geral com busca |
+| `/mapas` | Mapas | Regiões de Ark com busca |
+| `/regras` | Regras | Referência D&D 5e + regras da mesa |
+| `/sobre` | Sobre | Campanha, heróis ativos, sessões e regras de casa |
 
 ---
 
@@ -104,44 +107,52 @@ hellfire-wiki/
 
 Landing page da wiki. Exibe:
 
-- **Hero** com título animado, subtítulo e tagline da campanha
+- **Hero** com título animado e tagline da campanha
 - **6 cards de stats** calculados automaticamente dos arquivos de dados:
-  - Heróis, NPCs, Histórias, Jogadores ativos, Regiões exploradas, Temporadas
+  - Heróis, NPCs, Histórias, Jogadores ativos, Regiões, Temporadas
+  - Stats com valor `0` exibem `—` em vez de um zero solto
 - **Grid de navegação rápida** com cards clicáveis para cada seção
 
 ---
 
 ### `/personagens/pcs` — Heróis
 
-Grid de personagens jogadores. Cada card exibe:
+Grid de personagens jogadores com barra de busca. Cada card exibe:
 - Ícone, nome e raça
-- Badge de classe (cor varia por tipo) e badge de status (Vivo / MIA / Morto)
-- Descrição biográfica, habilidades e origem
+- Badge de classe (cor varia por tipo) e badge de status (Vivo / MIA / Morto / Desconhecido)
+- Descrição biográfica e origem
+
+Busca filtra por: nome, classe, raça, origem, descrição, status.
 
 ---
 
 ### `/personagens/npcs` — NPCs
 
-Mesma estrutura dos heróis, mas para NPCs relevantes da campanha — aliados, vilões e figuras neutras.
+Mesma estrutura dos heróis, para NPCs relevantes da campanha. Busca filtra por: nome, classe, raça, origem, descrição.
 
 ---
 
 ### `/album` — Painel de Personagens
 
-Galeria visual com retratos dos heróis e figuras da campanha. Cada card exibe:
-- Retrato do personagem (imagem PNG em `src/assets/`)
+Galeria visual com retratos. Cada card exibe:
+- Retrato do personagem (imagem em `public/portraits/`)
 - Nome e classe sobrepostos no gradiente inferior
-- Zoom suave ao passar o mouse
-- **Lightbox**: clicar na imagem abre o retrato em tamanho completo
-  - Fechar clicando fora da imagem, no botão ✕ ou pressionando `Escape`
-  - Cards sem imagem não são clicáveis
+- **Borda dourada** para heróis ativos (`heroi: true`)
+- Imagens carregadas com `loading="lazy"`
+
+**Lightbox** ao clicar:
+- Scroll do mouse → zoom progressivo até 5×
+- Duplo-clique → zoom para 2.5× ou reseta
+- Arrastar → pan da imagem quando ampliada
+- Botão ⊡ → reseta zoom | Tecla `0` → reseta zoom
+- Tecla `Escape` → fecha | Clicar fora → fecha (só sem zoom)
 
 ---
 
 ### `/jogadores` — Jogadores
 
 Grid dos players da mesa. Cada card exibe:
-- Avatar (emoji), nome e bio curta
+- Avatar (emoji), nome e bio
 - Badge Ativo / Ausente
 - Lista de personagens associados
 
@@ -149,22 +160,35 @@ Grid dos players da mesa. Cada card exibe:
 
 ### `/historias` — Histórias
 
-Histórias organizadas por temporada com abas de navegação. Funcionalidades:
-- Uma aba por temporada (`Temporada 1`, `Temporada 2`, etc.) — geradas automaticamente pelos dados
-- Aba **Lore Geral** para eventos históricos fora das temporadas (`temporada: null`)
-- Contador de eventos por aba
+Histórias organizadas por temporada. Funcionalidades:
+- Abas por temporada geradas automaticamente por `temporadas` em `mapas.ts`
+- Aba **Lore Geral** para eventos históricos (`temporada: null`)
+- **Busca** — ao digitar 2+ caracteres, substitui as abas e filtra em todas as histórias
+- Botão X para limpar busca e voltar às abas
 
 ---
 
 ### `/mapas` — Mapas
 
-Catálogo de regiões do mundo. Cada card exibe nome, descrição e status de exploração.
+Catálogo de regiões do mundo com busca por nome e descrição. Placeholder para mapas visuais.
+
+---
+
+### `/regras` — Regras
+
+Referência D&D 5e com **8 abas** e animação de fade ao trocar:
+- Atributos · Combate · Movimento · Condições · Ambiente · Domínio · Armas · Regras da Mesa
 
 ---
 
 ### `/sobre` — Sobre
 
-Página estática com informações sobre a campanha: premissa, sistema, regras de mesa, convenções de lore.
+Informações sobre a campanha:
+- Premissa da campanha
+- Heróis ativos (filtrado por `status === "Vivo"`)
+- Cards de sessões (frequência, horário, temporadas, tom, mortes)
+- Regras da casa
+- Sobre esta wiki
 
 ---
 
@@ -173,7 +197,6 @@ Página estática com informações sobre a campanha: premissa, sistema, regras 
 ### Heróis / NPCs — `src/data/personagens.ts`
 
 ```ts
-// Campos do objeto Personagem
 {
   id: number;
   nome: string;
@@ -181,7 +204,6 @@ Página estática com informações sobre a campanha: premissa, sistema, regras 
   raca: string;
   origem: string;
   descricao: string;
-  habilidades: string[];
   status: "Vivo" | "Morto" | "MIA" | "Aliado" | "Desconhecido";
   icon: string;  // emoji
 }
@@ -193,32 +215,42 @@ Página estática com informações sobre a campanha: premissa, sistema, regras 
 {
   id: number;
   titulo: string;
-  dataIngame: string;           // ex: "Ano 1250 — Era das Chamas"
+  dataIngame: string;        // ex: "Ano 1250 — Era das Chamas"
   resumo: string;
-  tags: string[];               // ex: ["#Guerra", "#Traição"]
-  personagensEnvolvidos: string[];
-  temporada: number | null;     // número da temporada, ou null para Lore Geral
+  temporada: number | null;  // número da temporada, ou null para Lore Geral
 }
 ```
 
-O número total de abas na página de Histórias é controlado por `temporadas` em `src/data/mapas.ts`.
+O número de abas em Histórias é controlado por `temporadas` em `src/data/mapas.ts`.
 
-### Álbum de Figurinhas — `src/pages/AlbumFigurinhas.tsx`
+### Regiões — `src/data/mapas.ts`
 
-1. Adicione a imagem PNG em `src/assets/NomeDoPersonagem.png`
-2. Importe no topo do arquivo:
-   ```ts
-   import NomeImg from "@/assets/NomeDoPersonagem.png";
-   ```
-3. Adicione ao array `cards`:
-   ```ts
-   { id: 7, nome: "Nome", classe: "Classe", tipo: "Herói", raridade: "raro", icon: "🗡️", imagem: NomeImg }
-   ```
+```ts
+{ nome: string; descricao: string; }
+```
 
-### Mapas — `src/data/mapas.ts`
+### Álbum — `src/pages/AlbumFigurinhas.tsx`
 
-- `temporadas` e `regioesExploradas`: editar manualmente (contadores da Home)
-- `regioes[]`: adicionar objetos `{ nome, descricao, status }`
+1. Coloque o arquivo em `public/portraits/NomeDoPersonagem.png`
+2. Adicione ao array `cards`:
+```ts
+{ id: N, nome: "Nome", classe: "Classe", icon: "emoji", imagem: "/portraits/NomeDoPersonagem.png", heroi: true }
+// heroi: true → borda dourada (apenas para heróis ativos)
+```
+
+---
+
+## Pesquisa
+
+### Global (sidebar)
+`GlobalSearch.tsx` — busca em tempo real em todas as fontes de dados:
+- Heróis, NPCs, Histórias, Regiões, Jogadores
+- Mínimo 2 caracteres para exibir resultados
+- Dropdown com categoria (Herói / NPC / História / Região / Jogador)
+- Clicar navega para a página correspondente
+
+### Por página
+Disponível em: Heróis, NPCs, Histórias, Mapas.
 
 ---
 
@@ -226,25 +258,23 @@ O número total de abas na página de Histórias é controlado por `temporadas` 
 
 Paleta infernal baseada em CSS custom properties definidas em `src/index.css`:
 
-| Variável | Cor | Uso |
-|---|---|---|
-| `--hellfire-orange` | Laranja quente | Bordas, destaques, links ativos |
-| `--hellfire-gold` | Dourado | Títulos, textos de destaque |
-| `--hellfire-red` | Vermelho escuro | Elementos de perigo, efeitos |
-| `--hellfire-charcoal` | Cinza carvão | Sidebar, fundos |
-| `--hellfire-ash` | Cinza médio | Divisores, bordas sutis |
-| `--hellfire-ember` | Laranja apagado | Detalhes secundários |
+| Variável | Uso |
+|---|---|
+| `--hellfire-orange` | Bordas, destaques, links ativos |
+| `--hellfire-gold` | Títulos, textos de destaque |
+| `--hellfire-red` | Elementos de perigo |
+| `--hellfire-charcoal` | Sidebar, fundos |
+| `--hellfire-ash` | Divisores, bordas sutis |
+| `--hellfire-ember` | Detalhes secundários |
 
-Tipografia:
-- **Cinzel** (Google Fonts) — títulos e cabeçalhos, estilo épico/romano
-- **Crimson Pro** (Google Fonts) — corpo de texto, legível e elegante
+Tipografia: **Cinzel** (títulos) · **Crimson Pro** (corpo)
 
-Animações customizadas: `animate-ember-glow`, `animate-fade-in-up`, `animate-flame-flicker`.
+Animações: `animate-ember-glow` · `animate-fade-in-up` · `animate-flame-flicker`
 
 ---
 
 ## Deploy
 
-Recomendado via **Vercel** ou **Netlify** — aponte para o repositório com:
+Recomendado via **Vercel** ou **Netlify**:
 - Build command: `npm run build`
 - Output directory: `dist`

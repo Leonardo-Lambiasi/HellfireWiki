@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Flame, Users, BookOpen, Map, Gamepad2, Info, Sparkles, ScrollText, Menu, X } from "lucide-react";
 import SidebarNav from "./components/SidebarNav";
 import type { NavItem } from "./components/SidebarNav";
+import GlobalSearch from "./components/GlobalSearch";
 import Home from "./pages/Home";
 import PersonagensPCs from "./pages/PersonagensPCs";
 import PersonagensNPCs from "./pages/PersonagensNPCs";
@@ -71,6 +72,7 @@ const App = () => {
               <X className="w-5 h-5" />
             </button>
           </div>
+          <GlobalSearch onNavigate={() => setSidebarOpen(false)} />
           <SidebarNav items={navItems} onNavigate={() => setSidebarOpen(false)} />
         </aside>
 

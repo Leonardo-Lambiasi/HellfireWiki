@@ -43,7 +43,7 @@ export const jogadores: Jogador[] = [
    {
     id: 5,
     nome: "Robert",
-    personagens: ["Salazar", "Mordekai", "Geraz", "Fávaro"],
+    personagens: ["Salazar", "Mordekai", "Geraz", "Krusk", "Fávaro"],
     bio: "Quanto mais joga com o grupo, mais percebemos o quanto é louco. Especialista em criar personagens, pois todos morrem.",
     avatar: "🎩",
     ativo: true,

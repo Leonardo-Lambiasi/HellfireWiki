@@ -70,8 +70,8 @@ export const herois: Personagem[] = [
     {
     id: 7,
     nome: "Shadow",
-    classe: "Ladino ",
-    raca: "Drow ",
+    classe: "Ladino",
+    raca: "Drow",
     origem: "Mezoberranzam — cresceu órfão nas ruas",
     descricao:
       "Shadow cresceu órfão nas ruas de Mezoberranzam, sobrevivendo entre criminosos e traidores. Foi capturado pelos Cavaleiros da Rosa Flamejante e submetido a torturas e experimentos cruéis, escapando apenas graças ao sacrifício de seus melhores amigos Drake e Lylith. Desde então, vaga pelo mundo em busca de poder e vingança, carregando uma lista de nomes que jamais serão esquecidos.",

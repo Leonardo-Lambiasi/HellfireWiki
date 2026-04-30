@@ -8,7 +8,7 @@
 **Temporadas:** 5 · **Frequência:** Semanal, quartas à noite
 **Tom:** Drama · Humor · História · Mortes bem possíveis
 
-**Premissa:** Um portal selado há séculos começa a fraquear. Uma profecia milenar aponta para três ungidos pela chama. Heróis descobrem que seus destinos estão entrelaçados de formas que não escolheram — nem todos sobreviveram para ver o fim.
+**Premissa:** Hellfire é uma campanha de D&D 5ª Edição ambientada em Ark — um mundo de guerra, política e escolhas que custam caro. Heróis de histórias quebradas se encontram no momento errado, pelo motivo certo, e descobrem que o destino raramente pede permissão.
 
 **Regras da Casa:**
 - Dados de vida máximos no nível 1
@@ -20,17 +20,17 @@
 
 ---
 
-## Jogadores (7 ativos)
+## Jogadores (7 total · 6 ativos)
 
-| Jogador | Avatar | Personagens |
-|---|---|---|
-| Henrique | 🐉 | Dungeon Master, Ragnar Wolfside |
-| Leonardo | ⚒️ | Adrik Lahabrea, Leomir Holdheck, Oggam Vambag |
-| João Pedro | 🐺 | Mason, Iorin Stenson |
-| Giovani | 🌳 | Iluvathar, Yasura |
-| Robert | 🎩 | Salazar, Mordekai, Geraz, Fávaro |
-| Guilherme | 🐾 | Shadow |
-| Murilo | ⛪ | Djakaro |
+| Jogador | Avatar | Ativo | Personagens |
+|---|---|---|---|
+| Henrique | 🐉 | ✅ | Dungeon Master, Ragnar |
+| Leonardo | ⚒️ | ✅ | Adrik, Leomir, Oggam |
+| João Pedro | 🐺 | ✅ | Mason, Iorin |
+| Giovani | 🌳 | ✅ | Iluvathar, Yasura |
+| Robert | 🎩 | ✅ | Salazar, Mordekai, Geraz, Krusk, Fávaro |
+| Murilo | ⛪ | ✅ | Djakaro |
+| Guilherme | 🐾 | ❌ | Shadow |
 
 ---
 
@@ -40,13 +40,13 @@
 |---|---|---|---|
 | 🐺 Iorin | Bárbaro / Patrulheiro | Humano (Nortenho) | Vivo |
 | 🎩 Fávaro | Mago | Humano | Vivo |
-| 🐾 Shadow | Ladino | Drow | Desconhecido |
+| ⛪ Djakaro | Clérigo | Anão | Vivo |
 | 🌳 Iluvathar | Clérigo | Meio-elfo | Vivo |
 | ⚒️ Adrik | Guerreiro | Anão | Vivo |
-| ⛪ Djakaro | Clérigo | Anão | Vivo |
+| 🐾 Shadow | Ladino | Drow | Desconhecido |
 | 🪓 Oggam Vambag | Bárbaro | Orc | **Morto** |
 
-> Na página `/sobre`, seção "Os Heróis", exibe apenas os com status `Vivo` (5 heróis).
+> Na página `/sobre`, seção "Os Heróis", exibe apenas os com `status === "Vivo"` (5 heróis).
 
 ---
 
@@ -87,31 +87,35 @@
 
 ---
 
-## Álbum de Retratos (6 imagens em `public/portraits/`)
+## Álbum de Retratos (11 imagens em `public/portraits/`)
 
-| Personagem | Arquivo |
-|---|---|
-| Iorin Stenson | `Iorin Stenson.png` |
-| Fávaro | `Favaro.png` |
-| Shadow | `Shadow.png` |
-| Iluvathar | `Iluvatar.png` |
-| Adrik Lahabrea | `Adrik Lahabrea.png` |
-| Ragnar Wolfside | `Ragnar Wolfside.png` |
+| Personagem | Arquivo | Borda dourada (herói ativo) |
+|---|---|---|
+| Iorin | `Iorin Stenson.png` | ✅ |
+| Fávaro | `Favaro.png` | ✅ |
+| Iluvathar | `Iluvatar.png` | ✅ |
+| Djakaro | `Djakaro.jpeg` | ✅ |
+| Adrik Lahabrea | `Adrik Lahabrea.png` | ✅ |
+| Shadow | `Shadow.png` | — |
+| Ragnar Wolfside | `Ragnar Wolfside.png` | — |
+| Mason | `Mason.jpeg` | — |
+| Hunter | `Hunter.jpeg` | — |
+| Aramil | `Aramil.png` | — |
+| Tatiane Vesper | `TatianeVesper.png` | — |
 
 ---
 
-## Histórias (7)
+## Histórias (6)
 
-### Lore Geral (6)
+### Lore Geral (5)
 
 | ID | Título | Data |
 |---|---|---|
 | 1 | Divindades de Ark | Ano 0 |
 | 2 | Kazak Abul Kazhak | 100 A.A. |
-| 3 | A Fundação de Emberfall | Ano 800 — Era das Chamas |
-| 4 | O Pacto das Sombras Drow | 2º dia da Lua Negra, 1183 |
 | 5 | A Guerra de Velen | 1195 — Era das Chamas |
 | 10 | Reino de Lyria | Ano 0001 |
+| 11 | A Guerra Civil de Zarkóvia | Desconhecido |
 
 ### Temporada 3 (1)
 
@@ -119,13 +123,13 @@
 |---|---|---|
 | 8 | A Queda de Kazak e o Exílio de Adrik | 1100 D.A |
 
-> T1, T2 e T4 não têm histórias cadastradas no momento.
+> T1, T2 e T4 não têm histórias cadastradas. As abas aparecem mas exibem estado vazio.
 
 ---
 
-## Regiões de Ark (34 — sem status, listagem simples)
+## Regiões de Ark (35)
 
-Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkevia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis
+Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkóvia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Mezoberranzam · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis
 
 ---
 
@@ -133,10 +137,10 @@ Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen 
 
 | Dado | Valor |
 |---|---|
-| Heróis | 6 |
+| Heróis | 7 |
 | NPCs | 17 |
-| Histórias | 7 |
-| Jogadores ativos | 7 |
-| Regiões | 34 |
+| Histórias | 6 |
+| Jogadores ativos | 6 |
+| Regiões | 35 |
 | Temporadas | 5 |
-| Retratos no álbum | 6 |
+| Retratos no álbum | 11 |

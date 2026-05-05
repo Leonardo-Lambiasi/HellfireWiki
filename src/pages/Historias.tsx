@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Search, X } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import StoryCard from "@/components/StoryCard";
-import { historias } from "@/data/historias";
+import { historias, temporadasParticipantes } from "@/data/historias";
 import { temporadas as totalTemporadas } from "@/data/mapas";
 
 const TEMPORADAS = Array.from({ length: totalTemporadas }, (_, i) => i + 1);
@@ -107,6 +108,53 @@ const Historias = () => {
           </p>
         </div>
       )}
+
+      {/* Rodapé da temporada — participantes */}
+      {!buscando && aba !== "lore" && (() => {
+        const todos = temporadasParticipantes[aba] ?? [];
+        if (todos.length === 0) return null;
+        const herois = todos.filter(p => p.tipo === "heroi");
+        const npcs   = todos.filter(p => p.tipo === "npc");
+        return (
+          <div className="border border-hellfire-ash/40 rounded-xl p-5 bg-hellfire-charcoal/40 space-y-4">
+            <p className="text-xs tracking-widest text-muted-foreground uppercase">
+              Temporada {aba} · Participantes
+            </p>
+            {herois.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-xs text-hellfire-gold font-semibold uppercase tracking-wider">⚔️ Heróis</p>
+                <div className="flex flex-wrap gap-2">
+                  {herois.map(p => (
+                    <Link
+                      key={p.nome}
+                      to={p.rota}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-hellfire-orange/10 border border-hellfire-orange/40 text-sm text-hellfire-gold hover:bg-hellfire-orange/20 hover:border-hellfire-orange/70 transition-colors"
+                    >
+                      {p.emoji} {p.nome}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {npcs.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">👥 NPCs</p>
+                <div className="flex flex-wrap gap-2">
+                  {npcs.map(p => (
+                    <Link
+                      key={p.nome}
+                      to={p.rota}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-hellfire-charcoal border border-hellfire-ash/60 text-sm text-muted-foreground hover:border-hellfire-ash hover:text-foreground transition-colors"
+                    >
+                      {p.emoji} {p.nome}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       <div className="relative h-px bg-gradient-to-r from-transparent via-hellfire-orange to-transparent my-12">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4 text-2xl">

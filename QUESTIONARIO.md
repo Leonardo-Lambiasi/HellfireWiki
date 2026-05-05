@@ -13,6 +13,7 @@
 4. [Histórias](#4-histórias)
 5. [Regiões](#5-regiões)
 6. [Álbum](#6-álbum)
+7. [Mapa de Ark](#7-mapa-de-ark)
 
 ---
 
@@ -98,6 +99,11 @@ _Página:_ `/personagens/pcs`
 - **Origem:** Mezoberranzam — cresceu órfão nas ruas
 - **Descrição:** Shadow cresceu órfão nas ruas de Mezoberranzam, sobrevivendo entre criminosos e traidores. Foi capturado pelos Cavaleiros da Rosa Flamejante e submetido a torturas e experimentos cruéis, escapando apenas graças ao sacrifício de seus melhores amigos Drake e Lylith. Desde então, vaga pelo mundo em busca de poder e vingança, carregando uma lista de nomes que jamais serão esquecidos.
 
+### ✅ Mordekai
+- **Classe:** Bruxo? · **Raça:** Tiefling · **Status:** Morto · **Emoji:** 😈
+- **Origem:** Desconhecida — Fúria Infernal
+- **Descrição:** Tiefling de origem maldita — filho de uma mulher violada por Baal, nascido para ser um instrumento do mal segundo a vontade de sua própria mãe. Lutou ao lado de Iluvathar, absorvendo cada ensinamento como verdade absoluta. Apesar de sua jovialidade desarmante, media 2,10 m. Morreu antes de descobrir quem realmente era.
+
 ### ✅ Oggam Vambag
 - **Classe:** Bárbaro · **Raça:** Orc · **Status:** Morto · **Emoji:** 🪓
 - **Origem:** Clã Koongan — terras geladas do norte, Passagem Glacial
@@ -126,6 +132,21 @@ Roxak (🩸) · Uak (🔮) · Krogmar (⛓️) · Rexxar (👁️)
 ### ✅ Figuras misteriosas
 Jacob Amal (❓) · Yall (💀)
 
+### ✅ Figuras do Norte
+Thorstein (👑) · Arne (🧙) · Mika (🛷) · Jarl Erikson (⚔️) · Uriki (🔒) · Sigrid (🗡️) · Astrid (🪄)
+
+### ✅ Antagonistas
+Leopold Strauss (🔮) · Príncipe das Trevas (👿) · Ancalagon (🐉) · Krusk (🪓)
+
+### ✅ Nilfgaard
+Imperador Radovan (👑) · Slobodan (⚔️) · Yakov Nicolaievitch (🔥)
+
+### ✅ Família Vesper
+Tatiane Vesper (🪄)
+
+### ✅ Aliados e Personagens Importantes
+Thancred Alphinaud (🤝) · Drake (🗡️) · Lylith (💔) · Angus McLeod (⚔️) · Strahd Von Zarovitch (🧛)
+
 ### ⬜ Novo NPC _(copie este bloco)_
 - **Nome:** · **Emoji:** · **Classe:** · **Raça:**
 - **Origem / Afiliação:**
@@ -140,12 +161,18 @@ _Página:_ `/historias` · `temporada: null` = Lore Geral · `temporada: 1–5` 
 ### ✅ Lore Geral
 - Divindades de Ark · *Ano 0*
 - Kazak Abul Kazhak · *100 A.A.*
-- A Guerra de Velen · *1195 — Era das Chamas*
+- A Guerra de Velen · *Ano 1195*
 - Reino de Lyria · *Ano 0001*
 - A Guerra Civil de Zarkóvia · *Desconhecido*
 
 ### ✅ Temporada 3
-- A Queda de Kazak e o Exílio de Adrik · *1100 D.A*
+- A Queda de Kazak e o Exílio de Adrik · *Ano 1100 D.A.*
+- Fragmentação — A Travessia e o Novo Eixo · *T3 · 🔨 Em Andamento*
+
+### Participantes por Temporada
+> Gerenciado em `temporadasParticipantes` em `src/data/historias.ts`
+- **T3:** Heróis: Iluvathar, Mordekai, Adrik, Iorin · NPCs: Sirocco
+- **T1, T2, T4, T5:** a preencher
 
 ### ⬜ T1, T2 e T4 — sem histórias cadastradas
 
@@ -155,16 +182,18 @@ Título:
 Temporada: Lore / 1 / 2 / 3 / 4 / 5
 Data in-game:
 Resumo:
+Em andamento: sim / não
+Personagens mencionados: (nome · tipo heroi/npc)
 ```
 
 ---
 
 ## 5. REGIÕES
 
-_Página:_ `/mapas` · Apenas nome e descrição curta
+_Página:_ `/regioes` · Apenas nome e descrição curta
 
-### ✅ Cadastradas (35)
-Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkóvia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Mezoberranzam · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis
+### ✅ Cadastradas (46)
+Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkóvia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Mezoberranzam · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis · Wessester · Alta Forja · Passagem Glacial · Vraddargrud · Razoduk · Virmir · Manarfel · Emberbreach · Mernwihr · Sogkyer · Besenmor
 
 ### ⬜ Nova Região _(copie este bloco)_
 ```
@@ -196,3 +225,17 @@ _Página:_ `/album` · Imagens em `public/portraits/`
 ### ⬜ Novo Retrato
 1. Coloque o arquivo `.png` ou `.jpeg` em `public/portraits/`
 2. Informe: nome do personagem, nome do arquivo, classe e se é herói ativo (borda dourada)
+
+---
+
+## 7. MAPA DE ARK
+
+_Página:_ `/mapa-de-ark` · Imagem em `public/mapas/`
+
+### ✅ Mapa atual
+- **Arquivo:** `public/mapas/Reinos do norte.jpeg`
+- **Funcionalidades:** zoom (scroll do mouse · botões +/−) · pan (arrastar) · tela cheia
+
+### ⬜ Trocar imagem do mapa
+1. Coloque o novo arquivo em `public/mapas/`
+2. Atualize o `src` em `src/pages/MapaDeArk.tsx`

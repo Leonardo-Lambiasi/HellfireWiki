@@ -49,7 +49,7 @@ const buscar = (q: string): Resultado[] => {
         icon: "📍",
         titulo: r.nome,
         meta: r.descricao.length > 55 ? r.descricao.slice(0, 55) + "…" : r.descricao,
-        url: "/mapas",
+        url: "/regioes",
         categoria: "Região",
       });
   });

@@ -8,6 +8,7 @@ interface CardFigurinha {
   icon: string;
   imagem: string | null;
   heroi?: boolean;
+  eraheroi?: boolean;
 }
 
 const cards: CardFigurinha[] = [
@@ -16,12 +17,12 @@ const cards: CardFigurinha[] = [
   { id: 4, nome: "Iluvathar",       classe: "Clérigo",               icon: "🌳", imagem: "/portraits/Iluvatar.png",        heroi: true },
   { id: 7, nome: "Djakaro",         classe: "Clérigo",               icon: "⛪", imagem: "/portraits/Djakaro.jpeg",        heroi: true },
   { id: 5, nome: "Adrik",           classe: "Guerreiro",             icon: "⚒️", imagem: "/portraits/Adrik Lahabrea.png",  heroi: true },
-  { id: 3, nome: "Shadow",          classe: "Ladino",                icon: "🐾", imagem: "/portraits/Shadow.png"          },
-  { id: 6, nome: "Ragnar",          classe: "Patrulheiro",           icon: "🐺", imagem: "/portraits/Ragnar Wolfside.png" },
-  { id: 11,nome: "Mason",           classe: "Guerreiro",             icon: "❓", imagem: "/portraits/Mason.jpeg" },
-  { id: 10,nome: "Hunter",          classe: "Patrulheiro",           icon: "❓", imagem: "/portraits/Hunter.jpeg" },
+  { id: 3, nome: "Shadow",          classe: "Ladino",                icon: "🐾", imagem: "/portraits/Shadow.png"          , eraheroi: true },
+  { id: 6, nome: "Ragnar",          classe: "Patrulheiro",           icon: "🐺", imagem: "/portraits/Ragnar Wolfside.png" , eraheroi: true },
+  { id: 11,nome: "Mason",           classe: "Guerreiro",             icon: "❓", imagem: "/portraits/Mason.jpeg" , eraheroi: true },
+  { id: 10,nome: "Hunter",          classe: "Patrulheiro",           icon: "❓", imagem: "/portraits/Hunter.jpeg"},
   { id: 8, nome: "Aramil",          classe: "Mago",                  icon: "❓", imagem: "/portraits/Aramil.png"          },
-  { id: 9, nome: "Tatiane Vesper",  classe: "Ladina",                icon: "❓", imagem: "/portraits/TatianeVesper.png"   },
+  { id: 9, nome: "Tatiane Vesper",  classe: "Maga",                    icon: "❓", imagem: "/portraits/TatianeVesper.png"   },
 ];
 
 const MIN_SCALE = 1;
@@ -136,9 +137,16 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
   );
 };
 
-const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void }) => (
+const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void }) => {
+  const borderClass = card.heroi
+    ? "border-hellfire-gold shadow-[0_0_14px_rgba(245,166,35,0.25)] hover:shadow-[0_0_28px_rgba(245,166,35,0.45)] hover:border-hellfire-gold"
+    : card.eraheroi
+    ? "border-hellfire-silver shadow-[0_0_20px_rgba(192,192,192,0.4),0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_35px_rgba(192,192,192,0.7),0_0_60px_rgba(255,255,255,0.4),inset_0_0_30px_rgba(255,255,255,0.1)] hover:border-white/90 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+    : "border-hellfire-ash/60 hover:border-hellfire-orange/70 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)]";
+
+  return (
   <div
-    className={`group relative rounded-xl overflow-hidden border bg-hellfire-charcoal transition-all duration-300 hover:scale-[1.02] select-none ${card.imagem ? "cursor-pointer" : "cursor-default"} ${card.heroi ? "border-hellfire-gold shadow-[0_0_14px_rgba(245,166,35,0.25)] hover:shadow-[0_0_28px_rgba(245,166,35,0.45)] hover:border-hellfire-gold" : "border-hellfire-ash/60 hover:border-hellfire-orange/70 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)]"}`}
+    className={`group relative rounded-xl overflow-hidden border bg-hellfire-charcoal transition-all duration-300 hover:scale-[1.02] select-none ${card.imagem ? "cursor-pointer" : "cursor-default"} ${borderClass}`}
     onClick={card.imagem ? onClick : undefined}
   >
     <div className="w-full aspect-[3/4] overflow-hidden bg-gradient-to-b from-hellfire-charcoal to-card relative">
@@ -165,7 +173,8 @@ const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void })
       <p className="text-xs text-hellfire-ember mt-0.5 drop-shadow">{card.classe}</p>
     </div>
   </div>
-);
+  );
+};
 
 const AlbumFigurinhas = () => {
   const [aberto, setAberto] = useState<CardFigurinha | null>(null);

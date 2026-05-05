@@ -34,7 +34,7 @@
 
 ---
 
-## Heróis — PCs (7)
+## Heróis — PCs (8)
 
 | Herói | Classe | Raça | Status |
 |---|---|---|---|
@@ -44,13 +44,14 @@
 | 🌳 Iluvathar | Clérigo | Meio-elfo | Vivo |
 | ⚒️ Adrik | Guerreiro | Anão | Vivo |
 | 🐾 Shadow | Ladino | Drow | Desconhecido |
+| 😈 Mordekai | Bruxo? | Tiefling | **Morto** |
 | 🪓 Oggam Vambag | Bárbaro | Orc | **Morto** |
 
-> Na página `/sobre`, seção "Os Heróis", exibe apenas os com `status === "Vivo"` (5 heróis).
+> Na página `/sobre`, seção "Os Heróis", exibe apenas os com `status === "Vivo"` (4 heróis).
 
 ---
 
-## NPCs (17)
+## NPCs (39)
 
 ### Gangue do Sirocco (7)
 | NPC | Emoji | Raça | Papel |
@@ -76,14 +77,57 @@
 |---|---|---|
 | Roxak | 🩸 | Filho do chefe do Clã Lua Sangrenta |
 | Uak | 🔮 | Líder xamânica do Clã Koongan |
-| Krogmar | ⛓️ | Filho de Rexxar |
-| Rexxar | 👁️ | Figura de autoridade |
+| Krogmar | ⛓️ | Filho de Rexxar (Clã Lua Negra) |
+| Rexxar | 👁️ | Líder do Clã Lua Negra |
 
 ### Figuras misteriosas (2)
 | NPC | Emoji | Nota |
 |---|---|---|
-| Jacob Amal | ❓ | Origem desconhecida |
+| Jacob Amal | ❓ | Mercenário / agente duplo |
 | Yall | 💀 | Entidade morto-viva |
+
+### Figuras do Norte (7)
+| NPC | Emoji | Papel |
+|---|---|---|
+| Thorstein | 👑 | Líder do território de Virmir |
+| Arne | 🧙 | Xamã do norte — detido em asilo em Mernwihr |
+| Mika | 🛷 | Anão com trenós em Sogkyer |
+| Jarl Erikson | ⚔️ | Jarl da região |
+| Uriki | 🔒 | Figura que prendeu Adrik em Emberbreach |
+| Sigrid | 🗡️ | Personagem do norte |
+| Astrid | 🪄 | Personagem do norte |
+
+### Antagonistas (4)
+| NPC | Emoji | Papel |
+|---|---|---|
+| Leopold Strauss | 🔮 | Mago antagonista — invocou magia ancestral em Wessester |
+| Príncipe das Trevas | 👿 | Entidade sombria — culto abriu portal na Passagem Glacial |
+| Ancalagon | 🐉 | Dragão Vermelho — destruiu Khazak |
+| Krusk | 🪓 | Personagem de Robert |
+
+### Nilfgaard (3)
+| NPC | Emoji | Papel |
+|---|---|---|
+| Imperador Radovan | 👑 | Imperador de Nilfgaard — confrontado por Iluvathar |
+| Slobodan | ⚔️ | Antigo rei de Nilfgaard |
+| Yakov Nicolaievitch | 🔥 | Líder de Rostov — apoiado por Nilfgaard |
+
+### Família Vesper (4)
+| NPC | Emoji | Papel |
+|---|---|---|
+| Tatiane Vesper | 🪄 | Maga élfica — retrato no álbum |
+| Membro Vesper 2 | ❓ | Família Vesper |
+| Membro Vesper 3 | ❓ | Família Vesper |
+| Membro Vesper 4 | ❓ | Família Vesper |
+
+### Aliados e Personagens Importantes (5)
+| NPC | Emoji | Papel |
+|---|---|---|
+| Thancred Alphinaud | 🤝 | Melhor amigo de Adrik — fundador dos Heavensward |
+| Drake | 🗡️ | Amigo de Shadow — morreu para que ele escapasse |
+| Lylith | 💔 | Amiga de Shadow — morreu para que ele escapasse |
+| Angus McLeod | ⚔️ | Herói de Velen — descendente de Naldiv |
+| Strahd Von Zarovitch | 🧛 | Senhor de Baróvia |
 
 ---
 
@@ -105,7 +149,7 @@
 
 ---
 
-## Histórias (6)
+## Histórias (7)
 
 ### Lore Geral (5)
 
@@ -113,23 +157,49 @@
 |---|---|---|
 | 1 | Divindades de Ark | Ano 0 |
 | 2 | Kazak Abul Kazhak | 100 A.A. |
-| 5 | A Guerra de Velen | 1195 — Era das Chamas |
+| 5 | A Guerra de Velen | Ano 1195 |
 | 10 | Reino de Lyria | Ano 0001 |
 | 11 | A Guerra Civil de Zarkóvia | Desconhecido |
 
-### Temporada 3 (1)
+### Temporada 3 (2)
 
-| ID | Título | Data |
-|---|---|---|
-| 8 | A Queda de Kazak e o Exílio de Adrik | 1100 D.A |
+| ID | Título | Data | Status |
+|---|---|---|---|
+| 8 | A Queda de Kazak e o Exílio de Adrik | Ano 1100 D.A. | — |
+| 12 | Fragmentação — A Travessia e o Novo Eixo | T3 (em andamento) | 🔨 Em Andamento |
 
 > T1, T2 e T4 não têm histórias cadastradas. As abas aparecem mas exibem estado vazio.
 
+### Rodapé de Participantes por Temporada
+
+Gerenciado em `temporadasParticipantes` em `src/data/historias.ts`.
+
+| Temporada | Heróis | NPCs |
+|---|---|---|
+| T3 | Iluvathar · Mordekai · Adrik · Iorin | Sirocco |
+| T1, T2, T4, T5 | — (a preencher) | — |
+
 ---
 
-## Regiões de Ark (35)
+## Regiões de Ark (46)
 
-Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkóvia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Mezoberranzam · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis
+Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen · Teméria / Lyria · Redânia · Underdark · Skellige · Silver Marshes · Sistumbría / Valengard · Simbia · Baka Desert · Zarkóvia · Zemlya · Frozenfail / Frostwind · Espinha do Mundo · Golden Door · Winterhold · Khazak · Baróvia · Vladislávia · Rostov · Mezoberranzam · Oxenfurt · Whitefield · Novigrad · Velenor · Ordulin · Vizima · Skyfield · Teméria · Neverwinter · Toussaint · Andratis · Wessester · Alta Forja · Passagem Glacial · Vraddargrud · Razoduk · Virmir · Manarfel · Emberbreach · Mernwihr · Sogkyer · Besenmor
+
+---
+
+## Mapa de Ark
+
+Página `/mapa-de-ark` com imagem `public/mapas/Reinos do norte.jpeg`.
+Suporta zoom (scroll), pan (arrastar) e tela cheia.
+
+---
+
+## Navegação (Sidebar)
+
+Ordem atual: Home → Personagens (Heróis / NPCs) → Álbum dos Heróis → Histórias → Mapa de Ark → Regiões → Jogadores → Regras → Sobre
+
+- Regiões usa ícone `MapPin` · rota `/regioes`
+- Mapa de Ark usa ícone `Map` · rota `/mapa-de-ark`
 
 ---
 
@@ -137,10 +207,10 @@ Cidade de Emberfall · Reino de Ark · High Forest · Floresta Sombria · Velen 
 
 | Dado | Valor |
 |---|---|
-| Heróis | 7 |
-| NPCs | 17 |
-| Histórias | 6 |
+| Heróis | 8 |
+| NPCs | 39 |
+| Histórias | 7 |
 | Jogadores ativos | 6 |
-| Regiões | 35 |
+| Regiões | 46 |
 | Temporadas | 5 |
 | Retratos no álbum | 11 |

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Flame, Users, BookOpen, Map, Gamepad2, Info, Sparkles, ScrollText, Menu, X } from "lucide-react";
+import { Flame, Users, BookOpen, Map, MapPin, Gamepad2, Info, Sparkles, ScrollText, Menu, X } from "lucide-react";
 import SidebarNav from "./components/SidebarNav";
 import type { NavItem } from "./components/SidebarNav";
 import GlobalSearch from "./components/GlobalSearch";
@@ -9,27 +9,29 @@ import PersonagensPCs from "./pages/PersonagensPCs";
 import PersonagensNPCs from "./pages/PersonagensNPCs";
 import Jogadores from "./pages/Jogadores";
 import Historias from "./pages/Historias";
-import Mapas from "./pages/Mapas";
+import Regioes from "./pages/Regioes";
+import MapaDeArk from "./pages/MapaDeArk";
 import Sobre from "./pages/Sobre";
 import AlbumFigurinhas from "./pages/AlbumFigurinhas";
 import Regras from "./pages/Regras";
 
 const navItems: NavItem[] = [
-  { title: "Home", url: "/", icon: Flame },
+  { title: "Home",          url: "/",           icon: Flame     },
   {
     title: "Personagens",
     icon: Users,
     subitems: [
       { title: "Heróis", url: "/personagens/pcs" },
-      { title: "NPCs", url: "/personagens/npcs" },
+      { title: "NPCs",   url: "/personagens/npcs" },
     ],
   },
-  { title: "Álbum dos Heróis", url: "/album", icon: Sparkles },
-  { title: "Jogadores", url: "/jogadores", icon: Gamepad2 },
-  { title: "Histórias", url: "/historias", icon: BookOpen },
-  { title: "Mapas", url: "/mapas", icon: Map },
-  { title: "Regras", url: "/regras", icon: ScrollText },
-  { title: "Sobre", url: "/sobre", icon: Info },
+  { title: "Álbum dos Heróis", url: "/album",       icon: Sparkles  },
+  { title: "Histórias",        url: "/historias",   icon: BookOpen  },
+  { title: "Mapa de Ark",      url: "/mapa-de-ark", icon: Map       },
+  { title: "Regiões",          url: "/regioes",     icon: MapPin    },
+  { title: "Jogadores",        url: "/jogadores",   icon: Gamepad2  },
+  { title: "Regras",           url: "/regras",      icon: ScrollText },
+  { title: "Sobre",            url: "/sobre",       icon: Info      },
 ];
 
 const App = () => {
@@ -94,7 +96,8 @@ const App = () => {
             <Route path="/album" element={<AlbumFigurinhas />} />
             <Route path="/jogadores" element={<Jogadores />} />
             <Route path="/historias" element={<Historias />} />
-            <Route path="/mapas" element={<Mapas />} />
+            <Route path="/regioes" element={<Regioes />} />
+            <Route path="/mapa-de-ark" element={<MapaDeArk />} />
             <Route path="/regras" element={<Regras />} />
             <Route path="/sobre" element={<Sobre />} />
           </Routes>

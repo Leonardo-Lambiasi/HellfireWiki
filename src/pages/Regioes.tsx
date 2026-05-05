@@ -5,7 +5,7 @@ import { MapPin } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { regioes } from "@/data/mapas";
 
-const Mapas = () => {
+const Regioes = () => {
   const [query, setQuery] = useState("");
 
   const filtradas = regioes.filter(r => {
@@ -17,8 +17,8 @@ const Mapas = () => {
   return (
     <div className="space-y-8">
       <PageHeader
-        titulo="Mapas"
-        descricao="Regiões e territórios das terras de Ark"
+        titulo="Regiões"
+        descricao="Territórios e localidades das terras de Ark"
       />
 
       <div className="relative">
@@ -63,17 +63,8 @@ const Mapas = () => {
         </div>
       )}
 
-      <Card className="bg-card/30 border-dashed border-2 border-hellfire-ash">
-        <CardContent className="p-12 text-center">
-          <MapPin className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-foreground mb-2">Mapas Visuais em Breve</h3>
-          <p className="text-muted-foreground">
-            Ilustrações e mapas detalhados das regiões serão adicionados aqui
-          </p>
-        </CardContent>
-      </Card>
     </div>
   );
 };
 
-export default Mapas;
+export default Regioes;

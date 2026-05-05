@@ -1,9 +1,32 @@
+export interface Participante {
+  nome: string;
+  emoji: string;
+  tipo: "heroi" | "npc";
+  rota: string;
+}
+
+export const temporadasParticipantes: Record<number, Participante[]> = {
+  1: [],
+  2: [],
+  3: [
+    { nome: "Iluvathar", emoji: "🌳", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Mordekai",  emoji: "😈", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Adrik",     emoji: "⚒️", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Iorin",     emoji: "🐺", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Sirocco",   emoji: "🐍", tipo: "npc",   rota: "/personagens/npcs" },
+  ],
+  4: [],
+  5: [],
+};
+
 export interface Historia {
   id: number;
   titulo: string;
   dataIngame: string;
   resumo: string;
   temporada: number | null;
+  emAndamento?: boolean;
+  personagens?: { nome: string; emoji: string; rota: string }[];
 }
 
 export const historias: Historia[] = [
@@ -27,7 +50,7 @@ export const historias: Historia[] = [
   {
     id: 5,
     titulo: "A Guerra de Velen",
-    dataIngame: "1195 — Era das Chamas",
+    dataIngame: "Ano 1195",
     resumo:
       "Em 1195, o rei de Velen é assassinado e o reino mergulha em crise de poder. Nilfgaard, sob o rei Slobodan, invade e domina o norte. O sul vira 'Terra de Ninguém', dominado por warlords. Em 1227 estoura guerra aberta — Velen obtém apoio de Redânia e lança contraofensiva. Nilfgaard perde força com crise interna: Radovan, filho bastardo de Slobodan, é expulso, desagradando a família Lancaster. Dois nomes se destacam entre os velenenses: Angus McLeod e seu irmão Ewan. Nilfgaard recorre a um dragão vermelho, que começa a dizimar as forças inimigas. Na Batalha de West Shores (1229), Angus McLeod enfrenta o dragão sozinho. Do alto das formações costeiras, crava sua claymore nas escamas da criatura — confirmando ser descendente de Naldiv, o único linhagem capaz de matar dragões com aço comum. A morte do dragão vira o rumo da guerra. Velen marcha até Novigrad e vence. Territórios conquistados no sul de Nilfgaard, controle da marinha e do tesouro. A matriarca da família Lancaster é executada.",
     temporada: null,
@@ -58,9 +81,24 @@ export const historias: Historia[] = [
 
   // ── Temporada 3 ─────────────────────────────────────────────────────────────
   {
+    id: 12,
+    titulo: "Fragmentação — A Travessia e o Novo Eixo",
+    dataIngame: "Temporada III (em andamento)",
+    resumo:
+      "Após deixar Galáxia, Ilúvatar e Mordekai seguem viagem rumo ao norte — sem grupo, sem estrutura, apenas o caminho.\n\nDurante a travessia, o mundo se revela em estado bruto: refugiados recusados nas fronteiras, cidades queimadas ainda fumegando, estradas dominadas por saqueadores, exércitos marchando sem destino claro. A guerra deixou de ser um evento. Ela se tornou o estado natural das coisas.\n\nÉ nesse cenário que Ilúvatar começa a mudar. Ele passa a ensinar Mordekai não magia, não estratégia, mas desconfiança — um princípio rígido: não confiar em ninguém, não se apegar, não se distrair. Insiste que mulheres são distrações perigosas, capazes de desviar homens de seus deveres. Isso não nasce de filosofia. Nasce de perda. Mordekai, jovem e influenciável, absorve tudo como verdade absoluta — mas é justamente ele quem impede Ilúvatar de afundar: sua leveza e ingenuidade funcionam como contraponto constante ao peso crescente que o clérigo carrega. Eles seguem juntos, mas já não estão no mesmo lugar emocional.\n\nPróximos de High Forest, os dois caem em uma emboscada e são capturados. Não por inimigos — o líder do grupo é Sirocco, nome já conhecido, agora confirmado como líder de uma força ativa de resistência contra Nilfgaard. Ao reconhecê-los como aliados indiretos, ele os liberta e os integra ao seu grupo: algo entre resistência, bando e sobreviventes organizados.\n\nEntre os membros, um se destaca imediatamente: Iorin Stenson, Jarl de Virmir. Nortenho. Exilado. Guerreiro de origem nobre entre os clãs do norte, marcado por traição familiar e deslocamento. Diferente de muitos ali, Iorin não é apenas um combatente — é alguém que já foi líder. Sua presença introduz um novo tipo de força na narrativa: não apenas poder físico, mas legitimidade política e cultural. Ele representa algo que Ilúvatar ainda não compreende totalmente: o peso de liderar um povo inteiro.",
+    temporada: 3,
+    emAndamento: true,
+    personagens: [
+      { nome: "Iluvathar", emoji: "🌳", rota: "/personagens/pcs" },
+      { nome: "Mordekai", emoji: "😈", rota: "/personagens/pcs" },
+      { nome: "Sirocco", emoji: "🐍", rota: "/personagens/npcs" },
+      { nome: "Iorin", emoji: "🐺", rota: "/personagens/pcs" },
+    ],
+  },
+  {
     id: 8,
     titulo: "A Queda de Kazak e o Exílio de Adrik",
-    dataIngame: "1100 D.A",
+    dataIngame: "Ano 1100 D.A.",
     resumo:
       "Adrik nasceu na nobre Casa Lahabrea, em Kazak Abul Kazhak. Criado sob a fé em Moradin, desenvolveu devoção forte e desconfiança por povos como elfos e drows. Sua vida mudou com a destruição de Kazak pelo dragão vermelho, forçando a família a fugir. Durante a fuga, perdeu seu irmão mais novo ao seguir uma figura misteriosa pela floresta até uma cabana ensanguentada. Culpado pelos pais, foi expulso de casa com a missão de só retornar ao encontrar o irmão. Em Teméria, num campo de refugiados, conheceu Thancred Alphinaud, seu melhor amigo. Juntos fundaram os Heavensward. Durante 15 anos perseguiu a bruxa Hilda Hulda, até que, consumido pela obsessão, realizou um sacrifício para invocá-la. A batalha custou a vida de todos os companheiros — apenas Adrik sobreviveu. Mesmo derrotando a bruxa, não encontrou o irmão. Hoje vive em Nilfgaard buscando redenção, carregando a culpa de cada escolha.",
     temporada: 3,

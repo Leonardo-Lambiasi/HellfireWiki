@@ -2,12 +2,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Personagem } from "@/data/personagens";
 
-function getClasseVariant(classe: string): "hellfire" | "destructive" | "default" | "gold" | "secondary" {
-  if (classe.startsWith("Mago") || classe.startsWith("Clér") || classe.startsWith("Feit")) return "hellfire";
-  if (classe.startsWith("Guerr") || classe.startsWith("Bárb") || classe.startsWith("Bar")) return "destructive";
-  if (classe.startsWith("Ladino") || classe.startsWith("Ranger")) return "default";
-  if (classe === "Nobre" || classe === "Sábio") return "gold";
-  return "secondary";
+function getClasseStyle(classe: string): string {
+  const c = classe.toLowerCase();
+  if (c.includes("clér"))              return "bg-amber-600/80    text-amber-50    border-amber-500/60";
+  if (c.includes("mago") || c.includes("maga")) return "bg-violet-700/80 text-violet-100  border-violet-500/60";
+  if (c.includes("bruxo"))             return "bg-indigo-800/80   text-indigo-200  border-indigo-600/60";
+  if (c.includes("bruxa"))             return "bg-emerald-900/80  text-emerald-200 border-emerald-700/60";
+  if (c.includes("feitiç"))            return "bg-pink-700/80     text-pink-100    border-pink-500/60";
+  if (c.includes("guerr"))             return "bg-red-700/80      text-red-100     border-red-600/60";
+  if (c.includes("bárb") || c.includes("barb")) return "bg-orange-700/80 text-orange-100 border-orange-600/60";
+  if (c.includes("ladino"))            return "bg-teal-700/80     text-teal-100    border-teal-600/60";
+  if (c.includes("patrulh") || c.includes("ranger")) return "bg-green-700/80 text-green-100 border-green-600/60";
+  if (c.includes("artif"))             return "bg-cyan-700/80     text-cyan-100    border-cyan-600/60";
+  if (c.includes("xamã") || c.includes("xama")) return "bg-lime-800/80 text-lime-100 border-lime-700/60";
+  if (c.includes("nobre"))             return "bg-yellow-600/80   text-yellow-50   border-yellow-500/60";
+  if (c.includes("morto-vivo"))        return "bg-slate-700/80    text-slate-200   border-slate-500/60";
+  return                                      "bg-zinc-700/80     text-zinc-200    border-zinc-600/60";
 }
 
 function getStatusColor(status: string): string {
@@ -35,7 +45,7 @@ const CharacterCard = ({ personagem }: { personagem: Personagem }) => (
           </div>
         </div>
         <div className="flex flex-col gap-2 items-end">
-          <Badge variant={getClasseVariant(personagem.classe)}>
+          <Badge variant="outline" className={getClasseStyle(personagem.classe)}>
             {personagem.classe}
           </Badge>
           <Badge className={`${getStatusColor(personagem.status)} text-white text-xs`}>

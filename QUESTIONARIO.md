@@ -101,13 +101,28 @@ _Página:_ `/personagens/pcs`
 
 ### ✅ Mordekai
 - **Classe:** Bruxo? · **Raça:** Tiefling · **Status:** Morto · **Emoji:** 😈
-- **Origem:** Desconhecida — Fúria Infernal
-- **Descrição:** Tiefling de origem maldita — filho de uma mulher violada por Baal, nascido para ser um instrumento do mal segundo a vontade de sua própria mãe. Lutou ao lado de Iluvathar, absorvendo cada ensinamento como verdade absoluta. Apesar de sua jovialidade desarmante, media 2,10 m. Morreu antes de descobrir quem realmente era.
+- **Origem:** Desconhecida — resgatado em Rostov por Ilúvatar e Mason
+- **Descrição:** Tiefling resgatado em Rostov por Ilúvatar e Mason. Jovem, impulsivo e de espírito quase inocente — sua leveza funcionava como contraponto ao peso crescente de Ilúvatar. Sentiu-se traído quando descobriu que Ilúvatar dormiu com Zelitch. Morreu na Batalha da Ponte ao saltar com dois barris de pólvora. Foi ressuscitado por Ilúvatar. Apesar da jovialidade desarmante, media 2,10 m — só percebiam quando ele se levantava.
 
 ### ✅ Oggam Vambag
 - **Classe:** Bárbaro · **Raça:** Orc · **Status:** Morto · **Emoji:** 🪓
 - **Origem:** Clã Koongan — terras geladas do norte, Passagem Glacial
 - **Descrição:** Guerreiro do clã Koongan, forjado nas terras congeladas onde apenas os fortes sobrevivem. Foi deixado para trás após uma batalha brutal, despertou sozinho num mundo mais hostil do que lembrava. Em sua jornada, testemunhou rituais sombrios e começou a mudar — onde antes via apenas força e sobrevivência, passou a enxergar empatia, proteção e significado. Em seu último ato, lutou por algo maior do que ele mesmo, tentando provar que os orcs podiam escolher um caminho diferente. E foi nesse momento que caiu. Sua morte não foi em vão.
+
+### ✅ Mason
+- **Classe:** Guerreiro · **Raça:** Humano · **Status:** Morto · **Emoji:** ⚔️
+- **Origem:** Velen — Guerreiro moldado pela guerra
+- **Descrição:** Guerreiro moldado pela guerra — produto do sistema que combatia. Morreu na Batalha de High Forest segurando posições com Isaac. Tornou-se figura mítica entre soldados e sobreviventes.
+
+### ✅ Salazar
+- **Classe:** Mago · **Raça:** Humano · **Status:** Morto · **Emoji:** 💎
+- **Origem:** Rostov — Família com influência política
+- **Descrição:** Mago de grande ambição arcana. Recebeu a Gema Ancestral de Vesper e a destruiu contra o Leviathan na T1. Capturado em Rostov pelo tio Yakov, gema confiscada por Strauss, executado publicamente pelos sacerdotes do Fogo Eterno.
+
+### ✅ Leomir
+- **Classe:** Bardo · **Raça:** Meio-Elfo · **Status:** Aliado · **Emoji:** 🎶
+- **Origem:** Neverwinter — Líder de guilda artística
+- **Descrição:** Artista e político. Após a Batalha de High Forest, casou-se com a princesa de Galáxia e saiu da jornada. Sua saída foi mais uma perda na trajetória de Ilúvatar.
 
 ### ⬜ Novo Herói _(copie este bloco)_
 - **Classe:** · **Raça:** · **Status:** Vivo / Morto / MIA / Desconhecido · **Emoji:**
@@ -158,23 +173,32 @@ Thancred Alphinaud (🤝) · Drake (🗡️) · Lylith (💔) · Angus McLeod (�
 
 _Página:_ `/historias` · `temporada: null` = Lore Geral · `temporada: 1–5` = temporada específica
 
-### ✅ Lore Geral
-- Divindades de Ark · *Ano 0*
+### ✅ Lore Geral (7)
+- Divindades de Ark · *Ano 0* — com história canônica de Ba'al
 - Kazak Abul Kazhak · *100 A.A.*
+- **A Origem do Senhor das Trevas** · *Antes do Ano 0* — Ba'al → Oz de Osbourne → Príncipe das Trevas → Diário do Homem Louco
+- **As Gemas Ancestrais** · *Era dos Dragões* — Tiamat, Naldiv/Bahamut, gemas dispersas
 - A Guerra de Velen · *Ano 1195*
 - Reino de Lyria · *Ano 0001*
 - A Guerra Civil de Zarkóvia · *Desconhecido*
 
+### ✅ Temporada 1
+- **A Queda do Leviathan** · *T1* — Baka Desert, Diafbah, Leviathan, Salazar usa a Gema
+
+### ✅ Temporada 2
+- **A Guerra de High Forest** · *T2* — defesa contra Nilfgaard, morte de Mason, Leomir sai, Mordekai entra
+
 ### ✅ Temporada 3
 - A Queda de Kazak e o Exílio de Adrik · *Ano 1100 D.A.*
-- Fragmentação — A Travessia e o Novo Eixo · *T3 · 🔨 Em Andamento*
+- Fragmentação — A Travessia e o Novo Eixo · *T3 · 🔨 Em Andamento* (expandida: noite com Zelitch, traição de Mordekai, Batalha da Ponte, ressurreição, Adrik, Céu Vermelho, orfanato, Fávaro/Djakaro)
 
 ### Participantes por Temporada
 > Gerenciado em `temporadasParticipantes` em `src/data/historias.ts`
-- **T3:** Heróis: Iluvathar, Mordekai, Adrik, Iorin · NPCs: Sirocco
-- **T1, T2, T4, T5:** a preencher
-
-### ⬜ T1, T2 e T4 — sem histórias cadastradas
+- **T1:** Iluvathar · Mason · Salazar · Leomir · Shadow
+- **T2:** Iluvathar · Mason · Salazar · Leomir · Shadow · Mordekai
+- **T3:** Iluvathar · Mordekai · Adrik · Iorin · Fávaro · Djakaro
+- **T4, T5:** a preencher
+> Apenas heróis são listados nas temporadas. NPCs não são incluídos.
 
 ### ⬜ Nova História _(copie este bloco)_
 ```
@@ -234,8 +258,14 @@ _Página:_ `/mapa-de-ark` · Imagem em `public/mapas/`
 
 ### ✅ Mapa atual
 - **Arquivo:** `public/mapas/Reinos do norte.jpeg`
-- **Funcionalidades:** zoom (scroll do mouse · botões +/−) · pan (arrastar) · tela cheia
+- **Zoom:** scroll do mouse (centralizado no cursor) · botões +/− · teclas `+`/`-`
+- **Pan:** arrastar com mouse · arrasto com dedo no touch
+- **Pinch-to-zoom:** dois dedos no mobile/tablet
+- **Tela cheia:** botão ou tecla `F`
+- **Reset:** botão `↺` ou tecla `R`
+- **Mover com teclado:** `↑↓←→`
+- **Limites:** zoom mínimo 50% · máximo 500%
 
 ### ⬜ Trocar imagem do mapa
 1. Coloque o novo arquivo em `public/mapas/`
-2. Atualize o `src` em `src/pages/MapaDeArk.tsx`
+2. Atualize o `src` em `src/pages/MapaDeArk.tsx` (linha do `<img>`)

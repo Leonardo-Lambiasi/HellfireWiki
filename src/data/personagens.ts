@@ -19,7 +19,7 @@ export const herois: Personagem[] = [
     raca: "Humano (Nortenho)",
     origem: "Virmir, Clãs do Norte — Jarl de Virmir",
     descricao:
-      "Jarl de Virmir e líder respeitado entre os Clãs do Norte, Iorin é um guerreiro nato e homem de honra inabalável. Expulsou as forças de Nilfgaard de suas terras e buscou, mesmo contra a vontade de muitos, um tratado de paz com os orcs. Ficou preso em Winterhold por cinco anos antes de retornar ao Norte com um propósito renovado. Se se tornar Grande Jarl e se aliar ao Clã Rok, poderá unir todos os clãs do Norte sob uma única bandeira. É a força, o escudo e o braço da party.",
+      "Jarl de Virmir e líder respeitado entre os Clãs do Norte. Guerreiro nato e homem de honra inabalável, foi traído pelo próprio irmão e exilado de Virmir. Encontrado como membro da gangue de Sirocco, reconheceu que sua trajetória no continente fazia mais sentido ao lado de Ilúvatar e decidiu permanecer com o grupo. Não é apenas um combatente — é alguém que já foi líder de um povo inteiro e conhece o preço de perder o chão. Representa legitimidade política e estabilidade prática num grupo marcado pelo caos e pela perda. Expulsou as forças de Nilfgaard de suas terras e buscou, mesmo contra a vontade de muitos, um tratado de paz com os orcs. Ficou preso em Winterhold por cinco anos antes de retornar ao Norte com um propósito renovado. Se se tornar Grande Jarl e se aliar ao Clã Rok, poderá unir todos os clãs do Norte sob uma única bandeira. É a força, o escudo e o braço da party.",
     status: "Vivo",
     icon: "🐺",
   },
@@ -41,7 +41,7 @@ export const herois: Personagem[] = [
     raca: "Meio-elfo",
     origem: "High Forest — Clérigo de Ein-Sof-Sefirot",
     descricao:
-      "Uma das figuras mais respeitadas e temidas de Ark, Iluvathar é diplomata, estrategista e homem de profunda fé. Liderou a defesa da High Forest contra Nilfgaard, confrontou pessoalmente o Imperador Radovan e tornou-se um símbolo de esperança para refugiados e não-humanos. Após a queda do Leviatã, fundou a Ordem do Coração Negro para proteger a cidade — que foi destruída por dois Cavaleiros do Caos. Seu verdadeiro poder reside não na força, mas na busca inabalável pelo equilíbrio.",
+      "Uma das figuras mais respeitadas e temidas de Ark. Diplomata, estrategista e homem de profunda fé, Ilúvatar viveu em High Forest como estrangeiro tolerado — nunca completamente aceito por ser meio-elfo. Treinado formalmente por Arabatan, mestre de divinação, e guiado de forma sutil pelo Velho da Montanha — ser ancestral de raça indeterminada que se revelou ser o próprio Dragão Guardião de Mithrandir. Liderou a defesa de High Forest contra Nilfgaard, confrontou pessoalmente o Imperador Radovan e tornou-se símbolo de esperança para refugiados e não-humanos. Após a batalha, escolheu lutar não apenas por High Forest, mas por todo o mundo. Sua trajetória é marcada por perda progressiva — quanto mais avança, mais perde — o que vai endurecendo seu caráter e distorcendo seus princípios. Ressuscitou Mordekai após sua morte na Batalha da Ponte, recusando-se a aceitar mais uma perda. Seu verdadeiro poder reside não na força, mas na busca inabalável pelo equilíbrio. Divindade: Ein-Sof-Sefirot.",
     status: "Vivo",
     icon: "🌳",
   },
@@ -52,7 +52,7 @@ export const herois: Personagem[] = [
     raca: "Anão",
     origem: "Khazak — Casa Lahabrea (Renegado), seguidor de Moradin",
     descricao:
-      "Expurgado da nobre Casa Lahabrea após um erro imperdoável e testemunha da queda de Khazak para Ancalagon, o Dragão Vermelho, Adrik carrega vergonha e ódio como combustível. Residente de Emberbreach, foi encontrado preso por Uriki, que o apresentou ao banqueiro Vivaldi — contratando-o para a retomada de Khazak. Fundou os Heavensward com Thancred Alphinaud, sacrificou todos os companheiros contra a bruxa Hilda Hulda e nunca encontrou o irmão perdido. Pensa que honra se conquista, não se herda.",
+      "Expurgado da nobre Casa Lahabrea após um erro imperdoável — durante a fuga da queda de Khazak para Ancalagon, o Dragão Vermelho, perdeu seu irmão mais novo ao seguir uma figura misteriosa até uma cabana ensanguentada. Culpado pelos pais, foi exilado com a missão de só retornar ao encontrar o irmão. Adrik carrega vergonha e ódio como combustível — acredita que honra se conquista, não se herda. Sua posição sobre magia é clara: magia pura é aceitável, magia corrompida deve ser destruída. Isso o coloca em tensão latente com tudo que envolve as Gemas Ancestrais, necromancia e caos. Encontrado pelo grupo numa vila próxima à Torre de Leopold Strauss, juntou-se a Ilúvatar, Mordekai e Iorin como nova coluna moral do grupo. Fundou os Heavensward com Thancred Alphinaud; perseguiu a bruxa Hilda Hulda por 15 anos, sacrificou todos os companheiros no confronto final e nunca encontrou o irmão perdido.",
     status: "Vivo",
     icon: "⚒️",
   },
@@ -83,9 +83,9 @@ export const herois: Personagem[] = [
     nome: "Mordekai",
     classe: "Bruxo?",
     raca: "Tiefling",
-    origem: "Desconhecida — Fúria Infernal",
+    origem: "Desconhecida — resgatado em Rostov por Ilúvatar e Mason",
     descricao:
-      "Tiefling de origem maldita — filho de uma mulher violada por Baal, nascido para ser um instrumento do mal segundo a vontade de sua própria mãe. Mas Mordekai escolheu outro caminho, ainda que sem saber exatamente qual. Conhecido como Fúria Infernal, lutou ao lado de Iluvathar e absorveu cada ensinamento do clérigo como verdade absoluta — a desconfiança, o distanciamento, a frieza necessária para sobreviver num mundo em guerra. Havia nele uma leveza natural, uma ingenuidade que funcionava como contraponto ao peso crescente que Iluvathar carregava; era ele, muitas vezes, quem impedia o meio-elfo de afundar de vez. Apesar dessa jovialidade desarmante — e de um jeito de ocupar o espaço que fazia as pessoas subestimá-lo à primeira vista — Mordekai media 2,10 m. Só percebiam quando ele se levantava. Morreu antes de descobrir quem realmente era.",
+      "Tiefling resgatado em Rostov por Ilúvatar e Mason durante a missão de resgate. Jovem, impulsivo e de espírito quase inocente — sua leveza funcionava como contraponto direto ao peso crescente que Ilúvatar carregava, impedindo muitas vezes que o meio-elfo afundasse de vez. Absorveu cada ensinamento de Ilúvatar como verdade absoluta — a desconfiança, o distanciamento, a frieza necessária para sobreviver num mundo em guerra. Sentiu-se traído quando descobriu que Ilúvatar dormiu com Zelitch, quebrando a regra que ele mesmo havia pregado. Morreu na Batalha da Ponte ao saltar com dois barris de pólvora — ação corajosa e fatal. Foi ressuscitado por Ilúvatar, que se recusou a aceitar mais uma perda. Esse ato restaurou a confiança entre os dois e marcou uma virada: Ilúvatar passou a interferir diretamente contra o destino. Apesar da jovialidade desarmante, media 2,10 m — só percebiam quando ele se levantava.",
     status: "Morto",
     icon: "😈",
   },
@@ -99,6 +99,39 @@ export const herois: Personagem[] = [
       "Guerreiro do clã Koongan, forjado nas terras congeladas onde apenas os fortes sobrevivem. Foi deixado para trás após uma batalha brutal, despertou sozinho num mundo mais hostil do que lembrava. Em sua jornada, testemunhou rituais sombrios e começou a mudar — onde antes via apenas força e sobrevivência, passou a enxergar empatia, proteção e significado. Em seu último ato, lutou por algo maior do que ele mesmo, tentando provar que os orcs podiam escolher um caminho diferente. E foi nesse momento que caiu. Sua morte não foi em vão.",
     status: "Morto",
     icon: "🪓",
+  },
+  {
+    id: 9,
+    nome: "Mason",
+    classe: "Guerreiro",
+    raca: "Humano",
+    origem: "Velen — Guerreiro moldado pela guerra",
+    descricao:
+      "Guerreiro moldado pela guerra — produto do sistema que combatia. Serviu ao sistema antes de se voltar contra ele, carregando culpa real por suas ações passadas e buscando redenção através do sacrifício. Liderança militar e resistência física eram o que trazia ao grupo. Morreu na Batalha de High Forest, segurando posições com Isaac contra um exército numericamente superior. Sua morte foi um ato de resistência pura — não de heroísmo calculado, mas de recusa em cair. Tornou-se figura mítica: versões contraditórias de sua morte circulam entre soldados e sobreviventes, como se fosse semideus.",
+    status: "Morto",
+    icon: "⚔️",
+  },
+  {
+    id: 10,
+    nome: "Salazar",
+    classe: "Mago",
+    raca: "Humano",
+    origem: "Rostov — Família com influência política",
+    descricao:
+      "Mago de grande ambição arcana. Pertencia a uma família com influência política em Rostov e recebeu uma Gema Ancestral de Vesper, diretor da Universidade de Oxenfurt, com a missão específica de destruí-la contra o Leviathan. Canalizou a gema além do que qualquer mente deveria suportar — e o Leviathan foi destruído. Após a Temporada 1, seguiu sozinho em busca de mais conhecimento e poder. Capturado em Rostov pelo tio traidor Yakov, teve a gema confiscada por Leopold Strauss e foi executado publicamente pelos sacerdotes do Fogo Eterno. Não houve duelo glorioso. Sua morte foi uma demonstração política de Nilfgaard: corroer heranças, tomar símbolos, transformar linhagens em cinzas.",
+    status: "Morto",
+    icon: "💎",
+  },
+  {
+    id: 11,
+    nome: "Leomir",
+    classe: "Bardo",
+    raca: "Meio-Elfo",
+    origem: "Neverwinter — Líder de guilda artística",
+    descricao:
+      "Artista e político. Líder de uma guilda artística em Neverwinter, entrou no grupo com motivações que sempre incluíam sua guilda e sua cidade. Seu papel era de apoio mágico, reconhecimento e liderança cultural. Após a Batalha de High Forest, deparou-se com uma escolha: continuar como aventureiro ou assumir papel político através do casamento com a princesa de Galáxia. Casou-se. Saiu da jornada. Não foi traição — foi um homem escolhendo uma vida diferente. Para Ilúvatar, a perda foi real e confirmou o padrão: quanto mais avança, mais perde.",
+    status: "Aliado",
+    icon: "🎶",
   },
 ];
 
@@ -177,7 +210,7 @@ export const npcs: Personagem[] = [
     raca: "Tiefling",
     origem: "Gangue do Sirocco — Magia",
     descricao:
-      "Tiefling feiticeira que fornece suporte mágico à Gangue do Sirocco. Especializada em magia ofensiva e utilidade, é um dos membros mais perigosos da organização.",
+      "Tiefling feiticeira que fornece suporte mágico à Gangue do Sirocco. Especializada em magia ofensiva e utilidade, é um dos membros mais perigosos da organização. Compartilhava com Ilúvatar o interesse por magia, gemas e Cavaleiros do Caos — os dois passaram uma noite juntos antes da emboscada na ponte, evento que gerou a crise de confiança com Mordekai.",
     status: "Vivo",
     icon: "🔮",
   },
@@ -335,13 +368,13 @@ export const npcs: Personagem[] = [
   {
     id: 122,
     nome: "Leopold Strauss",
-    classe: "Mago",
+    classe: "Arcanista",
     raca: "Humano",
-    origem: "Rosa Flamejante — um dos líderes",
+    origem: "Nilfgaard — Arqueólogo Arcano",
     descricao:
-      "Assassino do Titan Slayer e um dos líderes da Rosa Flamejante. Grande conjurador cuja mente está sendo dominada pelas forças do Príncipe das Trevas — já está morto por dentro. Invocou magia com uma pedra ancestral em Wessester. Visto numa torre no castelo de Wessester.",
+      "Arqueólogo arcano e intelectual da magia a serviço de Nilfgaard. Não é um mago ou feiticeiro — é um estudioso, historiador e cientista do arcano que entende a magia melhor do que muitos que a usam. Rastreia e coleta artefatos mágicos antigos para Nilfgaard. Possui a Gema Ancestral que pertencia a Salazar, obtida durante a negociação da aliança entre Nilfgaard e Rostov quando Yakov entregou Salazar às forças nilfgaardianas. Sua torre foi identificada como a origem do fenômeno do Céu Vermelho — evento que alterou o céu de todo o continente de Ark. Soldados pessoais guardam o perímetro de sua torre.",
     status: "Desconhecido",
-    icon: "💀",
+    icon: "🔮",
   },
   {
     id: 123,
@@ -409,7 +442,7 @@ export const npcs: Personagem[] = [
     raca: "Elfo",
     origem: "Família Vesper — mago e estudioso",
     descricao:
-      "Mago poderoso e pai de Tatiane Vesper. Dedicava seus estudos ao tempo, ao espaço e à natureza da realidade. Considerado o segundo mago mais forte de Ark — Anacletus foi o mais forte antes dele.",
+      "Mago poderoso e pai de Tatiane Vesper. Dedicava seus estudos ao tempo, ao espaço e à natureza da realidade. Considerado o segundo mago mais forte de Ark — Anacletus foi o mais forte antes dele. Ex-diretor da Universidade de Oxenfurt, foi responsável por entregar a Gema Ancestral a Salazar e alertar o grupo sobre os Cavaleiros do Caos. Atualmente preso em Winterhold, possui conhecimento crítico que o grupo precisa para enfrentar o Senhor das Trevas.",
     status: "Desconhecido",
     icon: "📜",
   },
@@ -420,7 +453,7 @@ export const npcs: Personagem[] = [
     raca: "Elfa",
     origem: "Família Vesper — filha de Exius Vesper",
     descricao:
-      "Filha de Exius Vesper e maga de grande potencial. Está sendo utilizada por Nilfgaard para fortalecer suas operações. Foi vista pelas redondezas de Winterhold e na Espinha do Mundo. Aramil é seu companheiro mais próximo.",
+      "Filha de Exius Vesper e maga de grande potencial. Procurou o grupo após a Batalha de High Forest com uma missão: resgatar seu pai de Winterhold. Está sendo utilizada por Nilfgaard para fortalecer suas operações. Foi vista pelas redondezas de Winterhold e na Espinha do Mundo. Aramil é seu companheiro mais próximo.",
     status: "Desconhecido",
     icon: "✨",
   },

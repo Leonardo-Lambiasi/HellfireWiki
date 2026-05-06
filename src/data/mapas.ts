@@ -13,7 +13,7 @@ export const regioes: Regiao[] = [
   { nome: "Khazak",                 descricao: "Antigo orgulho da civilização anã, hoje uma ruína dominada por um dragão vermelho. Seus sobreviventes vivem no exílio carregando o peso de um passado destruído." },
   { nome: "Mezoberranzam",          descricao: "Cidade drow no noroeste, com acesso ao Subterrâneo — habitada por forças ocultas que observam e talvez manipulem os acontecimentos da superfície. Origem de Shadow." },
   { nome: "Oxenfurt",               descricao: "Cidade universitária — origem de Fávaro."                            },
-  { nome: "High Forest",            descricao: "Floresta ancestral, lar dos elfos."                                   },
+  { nome: "High Forest",            descricao: "Floresta ancestral, lar dos elfos e origem de Iluvathar. Abriga Mithrandir — cidade élfica suspensa nas copas das árvores antigas, praticamente invisível do solo. Guarda do território é o Velho da Montanha, ser ancestral de raça indeterminada que se revelou ser o próprio Dragão Guardião de Mithrandir. Foi palco da guerra contra Nilfgaard, liderada por Iluvathar, que confrontou pessoalmente o Imperador Radovan nessas terras." },
 
   // ── Locais ativos da campanha ────────────────────────────────────────────────
   { nome: "Manarfel",               descricao: "Destino atual do grupo."                                             },
@@ -30,7 +30,7 @@ export const regioes: Regiao[] = [
   // ── Grandes regiões políticas ────────────────────────────────────────────────
   { nome: "Zarkóvia",               descricao: "Reino mergulhado em guerra civil — múltiplas forças disputam o trono numa fragmentação política que o transforma em barril de pólvora." },
   { nome: "Vladislávia",            descricao: "Capital de Zarkóvia e bastião da nobreza em declínio — marcada por intrigas políticas e tentativas desesperadas de manter a legitimidade do trono."            },
-  { nome: "Rostov",                 descricao: "Potência emergente ao sul de Zarkóvia, guiada por Yakov Nicolaievitch com apoio de Nilfgaard e dos ideais do Fogo Eterno — movida por expansão e estratégia."  },
+  { nome: "Rostov",                 descricao: "Potência emergente ao sul de Zarkóvia, guiada por Yakov Nicolaievitch com apoio de Nilfgaard e dos ideais do Fogo Eterno. Foi aqui que Mordekai foi resgatado por Iluvathar e Mason. Também aqui que Salazar, mago da party, foi capturado pelo tio traidor Yakov — sua Gema Ancestral confiscada por Leopold Strauss e ele executado publicamente pelos sacerdotes do Fogo Eterno como demonstração política de força." },
   { nome: "Baróvia",                descricao: "Reino isolado do sudeste sob o domínio absoluto de Strahd Von Zarovitch — envolto em névoa e horror gótico. Não busca guerra, mas não permite interferência."  },
   { nome: "Velen",                  descricao: "Reino marcado pela guerra contra Nilfgaard."                          },
   { nome: "Redânia",                descricao: "Potência regional, aliada de Velen na guerra."                        },
@@ -43,8 +43,8 @@ export const regioes: Regiao[] = [
   { nome: "Skellige",               descricao: "Arquipélago de guerreiros do norte."                                  },
   { nome: "Floresta Sombria",       descricao: "Floresta densa repleta de criaturas das trevas."                      },
   { nome: "Silver Marshes",         descricao: "Pântanos nos limites dos Reinos do Norte."                           },
-  { nome: "Baka Desert",            descricao: "Deserto hostil nos confins do mundo."                                 },
-  { nome: "Winterhold",             descricao: "Cidade no extremo norte."                                             },
+  { nome: "Baka Desert",            descricao: "Deserto hostil nos confins do mundo. Abriga a cidade de Baka, governada por Diafbah. Foi palco do primeiro grande evento da campanha — a ascensão do Leviathan, que emergiu das profundezas e destruiu parte da cidade antes de ser derrotado pelo grupo na Temporada I." },
+  { nome: "Winterhold",             descricao: "Prisão de segurança máxima controlada por Nilfgaard, no extremo norte. Local onde Exius Vesper — arquimago e ex-diretor de Oxenfurt — está encarcerado. Destino da missão de resgate pendente do grupo, conduzida por Tatiane Vesper." },
   { nome: "Sistumbría / Valengard", descricao: "Região estratégica nos Reinos do Norte."                             },
   { nome: "Golden Door",            descricao: "Passagem lendária de destino desconhecido."                          },
   { nome: "Zemlya",                 descricao: "Região isolada com rumores de relíquias antigas."                    },

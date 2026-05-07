@@ -140,8 +140,6 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
 const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void }) => {
   const borderClass = card.heroi
     ? "border-hellfire-gold shadow-[0_0_14px_rgba(245,166,35,0.25)] hover:shadow-[0_0_28px_rgba(245,166,35,0.45)] hover:border-hellfire-gold"
-    : card.eraheroi
-    ? "border-hellfire-silver shadow-[0_0_20px_rgba(192,192,192,0.4),0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_35px_rgba(192,192,192,0.7),0_0_60px_rgba(255,255,255,0.4),inset_0_0_30px_rgba(255,255,255,0.1)] hover:border-white/90 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
     : "border-hellfire-ash/60 hover:border-hellfire-orange/70 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)]";
 
   return (

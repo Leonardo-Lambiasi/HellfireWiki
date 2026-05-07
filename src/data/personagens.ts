@@ -561,6 +561,96 @@ export const npcs: Personagem[] = [
     icon: "🌟",
   },
 
+  // ── Mestres e Sábios ─────────────────────────────────────────────────────────
+  {
+    id: 141,
+    nome: "Arabatan",
+    classe: "Mago / Adivinho",
+    raca: "Elfo",
+    origem: "High Forest — Mestre de Divinação",
+    descricao:
+      "Mestre de divinação de High Forest e mentor formal de Iluvathar. Passou décadas observando os padrões cósmicos de Ark e desenvolveu a Teoria dos Ciclos Cósmicos — a hipótese de que o mundo existe num vórtice de equilíbrio entre forças opostas, e que o retorno de Oz de Osbourne não é uma possibilidade, mas uma certeza temporal. Morreu antes de terminar sua obra. Seus escritos estão dispersos — parte em Mithrandir, parte possivelmente com Leopold Strauss.",
+    status: "Morto",
+    icon: "🌟",
+  },
+  {
+    id: 142,
+    nome: "Azemuth",
+    classe: "Paladino / Lich",
+    raca: "Desconhecida",
+    origem: "Ilha de Azemuth — Tumba isolada",
+    descricao:
+      "Ex-paladino que escolheu a não-morte como meio de continuar servindo uma missão que seus contemporâneos consideravam completa. Sua tumba numa ilha isolada foi encontrada pelo grupo durante a Temporada III — vazia. O corpo havia sumido sem sinais de violação ou saque, apenas ausência. O que Azemuth busca — ou o que o moveu — permanece desconhecido.",
+    status: "Desconhecido",
+    icon: "💀",
+  },
+  {
+    id: 143,
+    nome: "Elandir",
+    classe: "Guerreiro",
+    raca: "Elfo",
+    origem: "High Forest — Guarda da floresta",
+    descricao:
+      "Guerreiro élfico da guarda de High Forest. Caiu durante a guerra contra Nilfgaard defendendo as fronteiras da floresta ancestral. Seu sacrifício foi um dos muitos que tornaram possível a vitória de Iluvathar.",
+    status: "Morto",
+    icon: "🌿",
+  },
+  {
+    id: 144,
+    nome: "Elidir",
+    classe: "Guerreiro",
+    raca: "Elfo",
+    origem: "High Forest",
+    descricao:
+      "Guerreiro élfico de High Forest. Participou da defesa da floresta durante a invasão de Nilfgaard.",
+    status: "Desconhecido",
+    icon: "🌳",
+  },
+  {
+    id: 145,
+    nome: "Diafbah",
+    classe: "Líder / Governante",
+    raca: "Desconhecida",
+    origem: "Baka — Governante do Deserto",
+    descricao:
+      "Governante enigmático da cidade de Baka, no Deserto de Baka. Preside uma região hostil e isolada que foi palco do primeiro grande evento da campanha — a emergência do Leviathan. Sua história, motivações e exato papel nos eventos que precederam o despertar da criatura ainda não foram completamente esclarecidos.",
+    status: "Desconhecido",
+    icon: "🏜️",
+  },
+  {
+    id: 146,
+    nome: "Isaac",
+    classe: "Guerreiro",
+    raca: "Humano",
+    origem: "Velen — Companheiro de Mason",
+    descricao:
+      "Guerreiro que lutou ao lado de Mason na Batalha de High Forest. Segurou posições contra um exército numericamente superior — e caiu junto com Mason no conflito. Sua morte, como a de Mason, não foi heroica no sentido dramático: foi resistência pura, recusa em ceder.",
+    status: "Morto",
+    icon: "⚔️",
+  },
+  {
+    id: 147,
+    nome: "Angus McLeod",
+    classe: "Guerreiro / Rei",
+    raca: "Humano",
+    origem: "Velen — Rei de Velen",
+    descricao:
+      "Rei de Velen e descendente provado de Naldiv — a única linhagem capaz de ferir dragões com aço comum. Na Batalha de West Shores (Ano 1229), enfrentou sozinho o dragão vermelho de Nilfgaard, cravou sua claymore nas escamas da criatura e mudou o rumo da guerra. Após a vitória, tornou-se símbolo nacional. Começou a tomar decisões erradas após a morte de seu melhor conselheiro — o que levou à destituição de Ragnar Wolfside e à fragmentação da lealdade ao trono.",
+    status: "Vivo",
+    icon: "👑",
+  },
+  {
+    id: 148,
+    nome: "Yakov Nicolaievitch",
+    classe: "Nobre",
+    raca: "Humano",
+    origem: "Rostov — Líder político, tio de Salazar",
+    descricao:
+      "Tio de Salazar e figura central do poder em Rostov. Traiu o sobrinho ao entregá-lo a Nilfgaard como demonstração de lealdade política, garantindo a aliança entre Rostov e o Império. Governa com o apoio dos ideais do Fogo Eterno e da influência nilfgaardiana. Sua traição foi o que permitiu a Leopold Strauss obter a Gema Ancestral que pertencia a Salazar.",
+    status: "Vivo",
+    icon: "🗡️",
+  },
+
   // ── Figuras misteriosas ──────────────────────────────────────────────────────
   {
     id: 116,

@@ -100,11 +100,11 @@
 ### 🎶 Leomir
 - **Classe:** Bardo · **Raça:** Meio-Elfo · **Status:** Aliado
 - **Origem:** Neverwinter — Líder de guilda artística
-- **Descrição:** Artista e político. Líder de uma guilda artística em Neverwinter, entrou no grupo com motivações que sempre incluíam sua guilda e sua cidade. Após a Batalha de High Forest, deparou-se com uma escolha: continuar como aventureiro ou assumir papel político através do casamento com a princesa de Galáxia. Casou-se. Saiu da jornada. Para Ilúvatar, a perda foi real e confirmou o padrão: quanto mais avança, mais perde.
+- **Descrição:** Artista e político. Líder de uma guilda artística em Neverwinter, entrou no grupo com motivações que sempre incluíam sua guilda e sua cidade. Após a Batalha de High Forest, deparou-se com uma escolha: continuar como aventureiro ou assumir papel político através do casamento com a princesa de Galásia. Casou-se. Saiu da jornada. Para Ilúvatar, a perda foi real e confirmou o padrão: quanto mais avança, mais perde.
 
 ---
 
-## NPCs (39)
+## NPCs (47)
 
 ### Gangue do Sirocco (7)
 
@@ -196,7 +196,7 @@
 - **Madame Delanoar** 🏛️ — Senhora rica que mora numa mansão com um anão como mordomo. Marcada pela maldição que parece afetar todos que se aproximam de sua filha Amélia.
 - **Amélia** 👻 — Filha de Madame Delanoar. Seu espírito assombra a casa de campo da família. A maldição se desfaz se Amélia não voltar pra cama antes do galo cantar três vezes.
 
-### Aliados e Personagens Importantes (8)
+### Aliados e Personagens Importantes (10)
 
 | NPC | Emoji | Papel | Status |
 |---|---|---|---|
@@ -208,12 +208,35 @@
 | Ursula | 🌟 | Rosa Flamejante — filha de Eva | Desconhecido |
 | Jacob Amal | ❓ | Viajante misterioso — Tumba dos Yarls | Desconhecido |
 | Yall | 💀 | Entidade morto-viva — região amaldiçoada | Desconhecido |
+| Angus McLeod | 👑 | Rei de Velen — descendente de Naldiv | Vivo |
+| Yakov Nicolaievitch | 🗡️ | Líder político de Rostov — tio traidor de Salazar | Vivo |
+
+### Mestres, Sábios e Figuras Históricas (4)
+
+| NPC | Emoji | Papel | Status |
+|---|---|---|---|
+| Arabatan | 🌟 | Mestre de Divinação — mentor de Iluvathar | Morto |
+| Azemuth | 💀 | Ex-paladino / Lich — tumba vazia, corpo desaparecido | Desconhecido |
+| Elandir | 🌿 | Guarda de High Forest — caiu na guerra contra Nilfgaard | Morto |
+| Isaac | ⚔️ | Companheiro de Mason — caiu na Batalha de High Forest | Morto |
+
+- **Arabatan** — Mestre de divinação de High Forest e mentor formal de Iluvathar. Desenvolveu a Teoria dos Ciclos Cósmicos — a hipótese de que o retorno de Oz de Osbourne não é uma possibilidade, mas uma certeza temporal. Seus escritos estão dispersos entre Mithrandir e possivelmente Leopold Strauss.
+- **Azemuth** — Ex-paladino que escolheu a não-morte para continuar uma missão inacabada. Sua tumba numa ilha isolada foi encontrada pelo grupo na T3 — completamente vazia. O corpo sumiu sem sinais de violação.
+- **Elandir** — Guarda élfico de High Forest. Caiu durante a guerra contra Nilfgaard.
+- **Isaac** — Guerreiro que lutou ao lado de Mason na Batalha de High Forest. Caiu junto com Mason segurando posições.
+
+### Governantes e Figuras Políticas (2)
+
+- **Angus McLeod** 👑 — Rei de Velen e descendente provado de Naldiv. Na Batalha de West Shores (Ano 1229), enfrentou sozinho o dragão vermelho de Nilfgaard e o matou com sua claymore. Tornou-se símbolo nacional. Começou a tomar decisões erradas após perder seu melhor conselheiro — o que levou à destituição de Ragnar Wolfside.
+- **Yakov Nicolaievitch** 🗡️ — Tio de Salazar e líder político em Rostov. Traiu o sobrinho ao entregá-lo a Nilfgaard como demonstração de lealdade, permitindo que Leopold Strauss confiscasse a Gema Ancestral. Governa Rostov com apoio do Fogo Eterno e de Nilfgaard.
+
+- **Diafbah** 🏜️ — Governante enigmático da cidade de Baka. Preside o Deserto de Baka, palco do primeiro grande evento da campanha — a emergência do Leviathan. (id:145)
 
 ---
 
-## Histórias (11)
+## Histórias (13)
 
-### Lore Geral (7)
+### Lore Geral (10)
 
 **ID 1 — Divindades de Ark** · *Ano 0*
 Eons antes da formação de Ark, Ahr originou quatro faces: Ehlonna, Heironeous, Moradin e Ba'al. Ba'al alimentava-se da discórdia dos outros sem gerar debate — Foi Ehlonna quem percebeu sua influência maligna. Moradin sugeriu o banimento; Ehlonna convenceu os deuses a dar uma última chance. Os três privaram Ba'al de seus poderes e o enviaram a uma vila remota com a missão de fazê-la prosperar. Ba'al tomou a vila à força, torturou a mulher mais bela como "ritual de purificação" e desenvolveu a necromancia (partir de grãos até criar vida complexa). Ao retornar vangloriando-se, Moradin se irritou e Heironeous o baniu para as profundezas — criando os planos inferiores. A mulher deu à luz Oz de Osbourne, o futuro Príncipe das Trevas. Entre os mortais que ascenderam: Naldiv (derrotou Tiamat), Coren Larethian (mediador), Kaz o Dragonslayer (fundou Kazhak).
@@ -236,6 +259,22 @@ Descrição geográfica e cultural de Lyria — reino costeiro marcado pelo mar,
 **ID 11 — A Guerra Civil de Zarkóvia** · *Desconhecido*
 Zarkóvia dividida: Vladislávia (nobreza em declínio), Rostov (Yakov + Nilfgaard + Fogo Eterno), Baróvia (Strahd), Khazak (dominada por dragão), Mezoberranzam (observa do subterrâneo).
 
+**ID 13 — A Revolta das Raças Humanoides** · *Era Antiga*
+Por séculos, orcs, goblinoides e kobolds foram relegados às margens do mundo. Groth'uul, orc letrado de Oxenfurt, iniciou a Revolta ao documentar sua existência pré-humana. O resultado foi menos uma guerra e mais um espelho — alguns reinos responderam com ferro, outros com negociação. O tratado de Velen foi o primeiro a reconhecer juridicamente territórios orcs como soberanos. A Revolta ressoa ainda hoje nas tentativas de Iorin de tratar com os orcs e nas políticas de Nilfgaard contra não-humanos.
+
+**ID 14 — Os Ciclos Cósmicos** · *Conhecimento Ancestral*
+Teoria de Arabatan, mestre de divinação e mentor de Iluvathar: Ark existe num vórtice cósmico onde forças opostas se alternam em ascensão e descenso. O banimento de Ba'al não encerrou a ameaça — iniciou um ciclo de eras ao fim do qual Oz de Osbourne encontraria condições para retornar. O grupo não combate uma ameaça nova: combate um relógio. Arabatan morreu antes de terminar sua obra; seus escritos estão dispersos, parte deles possivelmente com Leopold Strauss.
+
+**ID 15 — Linha do Tempo de Ark** · *Registro Histórico*
+Cronologia oficial de Ark com anos:
+- **Ano -100** — Ba'al e as quatro divindades superiores; Era do Caos Primordial
+- **Ano 0** — Ba'al banido, planos inferiores criados, Oz nasce, calendário inicia
+- **Ano 1** — Primeiros reinos, Naldiv derrota Tiamat, Gemas Ancestrais dispersas, Kaz funda Kazhak
+- **Ano 1100** — Kilminster trai Oz durante a Era da Alvorada; essência de Oz aprisionada no Diário do Homem Louco; Cavaleiros do Caos fundados
+- **Ano 1195** — Rei de Velen assassinado, Nilfgaard invade o norte
+- **Ano 1229** — Batalha de West Shores; Angus McLeod mata o dragão vermelho, Velen vence a guerra
+- **Ano 1245** — Presente: Leviathan destruído, High Forest resiste, Céu Vermelho, torre de Strauss no horizonte
+
 ### Temporada 1 (1)
 
 **ID 6 — A Queda do Leviathan** · *Temporada I*
@@ -245,8 +284,8 @@ O grupo chega ao Deserto de Baka, governado por Diafbah. O Leviathan emerge das 
 ### Temporada 2 (1)
 
 **ID 7 — A Guerra de High Forest** · *Temporada II*
-High Forest sob ataque de Nilfgaard — Radovan conduz pessoalmente. Mordekai entra na party, resgatado em Rostov por Iluvathar e Mason. Leopold Strauss opera nas sombras coletando artefatos. Iluvathar confronta Radovan. Mason morre segurando posições — torna-se figura mítica. Leomir casa-se com a princesa de Galáxia e sai da jornada. A floresta resiste, o Império recua, mas não desaparece.
-*Personagens: Iluvathar · Mason · Salazar · Leomir · Shadow · Mordekai · Leopold Strauss (NPC)*
+Resgate de Mordekai em Rostov por Iluvathar e Mason. High Forest sob ataque de Nilfgaard — Radovan conduz pessoalmente. Leopold Strauss opera nas sombras coletando artefatos. Mason e Isaac seguram posições contra forças numericamente superiores — Mason morre, torna-se figura mítica; Isaac cai junto. Iluvathar confronta Radovan diretamente. A floresta resiste. Após a batalha, o grupo vai a Galásia — Leomir é convocado para negociações políticas e matrimoniais, casa-se com a princesa e sai da jornada.
+*Personagens: Iluvathar · Mason · Salazar · Leomir · Shadow · Mordekai*
 
 ### Temporada 3 (2)
 
@@ -254,8 +293,8 @@ High Forest sob ataque de Nilfgaard — Radovan conduz pessoalmente. Mordekai en
 Adrik nasceu na Casa Lahabrea em Kazak. Perdeu o irmão durante a fuga da queda de Khazak para Ancalagon. Culpado pelos pais, foi exilado. Conheceu Thancred Alphinaud e fundou os Heavensward. Após 15 anos perseguindo Hilda Hulda, sacrificou todos os companheiros para invocá-la — sobreviveu, derrotou a bruxa, mas nunca encontrou o irmão.
 
 **ID 12 — Fragmentação — A Travessia e o Novo Eixo** · *Temporada III · 🔨 Em Andamento*
-Ilúvatar e Mordekai partem de Galáxia rumo ao norte. Durante a travessia, Ilúvatar ensina desconfiança e frieza — Mordekai absorve tudo como verdade. Os dois caem em emboscada de Sirocco (resistência contra Nilfgaard) e se integram ao grupo, onde Iorin Stenson se destaca como liderança natural. Na noite anterior à emboscada na ponte, Ilúvatar dorme com Zelitch — Mordekai descobre e se sente traído. Na Batalha da Ponte, Mordekai salta com dois barris de pólvora. Ilúvatar o ressuscita, recusando-se a aceitar mais uma perda. Adrik se junta ao grupo, encontrado próximo à Torre de Strauss. O Céu Vermelho altera o céu de todo o continente — origem rastreada até a torre de Strauss. Fávaro morre contra os Cavaleiros do Caos e é ressuscitado por Djakaro.
-*Personagens: Iluvathar · Mordekai · Adrik · Iorin · Fávaro · Djakaro · Sirocco · Zelitch*
+Iluvathar e Mordekai partem de Galásia. Tatiane Vesper os encontra com missão urgente: resgatar o pai Exius de Winterhold em 3 meses. A rota cruza com a Ilha de Azemuth — tumba de ex-paladino-lich, completamente vazia (corpo desaparecido sem sinais de violação). Durante a travessia, Ilúvatar ensina o dogma da desconfiança — Mordekai absorve tudo. Os dois caem em emboscada de Sirocco (resistência anti-Nilfgaard) e se integram ao grupo, onde Iorin Stenson se destaca como liderança natural. Na noite anterior à emboscada na ponte, Ilúvatar dorme com Zelitch — Mordekai descobre e se sente traído. Na Batalha da Ponte, Mordekai salta com dois barris de pólvora. Ilúvatar o ressuscita, recusando-se a aceitar mais uma perda. Adrik se junta ao grupo. O Céu Vermelho altera o céu de todo o continente — origem rastreada até a torre de Strauss. Nilfgaard infiltrado — vila com cemitério vazio. Demônio do orfanato derrotado. Fávaro morre contra os Cavaleiros do Caos e é ressuscitado por Djakaro.
+*Personagens: Iluvathar · Mordekai · Adrik · Iorin · Fávaro · Djakaro*
 
 ### Participantes por Temporada
 
@@ -326,6 +365,7 @@ Ilúvatar e Mordekai partem de Galáxia rumo ao norte. Durante a travessia, Ilú
 | Zarkóvia | Reino mergulhado em guerra civil. |
 | Vladislávia | Capital de Zarkóvia — nobreza em declínio. |
 | Rostov | Potência emergente ao sul de Zarkóvia, guiada por Yakov Nicolaievitch com apoio de Nilfgaard. Local do resgate de Mordekai e da execução pública de Salazar pelos sacerdotes do Fogo Eterno. |
+| Galásia | Cidade-estado de arquitetura clássica. Destino do grupo após High Forest — onde Leomir casou-se com a princesa e saiu da jornada. |
 | Baróvia | Reino isolado sob domínio de Strahd Von Zarovitch. Horror gótico. |
 | Velen | Reino marcado pela guerra contra Nilfgaard. |
 | Redânia | Potência regional, aliada de Velen na guerra. |
@@ -418,9 +458,9 @@ Ilúvatar e Mordekai partem de Galáxia rumo ao norte. Durante a travessia, Ilú
 | Dado | Valor |
 |---|---|
 | Heróis | 11 |
-| NPCs | 39 |
-| Histórias | 11 |
+| NPCs | 47 |
+| Histórias | 13 |
 | Jogadores ativos | 6 |
-| Regiões | 46 |
+| Regiões | 47 |
 | Temporadas | 5 |
 | Retratos no álbum | 11 |

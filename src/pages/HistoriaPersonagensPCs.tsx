@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import CharacterCard from "@/components/CharacterCard";
+import StoryCharacterCard from "@/components/StoryCharacterCard";
+import CharacterCarousel from "@/components/CharacterCarousel";
 import { herois } from "@/data/personagens";
 
-const PersonagensPCs = () => {
+const HistoriaPersonagensPCs = () => {
   const [query, setQuery] = useState("");
 
   const filtrados = herois.filter(h => {
@@ -16,10 +17,12 @@ const PersonagensPCs = () => {
   return (
     <div className="space-y-8 animate-fade-in-up">
       <PageHeader
-        titulo="Heróis"
-        descricao="Os heróis que forjam seu destino nas terras de Ark"
-        breadcrumb="Personagens / Heróis"
+        titulo="Personagens dos Jogadores"
+        descricao="Os heróis por trás dos eventos narrados nas histórias"
+        breadcrumb="Histórias / Personagens dos Jogadores"
       />
+
+      <CharacterCarousel titulo="Vitrine de Heróis" personagens={herois} />
 
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
@@ -46,7 +49,7 @@ const PersonagensPCs = () => {
       {filtrados.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtrados.map(heroi => (
-            <CharacterCard key={heroi.id} personagem={heroi} />
+            <StoryCharacterCard key={heroi.id} personagem={heroi} />
           ))}
         </div>
       ) : (
@@ -59,4 +62,4 @@ const PersonagensPCs = () => {
   );
 };
 
-export default PersonagensPCs;
+export default HistoriaPersonagensPCs;

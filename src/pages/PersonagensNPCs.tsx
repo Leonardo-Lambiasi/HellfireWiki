@@ -8,8 +8,8 @@ import type { Personagem } from "@/data/personagens";
 const NPCCard = ({ personagem }: { personagem: Personagem }) => (
   <Card className="hover:scale-[1.02] transition-all">
     <CardHeader>
-      <CardTitle className="text-xl text-hellfire-gold">{personagem.nome}</CardTitle>
-      <p className="text-sm text-hellfire-ember">{personagem.origem}</p>
+      <CardTitle className="text-xl text-fundo-da-grota-gold">{personagem.nome}</CardTitle>
+      <p className="text-sm text-fundo-da-grota-ember">{personagem.origem}</p>
     </CardHeader>
     <CardContent>
       <p className="text-sm text-muted-foreground leading-relaxed">
@@ -43,7 +43,7 @@ const PersonagensNPCs = () => {
           placeholder="Pesquisar por nome, afiliação, descrição..."
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-card border border-hellfire-ash/60 focus:border-hellfire-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
+          className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-card border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
         />
         {query && (
           <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors">

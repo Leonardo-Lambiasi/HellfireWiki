@@ -57,8 +57,8 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
                 onClick={() => toggle(item.title)}
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-md transition-all duration-200 ${
                   isActive
-                    ? "bg-hellfire-orange/20 text-hellfire-gold border-l-4 border-hellfire-gold"
-                    : "text-muted-foreground hover:bg-hellfire-ash hover:text-hellfire-orange hover:border-l-4 hover:border-hellfire-orange"
+                    ? "bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold border-l-4 border-fundo-da-grota-gold"
+                    : "text-muted-foreground hover:bg-fundo-da-grota-ash hover:text-fundo-da-grota-orange hover:border-l-4 hover:border-fundo-da-grota-orange"
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -71,7 +71,7 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
               </button>
 
               {isExpanded && (
-                <div className="ml-8 mt-1 space-y-1 border-l border-hellfire-ash/50 pl-3">
+                <div className="ml-8 mt-1 space-y-1 border-l border-fundo-da-grota-ash/50 pl-3">
                   {item.subitems.map(sub => (
                     <NavLink
                       key={sub.url}
@@ -80,8 +80,8 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
                       className={({ isActive }) =>
                         `block px-3 py-2 rounded-md text-sm transition-all duration-200 ${
                           isActive
-                            ? "text-hellfire-gold font-semibold"
-                            : "text-muted-foreground hover:text-hellfire-orange"
+                            ? "text-fundo-da-grota-gold font-semibold"
+                            : "text-muted-foreground hover:text-fundo-da-grota-orange"
                         }`
                       }
                     >
@@ -103,8 +103,8 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-md mb-1 transition-all duration-200 ${
                 isActive
-                  ? "bg-hellfire-orange/20 text-hellfire-gold border-l-4 border-hellfire-gold"
-                  : "text-muted-foreground hover:bg-hellfire-ash hover:text-hellfire-orange hover:border-l-4 hover:border-hellfire-orange"
+                  ? "bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold border-l-4 border-fundo-da-grota-gold"
+                  : "text-muted-foreground hover:bg-fundo-da-grota-ash hover:text-fundo-da-grota-orange hover:border-l-4 hover:border-fundo-da-grota-orange"
               }`
             }
           >

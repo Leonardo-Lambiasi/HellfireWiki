@@ -2,32 +2,31 @@ export interface Participante {
   nome: string;
   emoji: string;
   tipo: "heroi" | "npc";
-  rota: string;
 }
 
 export const temporadasParticipantes: Record<number, Participante[]> = {
   1: [
-    { nome: "Iluvathar", emoji: "🌳", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Mason",     emoji: "⚔️", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Salazar",   emoji: "💎", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Leomir",    emoji: "🎶", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Shadow",    emoji: "🐾", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Iluvathar", emoji: "🌳", tipo: "heroi" },
+    { nome: "Mason",     emoji: "⚔️", tipo: "heroi" },
+    { nome: "Salazar",   emoji: "💎", tipo: "heroi" },
+    { nome: "Leomir",    emoji: "🎶", tipo: "heroi" },
+    { nome: "Shadow",    emoji: "🐾", tipo: "heroi" },
   ],
   2: [
-    { nome: "Iluvathar",       emoji: "🌳", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Mason",           emoji: "⚔️", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Salazar",         emoji: "💎", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Leomir",          emoji: "🎶", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Shadow",          emoji: "🐾", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Mordekai",        emoji: "😈", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Iluvathar",       emoji: "🌳", tipo: "heroi" },
+    { nome: "Mason",           emoji: "⚔️", tipo: "heroi" },
+    { nome: "Salazar",         emoji: "💎", tipo: "heroi" },
+    { nome: "Leomir",          emoji: "🎶", tipo: "heroi" },
+    { nome: "Shadow",          emoji: "🐾", tipo: "heroi" },
+    { nome: "Mordekai",        emoji: "😈", tipo: "heroi" },
   ],
   3: [
-    { nome: "Iluvathar",      emoji: "🌳", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Mordekai",       emoji: "😈", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Adrik",          emoji: "⚒️", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Iorin",          emoji: "🐺", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Fávaro",         emoji: "🎩", tipo: "heroi", rota: "/personagens/pcs" },
-    { nome: "Djakaro",        emoji: "⛪", tipo: "heroi", rota: "/personagens/pcs" },
+    { nome: "Iluvathar",      emoji: "🌳", tipo: "heroi" },
+    { nome: "Mordekai",       emoji: "😈", tipo: "heroi" },
+    { nome: "Adrik",          emoji: "⚒️", tipo: "heroi" },
+    { nome: "Iorin",          emoji: "🐺", tipo: "heroi" },
+    { nome: "Fávaro",         emoji: "🎩", tipo: "heroi" },
+    { nome: "Djakaro",        emoji: "⛪", tipo: "heroi" },
   ],
   4: [],
   5: [],
@@ -40,7 +39,7 @@ export interface Historia {
   resumo: string;
   temporada: number | null;
   emAndamento?: boolean;
-  personagens?: { nome: string; emoji: string; rota: string }[];
+  personagens?: { nome: string; emoji: string }[];
 }
 
 export const historias: Historia[] = [
@@ -111,11 +110,11 @@ export const historias: Historia[] = [
       "O primeiro grande arco da campanha levou o grupo ao coração do Deserto de Baka — terra hostil e esquecida, governada pelo enigmático Diafbah. O que começou como uma missão de investigação virou uma corrida contra o tempo: das profundezas do deserto, algo acordou. O Leviathan emergiu e começou a destruir a cidade de Baka pedaço por pedaço.\n\nA batalha foi brutal. O Leviathan não era um monstro comum — era um evento. Mas o grupo segurou. Iluvathar coordenou, Mason forçou o confronto direto, Salazar apostou em soluções arcanas de alto risco — canalizando a Gema Ancestral que Vesper lhe confiara além do que qualquer mente deveria suportar. O Leviathan foi destruído. A gema foi o preço.\n\nA cidade sobreviveu — em parte. O que não sobreviveu foi a ilusão de que o grupo estava lidando com um mundo previsível. A vitória custou mais do que parecia. Salazar seguiu sozinho em busca de mais poder e conhecimento. Meses depois foi capturado em Rostov, a gema confiscada por Leopold Strauss, e executado publicamente pelos sacerdotes do Fogo Eterno. Aquilo foi apenas o começo.",
     temporada: 1,
     personagens: [
-      { nome: "Iluvathar", emoji: "🌳", rota: "/personagens/pcs" },
-      { nome: "Mason",     emoji: "⚔️", rota: "/personagens/pcs" },
-      { nome: "Salazar",   emoji: "💎", rota: "/personagens/pcs" },
-      { nome: "Leomir",    emoji: "🎶", rota: "/personagens/pcs" },
-      { nome: "Shadow",    emoji: "🐾", rota: "/personagens/pcs" },
+      { nome: "Iluvathar", emoji: "🌳" },
+      { nome: "Mason",     emoji: "⚔️" },
+      { nome: "Salazar",   emoji: "💎" },
+      { nome: "Leomir",    emoji: "🎶" },
+      { nome: "Shadow",    emoji: "🐾" },
     ],
   },
 
@@ -128,12 +127,12 @@ export const historias: Historia[] = [
       "A segunda temporada elevou as apostas a uma escala que o grupo ainda não havia enfrentado. Após o fim da Temporada I, Salazar partiu sozinho em busca de mais poder — e desapareceu nas sombras de Rostov. O grupo se dispersou. O que restou precisou de um novo eixo.\n\nA primeira grande ação foi um resgate: Iluvathar e Mason infiltraram Rostov — cidade controlada pelos ideais do Fogo Eterno e pela influência de Nilfgaard — para libertar Mordekai, tiefling jovem preso por razões que ele mesmo não compreendia completamente. A operação foi precisa. Mordekai saiu diferente de como entrou: com lealdade quase cega a Iluvathar, e com o peso de quem foi salvo por alguém que acreditou nele antes de ele acreditar em si mesmo.\n\nHigh Forest — floresta ancestral dos elfos, lar de Iluvathar e de uma magia que antecede os próprios reinos — estava sob ataque. Nilfgaard havia cruzado a fronteira, e o Imperador Radovan conduzia a ofensiva pessoalmente. Leopold Strauss operava nas sombras da campanha nilfgaardiana — rastreando artefatos, decifrando relíquias, servindo ao Império de formas que nenhuma espada poderia.\n\nA defesa foi tanto estratégica quanto simbólica. Iluvathar coordenou aliados, diplomatas e combatentes numa frente que enfrentava não apenas um exército, mas uma ideologia. Mason e Isaac seguraram posições contra forças numericamente superiores. Mason morreu nessa batalha — resistência pura, não heroísmo calculado. Isaac caiu junto. Tornou-se figura mítica: versões contraditórias de sua morte circulam entre soldados como se fosse semideus.\n\nIluvathar confrontou pessoalmente o Imperador Radovan — não apenas como oponente em campo, mas como símbolo: prova de que a resistência era real, organizada e disposta a custar tudo. A guerra foi vencida. High Forest resistiu.\n\nApós a batalha, o grupo seguiu até Galásia — cidade-estado de arquitetura clássica e vínculos políticos antigos. Leomir havia sido convocado: sua influência como líder cultural e sua linhagem tornavam-no candidato natural para uma aliança matrimonial. Conflitos políticos, pressão familiar e a lógica de um mundo que não distingue arte de diplomacia. Leomir pesou as opções e escolheu. Casou-se com a princesa de Galásia e saiu da jornada — um homem escolhendo uma vida diferente.\n\nPara Iluvathar, a vitória confirmou o padrão: quanto mais avança, mais perde.",
     temporada: 2,
     personagens: [
-      { nome: "Iluvathar",       emoji: "🌳", rota: "/personagens/pcs" },
-      { nome: "Mason",           emoji: "⚔️", rota: "/personagens/pcs" },
-      { nome: "Salazar",         emoji: "💎", rota: "/personagens/pcs" },
-      { nome: "Leomir",          emoji: "🎶", rota: "/personagens/pcs" },
-      { nome: "Shadow",          emoji: "🐾", rota: "/personagens/pcs" },
-      { nome: "Mordekai",        emoji: "😈", rota: "/personagens/pcs" },
+      { nome: "Iluvathar",       emoji: "🌳" },
+      { nome: "Mason",           emoji: "⚔️" },
+      { nome: "Salazar",         emoji: "💎" },
+      { nome: "Leomir",          emoji: "🎶" },
+      { nome: "Shadow",          emoji: "🐾" },
+      { nome: "Mordekai",        emoji: "😈" },
     ],
   },
 
@@ -147,12 +146,12 @@ export const historias: Historia[] = [
     temporada: 3,
     emAndamento: true,
     personagens: [
-      { nome: "Iluvathar", emoji: "🌳", rota: "/personagens/pcs" },
-      { nome: "Mordekai",  emoji: "😈", rota: "/personagens/pcs" },
-      { nome: "Adrik",     emoji: "⚒️", rota: "/personagens/pcs" },
-      { nome: "Iorin",     emoji: "🐺", rota: "/personagens/pcs" },
-      { nome: "Fávaro",    emoji: "🎩", rota: "/personagens/pcs" },
-      { nome: "Djakaro",   emoji: "⛪", rota: "/personagens/pcs" },
+      { nome: "Iluvathar", emoji: "🌳" },
+      { nome: "Mordekai",  emoji: "😈" },
+      { nome: "Adrik",     emoji: "⚒️" },
+      { nome: "Iorin",     emoji: "🐺" },
+      { nome: "Fávaro",    emoji: "🎩" },
+      { nome: "Djakaro",   emoji: "⛪" },
     ],
   },
 

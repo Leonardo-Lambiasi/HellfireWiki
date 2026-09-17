@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import type { Personagem } from "@/data/personagens";
+import CharacterImageSlot from "@/components/CharacterImageSlot";
+import { personagemAnchor, type Personagem } from "@/data/personagens";
 
 function getClasseStyle(classe: string): string {
   const c = classe.toLowerCase();
@@ -31,12 +32,13 @@ function getStatusColor(status: string): string {
   }
 }
 
-const CharacterCard = ({ personagem }: { personagem: Personagem }) => (
-  <Card className="hover:scale-[1.02] transition-all">
+/** Card de personagem para as páginas de história — inclui o slot de imagem e a âncora usada pelos links das histórias. */
+const StoryCharacterCard = ({ personagem }: { personagem: Personagem }) => (
+  <Card id={personagemAnchor(personagem.id)} className="scroll-mt-24 hover:scale-[1.02] transition-all">
     <CardHeader>
       <div className="flex justify-between items-start mb-3">
         <div className="flex items-center gap-3">
-          <span className="text-5xl">{personagem.icon}</span>
+          <CharacterImageSlot imagem={personagem.imagem} nome={personagem.nome} icon={personagem.icon} size="sm" />
           <div>
             <CardTitle className="text-2xl text-fundo-da-grota-gold">
               {personagem.nome}
@@ -67,4 +69,4 @@ const CharacterCard = ({ personagem }: { personagem: Personagem }) => (
   </Card>
 );
 
-export default CharacterCard;
+export default StoryCharacterCard;

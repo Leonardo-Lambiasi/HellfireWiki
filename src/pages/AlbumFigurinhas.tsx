@@ -119,7 +119,7 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
 
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-hellfire-orange/80 transition-colors text-lg font-bold z-10"
+        className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-fundo-da-grota-orange/80 transition-colors text-lg font-bold z-10"
       >
         ✕
       </button>
@@ -127,7 +127,7 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
       {zoomed && (
         <button
           onClick={reset}
-          className="absolute top-4 right-16 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-hellfire-orange/80 transition-colors text-sm font-bold z-10"
+          className="absolute top-4 right-16 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-fundo-da-grota-orange/80 transition-colors text-sm font-bold z-10"
           title="Resetar zoom (0)"
         >
           ⊡
@@ -139,15 +139,15 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
 
 const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void }) => {
   const borderClass = card.heroi
-    ? "border-hellfire-gold shadow-[0_0_14px_rgba(245,166,35,0.25)] hover:shadow-[0_0_28px_rgba(245,166,35,0.45)] hover:border-hellfire-gold"
-    : "border-hellfire-ash/60 hover:border-hellfire-orange/70 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)]";
+    ? "border-fundo-da-grota-gold shadow-[0_0_14px_rgba(245,166,35,0.25)] hover:shadow-[0_0_28px_rgba(245,166,35,0.45)] hover:border-fundo-da-grota-gold"
+    : "border-fundo-da-grota-ash/60 hover:border-fundo-da-grota-orange/70 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)]";
 
   return (
   <div
-    className={`group relative rounded-xl overflow-hidden border bg-hellfire-charcoal transition-all duration-300 hover:scale-[1.02] select-none ${card.imagem ? "cursor-pointer" : "cursor-default"} ${borderClass}`}
+    className={`group relative rounded-xl overflow-hidden border bg-fundo-da-grota-charcoal transition-all duration-300 hover:scale-[1.02] select-none ${card.imagem ? "cursor-pointer" : "cursor-default"} ${borderClass}`}
     onClick={card.imagem ? onClick : undefined}
   >
-    <div className="w-full aspect-[3/4] overflow-hidden bg-gradient-to-b from-hellfire-charcoal to-card relative">
+    <div className="w-full aspect-[3/4] overflow-hidden bg-gradient-to-b from-fundo-da-grota-charcoal to-card relative">
       {card.imagem ? (
         <img
           src={card.imagem}
@@ -165,10 +165,10 @@ const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void })
     </div>
 
     <div className="absolute bottom-0 inset-x-0 p-4">
-      <h3 className="font-cinzel font-bold text-hellfire-gold text-base leading-tight drop-shadow-lg">
+      <h3 className="font-cinzel font-bold text-fundo-da-grota-gold text-base leading-tight drop-shadow-lg">
         {card.nome}
       </h3>
-      <p className="text-xs text-hellfire-ember mt-0.5 drop-shadow">{card.classe}</p>
+      <p className="text-xs text-fundo-da-grota-ember mt-0.5 drop-shadow">{card.classe}</p>
     </div>
   </div>
   );

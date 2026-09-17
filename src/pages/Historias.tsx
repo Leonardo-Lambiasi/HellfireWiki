@@ -37,7 +37,7 @@ const Historias = () => {
           placeholder="Pesquisar em todas as histórias e lore..."
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-card border border-hellfire-ash/60 focus:border-hellfire-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
+          className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-card border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
         />
         {query && (
           <button
@@ -58,8 +58,8 @@ const Historias = () => {
               onClick={() => setAba(t)}
               className={`px-5 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all ${
                 aba === t
-                  ? "border-hellfire-orange bg-hellfire-orange/20 text-hellfire-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
-                  : "border-hellfire-ash/60 text-muted-foreground hover:border-hellfire-orange/50 hover:text-foreground"
+                  ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
+                  : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
               }`}
             >
               Temporada {t}
@@ -71,8 +71,8 @@ const Historias = () => {
               onClick={() => setAba("lore")}
               className={`px-5 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all ${
                 aba === "lore"
-                  ? "border-hellfire-gold bg-hellfire-gold/10 text-hellfire-gold shadow-[0_0_12px_rgba(255,200,50,0.2)]"
-                  : "border-hellfire-ash/60 text-muted-foreground hover:border-hellfire-gold/50 hover:text-foreground"
+                  ? "border-fundo-da-grota-gold bg-fundo-da-grota-gold/10 text-fundo-da-grota-gold shadow-[0_0_12px_rgba(255,200,50,0.2)]"
+                  : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-gold/50 hover:text-foreground"
               }`}
             >
               📜 Lore Geral
@@ -111,7 +111,7 @@ const Historias = () => {
       )}
 
 
-      <div className="relative h-px bg-gradient-to-r from-transparent via-hellfire-orange to-transparent my-12">
+      <div className="relative h-px bg-gradient-to-r from-transparent via-fundo-da-grota-orange to-transparent my-12">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4 text-2xl">
           🔥
         </div>

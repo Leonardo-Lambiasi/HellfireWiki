@@ -327,11 +327,11 @@ const REGRAS_MESA: RegrasCasa[] = [
 // ─── Sub-componentes ──────────────────────────────────────────────────────────
 
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`rounded-xl border border-hellfire-ash/60 bg-card p-4 ${className}`}>{children}</div>
+  <div className={`rounded-xl border border-fundo-da-grota-ash/60 bg-card p-4 ${className}`}>{children}</div>
 );
 
 const TagBadge = ({ text }: { text: string }) => (
-  <span className="text-[10px] font-cinzel tracking-wider px-2 py-0.5 rounded bg-hellfire-orange/15 text-hellfire-ember border border-hellfire-orange/20">
+  <span className="text-[10px] font-cinzel tracking-wider px-2 py-0.5 rounded bg-fundo-da-grota-orange/15 text-fundo-da-grota-ember border border-fundo-da-grota-orange/20">
     {text}
   </span>
 );
@@ -339,7 +339,7 @@ const TagBadge = ({ text }: { text: string }) => (
 const EntradaCard = ({ e }: { e: Entrada }) => (
   <Card>
     <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-      <h3 className="font-cinzel font-bold text-hellfire-gold text-sm">{e.nome}</h3>
+      <h3 className="font-cinzel font-bold text-fundo-da-grota-gold text-sm">{e.nome}</h3>
       {e.tag && <TagBadge text={e.tag} />}
     </div>
     <p className="text-xs text-muted-foreground leading-relaxed mb-2">{e.descricao}</p>
@@ -347,33 +347,33 @@ const EntradaCard = ({ e }: { e: Entrada }) => (
       <ul className="space-y-1">
         {e.bullets.map((b, i) => (
           <li key={i} className="text-xs text-muted-foreground flex gap-2">
-            <span className="text-hellfire-ember shrink-0">›</span>{b}
+            <span className="text-fundo-da-grota-ember shrink-0">›</span>{b}
           </li>
         ))}
       </ul>
     )}
-    {e.fonte && <p className="text-[10px] text-hellfire-ash mt-2 italic">{e.fonte}</p>}
+    {e.fonte && <p className="text-[10px] text-fundo-da-grota-ash mt-2 italic">{e.fonte}</p>}
   </Card>
 );
 
 
 const WeaponTable = ({ title, armas }: { title: string; armas: ArmaTbl[] }) => (
   <div className="col-span-full">
-    <h3 className="font-cinzel font-bold text-hellfire-orange text-sm tracking-widest uppercase mb-3">{title}</h3>
-    <div className="overflow-x-auto rounded-xl border border-hellfire-ash/60">
+    <h3 className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-3">{title}</h3>
+    <div className="overflow-x-auto rounded-xl border border-fundo-da-grota-ash/60">
       <table className="w-full text-xs min-w-[600px]">
         <thead>
-          <tr className="bg-hellfire-charcoal border-b border-hellfire-ash/60">
+          <tr className="bg-fundo-da-grota-charcoal border-b border-fundo-da-grota-ash/60">
             {["Arma", "Dano", "Propriedades", "Maestria", "Peso", "Custo"].map(h => (
-              <th key={h} className="text-left px-3 py-2 font-cinzel text-hellfire-gold">{h}</th>
+              <th key={h} className="text-left px-3 py-2 font-cinzel text-fundo-da-grota-gold">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {armas.map((a, i) => (
-            <tr key={i} className={i % 2 === 0 ? "bg-card" : "bg-hellfire-charcoal/40"}>
+            <tr key={i} className={i % 2 === 0 ? "bg-card" : "bg-fundo-da-grota-charcoal/40"}>
               <td className="px-3 py-2 font-semibold text-foreground whitespace-nowrap">{a.nome}</td>
-              <td className="px-3 py-2 text-hellfire-ember whitespace-nowrap">{a.dano}</td>
+              <td className="px-3 py-2 text-fundo-da-grota-ember whitespace-nowrap">{a.dano}</td>
               <td className="px-3 py-2 text-muted-foreground">{a.props}</td>
               <td className="px-3 py-2"><TagBadge text={a.maestria} /></td>
               <td className="px-3 py-2 text-muted-foreground whitespace-nowrap">{a.peso}</td>
@@ -392,8 +392,8 @@ const TabAtributos = () => (
   <div className="space-y-8">
     {ATRIBUTOS.map(g => (
       <div key={g.atributo}>
-        <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-lg border-l-4 ${g.cor} bg-hellfire-charcoal/60`}>
-          <h3 className="font-cinzel font-bold text-hellfire-gold">{g.atributo}</h3>
+        <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-lg border-l-4 ${g.cor} bg-fundo-da-grota-charcoal/60`}>
+          <h3 className="font-cinzel font-bold text-fundo-da-grota-gold">{g.atributo}</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {g.pericias.map(e => <EntradaCard key={e.nome} e={e} />)}
@@ -406,25 +406,25 @@ const TabAtributos = () => (
 const TabCombate = () => (
   <div className="space-y-8">
     <div>
-      <p className="font-cinzel font-bold text-hellfire-orange text-sm tracking-widest uppercase mb-4">Testes e Jogadas</p>
+      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Testes e Jogadas</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {TESTES.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
     <div>
-      <p className="font-cinzel font-bold text-hellfire-orange text-sm tracking-widest uppercase mb-4">Ações</p>
+      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Ações</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {ACOES.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
     <div>
-      <p className="font-cinzel font-bold text-hellfire-orange text-sm tracking-widest uppercase mb-4">Ações Bônus</p>
+      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Ações Bônus</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {BONUS.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
     <div>
-      <p className="font-cinzel font-bold text-hellfire-orange text-sm tracking-widest uppercase mb-4">Reações</p>
+      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Reações</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {REACOES.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
@@ -452,7 +452,7 @@ const TabAmbiente = () => (
 
 const TabDominio = () => (
   <div className="space-y-4">
-    <p className="text-sm text-muted-foreground leading-relaxed border-l-2 border-hellfire-orange pl-4">
+    <p className="text-sm text-muted-foreground leading-relaxed border-l-2 border-fundo-da-grota-orange pl-4">
       Cada arma possui uma <strong className="text-foreground">Propriedade de Domínio</strong>. O personagem pode usar um número de maestrias igual ao seu <strong className="text-foreground">modificador de Inteligência</strong>.
     </p>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -472,22 +472,22 @@ const TabArmas = () => (
 
 const TabMesa = () => (
   <div className="space-y-4">
-    <p className="text-sm text-muted-foreground leading-relaxed border-l-2 border-hellfire-gold pl-4">
+    <p className="text-sm text-muted-foreground leading-relaxed border-l-2 border-fundo-da-grota-gold pl-4">
       Regras customizadas desta mesa. Prevalecem sobre o manual padrão quando há conflito.
     </p>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       {REGRAS_MESA.map(r => (
-        <div key={r.titulo} className="rounded-xl border border-hellfire-gold/40 bg-hellfire-gold/5 p-4">
+        <div key={r.titulo} className="rounded-xl border border-fundo-da-grota-gold/40 bg-fundo-da-grota-gold/5 p-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-xl">{r.icon}</span>
-            <h3 className="font-cinzel font-bold text-hellfire-gold text-sm">{r.titulo}</h3>
+            <h3 className="font-cinzel font-bold text-fundo-da-grota-gold text-sm">{r.titulo}</h3>
           </div>
           <p className="text-xs text-muted-foreground leading-relaxed mb-2">{r.descricao}</p>
           {r.bullets && (
             <ul className="space-y-1">
               {r.bullets.map((b, i) => (
                 <li key={i} className="text-xs text-muted-foreground flex gap-2">
-                  <span className="text-hellfire-gold shrink-0">›</span>{b}
+                  <span className="text-fundo-da-grota-gold shrink-0">›</span>{b}
                 </li>
               ))}
             </ul>
@@ -545,8 +545,8 @@ const Regras = () => {
             onClick={() => changeTab(t.id)}
             className={`px-4 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all flex items-center gap-1.5 ${
               tab === t.id
-                ? "border-hellfire-orange bg-hellfire-orange/20 text-hellfire-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
-                : "border-hellfire-ash/60 text-muted-foreground hover:border-hellfire-orange/50 hover:text-foreground"
+                ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
+                : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
             }`}
           >
             <span>{t.icon}</span>

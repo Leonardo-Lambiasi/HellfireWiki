@@ -37,14 +37,14 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        // Cores Hellfire customizadas
-        hellfire: {
-          orange: "hsl(var(--hellfire-orange))",
-          red: "hsl(var(--hellfire-red))",
-          gold: "hsl(var(--hellfire-gold))",
-          ash: "hsl(var(--hellfire-ash))",
-          charcoal: "hsl(var(--hellfire-charcoal))",
-          ember: "hsl(var(--hellfire-ember))",
+        // Cores Fundo da Grota customizadas
+        "fundo-da-grota": {
+          orange: "hsl(var(--fundo-da-grota-orange))",
+          red: "hsl(var(--fundo-da-grota-red))",
+          gold: "hsl(var(--fundo-da-grota-gold))",
+          ash: "hsl(var(--fundo-da-grota-ash))",
+          charcoal: "hsl(var(--fundo-da-grota-charcoal))",
+          ember: "hsl(var(--fundo-da-grota-ember))",
         },
       },
       fontFamily: {
@@ -69,10 +69,10 @@ export default {
         },
         "ember-glow": {
           "0%, 100%": {
-            filter: "drop-shadow(0 0 10px hsl(var(--hellfire-orange) / 0.6))",
+            filter: "drop-shadow(0 0 10px hsl(var(--fundo-da-grota-orange) / 0.6))",
           },
           "50%": {
-            filter: "drop-shadow(0 0 20px hsl(var(--hellfire-orange) / 0.9))",
+            filter: "drop-shadow(0 0 20px hsl(var(--fundo-da-grota-orange) / 0.9))",
           },
         },
         "flame-flicker": {

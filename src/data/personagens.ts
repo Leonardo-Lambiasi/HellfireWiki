@@ -9,6 +9,12 @@ export interface Personagem {
   descricao: string;
   status: Status;
   icon: string;
+  imagem?: string;
+}
+
+/** Âncora única do card de um personagem na página de PCs ou NPCs. */
+export function personagemAnchor(id: number): string {
+  return `personagem-${id}`;
 }
 
 export const herois: Personagem[] = [
@@ -675,3 +681,19 @@ export const npcs: Personagem[] = [
     icon: "💀",
   },
 ];
+
+/**
+ * Resolve a rota+âncora correta de um personagem pelo nome, distinguindo
+ * heróis (PCs) de NPCs — evita linkar todos os personagens para a mesma página.
+ * Aponta para as páginas de personagens da aba Histórias, que são rotas
+ * próprias e diferentes das páginas de personagens da aba Personagens.
+ */
+export function getPersonagemRota(nome: string): string {
+  const heroi = herois.find(h => h.nome === nome);
+  if (heroi) return `/historias/pcs#${personagemAnchor(heroi.id)}`;
+
+  const npc = npcs.find(n => n.nome === nome);
+  if (npc) return `/historias/npcs#${personagemAnchor(npc.id)}`;
+
+  return "/historias/pcs";
+}

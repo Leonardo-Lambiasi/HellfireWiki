@@ -101,7 +101,7 @@ const GlobalSearch = ({ onNavigate }: { onNavigate?: () => void }) => {
           value={query}
           onChange={e => { setQuery(e.target.value); setAberto(true); }}
           onFocus={() => setAberto(true)}
-          className="w-full pl-9 pr-8 py-2 text-sm rounded-lg bg-background/50 border border-hellfire-ash/60 focus:border-hellfire-orange/70 focus:outline-none text-foreground placeholder:text-muted-foreground transition-colors"
+          className="w-full pl-9 pr-8 py-2 text-sm rounded-lg bg-background/50 border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-foreground placeholder:text-muted-foreground transition-colors"
         />
         {query && (
           <button
@@ -114,7 +114,7 @@ const GlobalSearch = ({ onNavigate }: { onNavigate?: () => void }) => {
       </div>
 
       {aberto && query.length >= 2 && (
-        <div className="absolute left-4 right-4 top-full z-50 mt-1 rounded-lg border border-hellfire-ash/60 bg-hellfire-charcoal shadow-2xl overflow-hidden max-h-72 overflow-y-auto">
+        <div className="absolute left-4 right-4 top-full z-50 mt-1 rounded-lg border border-fundo-da-grota-ash/60 bg-fundo-da-grota-charcoal shadow-2xl overflow-hidden max-h-72 overflow-y-auto">
           {resultados.length === 0 ? (
             <p className="px-4 py-3 text-sm text-muted-foreground italic text-center">
               Nenhum resultado para "{query}"
@@ -124,14 +124,14 @@ const GlobalSearch = ({ onNavigate }: { onNavigate?: () => void }) => {
               <button
                 key={r.id}
                 onClick={() => ir(r.url)}
-                className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-hellfire-ash/40 transition-colors text-left border-b border-hellfire-ash/20 last:border-0"
+                className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-fundo-da-grota-ash/40 transition-colors text-left border-b border-fundo-da-grota-ash/20 last:border-0"
               >
                 <span className="text-base shrink-0 w-6 text-center">{r.icon}</span>
                 <div className="min-w-0 flex-1">
                   <p className="text-sm font-medium text-foreground truncate">{r.titulo}</p>
                   <p className="text-xs text-muted-foreground truncate">{r.meta}</p>
                 </div>
-                <span className="text-xs text-hellfire-orange shrink-0 border border-hellfire-orange/30 px-1.5 py-0.5 rounded font-medium">
+                <span className="text-xs text-fundo-da-grota-orange shrink-0 border border-fundo-da-grota-orange/30 px-1.5 py-0.5 rounded font-medium">
                   {r.categoria}
                 </span>
               </button>

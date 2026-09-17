@@ -1,6 +1,6 @@
-# HELLFIRE WIKI
+# FUNDO DA GROTA WIKI
 
-Wiki estática para a campanha de D&D **Hellfire**. Centraliza heróis, NPCs, álbum de retratos com zoom, histórias por temporada, mapas, jogadores e referência completa de regras D&D 5e com regras da mesa — tudo num único lugar com visual dark temático.
+Wiki estática para a campanha de D&D **Fundo da Grota**. Centraliza heróis, NPCs, álbum de retratos com zoom, histórias por temporada, mapas, jogadores e referência completa de regras D&D 5e com regras da mesa — tudo num único lugar com visual dark temático.
 
 ---
 
@@ -39,14 +39,14 @@ npm run lint     # lint com ESLint
 ## Estrutura do projeto
 
 ```
-hellfire-wiki/
+fundo-da-grota-wiki/
 ├── public/
 │   ├── favicon.svg
 │   └── portraits/              # Retratos dos personagens (PNG/JPEG)
 ├── src/
 │   ├── components/
 │   │   ├── ui/
-│   │   │   ├── badge.tsx          # Badge com variantes: hellfire, gold, destructive…
+│   │   │   ├── badge.tsx          # Badge com variantes: fundo-da-grota, gold, destructive…
 │   │   │   └── card.tsx           # Card com glow ao hover
 │   │   ├── CharacterCard.tsx      # Card reutilizável para Heróis
 │   │   ├── GlobalSearch.tsx       # Barra de pesquisa global (sidebar) com dropdown
@@ -260,12 +260,12 @@ Paleta infernal baseada em CSS custom properties definidas em `src/index.css`:
 
 | Variável | Uso |
 |---|---|
-| `--hellfire-orange` | Bordas, destaques, links ativos |
-| `--hellfire-gold` | Títulos, textos de destaque |
-| `--hellfire-red` | Elementos de perigo |
-| `--hellfire-charcoal` | Sidebar, fundos |
-| `--hellfire-ash` | Divisores, bordas sutis |
-| `--hellfire-ember` | Detalhes secundários |
+| `--fundo-da-grota-orange` | Bordas, destaques, links ativos |
+| `--fundo-da-grota-gold` | Títulos, textos de destaque |
+| `--fundo-da-grota-red` | Elementos de perigo |
+| `--fundo-da-grota-charcoal` | Sidebar, fundos |
+| `--fundo-da-grota-ash` | Divisores, bordas sutis |
+| `--fundo-da-grota-ember` | Detalhes secundários |
 
 Tipografia: **Cinzel** (títulos) · **Crimson Pro** (corpo)
 

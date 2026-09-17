@@ -1,4 +1,4 @@
-# Hellfire Wiki — Guia de Conteúdo
+# Fundo da Grota Wiki — Guia de Conteúdo
 
 > Use este arquivo para adicionar novo conteúdo ao site.
 > `✅` = já está no site · `⬜` = preencha e passe para o Claude Code aplicar

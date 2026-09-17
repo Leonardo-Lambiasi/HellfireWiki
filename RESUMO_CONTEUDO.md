@@ -1,4 +1,4 @@
-# Hellfire Wiki — Resumo Completo de Conteúdo
+# Fundo da Grota Wiki — Resumo Completo de Conteúdo
 
 > Espelho fiel do que está no site. Atualizado em 2026-05-06.
 
@@ -6,11 +6,11 @@
 
 ## A Campanha
 
-**Nome:** Hellfire · **Sistema:** D&D 5ª Edição · **Mundo:** Ark
+**Nome:** Fundo da Grota · **Sistema:** D&D 5ª Edição · **Mundo:** Ark
 **Temporadas:** 5 · **Frequência:** Semanal, quartas à noite
 **Tom:** Drama · Humor · História · Mortes bem possíveis
 
-**Premissa:** Hellfire é uma campanha de D&D 5ª Edição ambientada em Ark — um mundo de guerra, política e escolhas que custam caro. Heróis de histórias quebradas se encontram no momento errado, pelo motivo certo, e descobrem que o destino raramente pede permissão.
+**Premissa:** Fundo da Grota é uma campanha de D&D 5ª Edição ambientada em Ark — um mundo de guerra, política e escolhas que custam caro. Heróis de histórias quebradas se encontram no momento errado, pelo motivo certo, e descobrem que o destino raramente pede permissão.
 
 **Regras da Casa:**
 - Dados de vida máximos no nível 1

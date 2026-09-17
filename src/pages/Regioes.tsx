@@ -28,7 +28,7 @@ const Regioes = () => {
           placeholder="Pesquisar por nome ou descrição da região..."
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-card border border-hellfire-ash/60 focus:border-hellfire-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
+          className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-card border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
         />
       </div>
 
@@ -44,8 +44,8 @@ const Regioes = () => {
             <Card key={index} className="hover:scale-[1.02] transition-all">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-6 h-6 text-hellfire-orange" />
-                  <CardTitle className="text-xl text-hellfire-gold">
+                  <MapPin className="w-6 h-6 text-fundo-da-grota-orange" />
+                  <CardTitle className="text-xl text-fundo-da-grota-gold">
                     {regiao.nome}
                   </CardTitle>
                 </div>

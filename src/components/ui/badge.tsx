@@ -14,10 +14,10 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
-        hellfire:
-          "border-transparent bg-gradient-to-r from-hellfire-orange to-hellfire-red text-white",
+        "fundo-da-grota":
+          "border-transparent bg-gradient-to-r from-fundo-da-grota-orange to-fundo-da-grota-red text-white",
         gold:
-          "border-transparent bg-hellfire-gold text-hellfire-charcoal font-bold",
+          "border-transparent bg-fundo-da-grota-gold text-fundo-da-grota-charcoal font-bold",
       },
     },
     defaultVariants: {

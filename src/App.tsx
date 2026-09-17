@@ -4,9 +4,12 @@ import { Flame, Users, BookOpen, Map, MapPin, Gamepad2, Info, Sparkles, ScrollTe
 import SidebarNav from "./components/SidebarNav";
 import type { NavItem } from "./components/SidebarNav";
 import GlobalSearch from "./components/GlobalSearch";
+import ScrollToHash from "./components/ScrollToHash";
 import Home from "./pages/Home";
 import PersonagensPCs from "./pages/PersonagensPCs";
 import PersonagensNPCs from "./pages/PersonagensNPCs";
+import HistoriaPersonagensPCs from "./pages/HistoriaPersonagensPCs";
+import HistoriaPersonagensNPCs from "./pages/HistoriaPersonagensNPCs";
 import Jogadores from "./pages/Jogadores";
 import Historias from "./pages/Historias";
 import Regioes from "./pages/Regioes";
@@ -26,7 +29,15 @@ const navItems: NavItem[] = [
     ],
   },
   { title: "Álbum dos Heróis", url: "/album",       icon: Sparkles  },
-  { title: "Histórias",        url: "/historias",   icon: BookOpen  },
+  {
+    title: "Histórias",
+    icon: BookOpen,
+    subitems: [
+      { title: "Aventura",                url: "/historias" },
+      { title: "Personagens dos jogadores", url: "/historias/pcs" },
+      { title: "Personagens NPCs",          url: "/historias/npcs" },
+    ],
+  },
   { title: "Mapa de Ark",      url: "/mapa-de-ark", icon: Map       },
   { title: "Regiões",          url: "/regioes",     icon: MapPin    },
   { title: "Jogadores",        url: "/jogadores",   icon: Gamepad2  },
@@ -39,6 +50,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <ScrollToHash />
       <div className="min-h-screen flex relative z-10">
 
         {/* Overlay mobile */}
@@ -52,23 +64,23 @@ const App = () => {
         {/* Sidebar */}
         <aside className={`
           fixed h-full z-40 w-64
-          bg-hellfire-charcoal/95 border-r-2 border-hellfire-orange
+          bg-fundo-da-grota-charcoal/95 border-r-2 border-fundo-da-grota-orange
           backdrop-blur-sm shadow-[4px_0_20px_rgba(255,107,53,0.3)]
           overflow-y-auto transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
         `}>
-          <div className="p-6 border-b border-hellfire-ash flex items-center justify-between">
+          <div className="p-6 border-b border-fundo-da-grota-ash flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gradient-hellfire animate-ember-glow">
-                HELLFIRE
+              <h1 className="text-3xl font-bold text-gradient-fundo-da-grota animate-ember-glow">
+                FUNDO DA GROTA
               </h1>
-              <p className="text-xs text-hellfire-gold tracking-[0.3em] mt-1">
+              <p className="text-xs text-fundo-da-grota-gold tracking-[0.3em] mt-1">
                 D&D WIKI
               </p>
             </div>
             <button
-              className="md:hidden text-muted-foreground hover:text-hellfire-orange"
+              className="md:hidden text-muted-foreground hover:text-fundo-da-grota-orange"
               onClick={() => setSidebarOpen(false)}
             >
               <X className="w-5 h-5" />
@@ -80,7 +92,7 @@ const App = () => {
 
         {/* Botão hamburger mobile */}
         <button
-          className="fixed top-4 left-4 z-50 md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-hellfire-charcoal border border-hellfire-orange text-hellfire-orange shadow-lg"
+          className="fixed top-4 left-4 z-50 md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-fundo-da-grota-charcoal border border-fundo-da-grota-orange text-fundo-da-grota-orange shadow-lg"
           onClick={() => setSidebarOpen(true)}
         >
           <Menu className="w-5 h-5" />
@@ -96,6 +108,8 @@ const App = () => {
             <Route path="/album" element={<AlbumFigurinhas />} />
             <Route path="/jogadores" element={<Jogadores />} />
             <Route path="/historias" element={<Historias />} />
+            <Route path="/historias/pcs" element={<HistoriaPersonagensPCs />} />
+            <Route path="/historias/npcs" element={<HistoriaPersonagensNPCs />} />
             <Route path="/regioes" element={<Regioes />} />
             <Route path="/mapa-de-ark" element={<MapaDeArk />} />
             <Route path="/regras" element={<Regras />} />

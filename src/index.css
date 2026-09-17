@@ -25,12 +25,12 @@
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
 
-  --color-hellfire-orange: hsl(var(--hellfire-orange));
-  --color-hellfire-red: hsl(var(--hellfire-red));
-  --color-hellfire-gold: hsl(var(--hellfire-gold));
-  --color-hellfire-ash: hsl(var(--hellfire-ash));
-  --color-hellfire-charcoal: hsl(var(--hellfire-charcoal));
-  --color-hellfire-ember: hsl(var(--hellfire-ember));
+  --color-fundo-da-grota-orange: hsl(var(--fundo-da-grota-orange));
+  --color-fundo-da-grota-red: hsl(var(--fundo-da-grota-red));
+  --color-fundo-da-grota-gold: hsl(var(--fundo-da-grota-gold));
+  --color-fundo-da-grota-ash: hsl(var(--fundo-da-grota-ash));
+  --color-fundo-da-grota-charcoal: hsl(var(--fundo-da-grota-charcoal));
+  --color-fundo-da-grota-ember: hsl(var(--fundo-da-grota-ember));
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -47,8 +47,8 @@
 }
 
 @keyframes ember-glow {
-  0%, 100% { filter: drop-shadow(0 0 10px hsl(var(--hellfire-orange) / 0.6)); }
-  50%       { filter: drop-shadow(0 0 20px hsl(var(--hellfire-orange) / 0.9)); }
+  0%, 100% { filter: drop-shadow(0 0 10px hsl(var(--fundo-da-grota-orange) / 0.6)); }
+  50%       { filter: drop-shadow(0 0 20px hsl(var(--fundo-da-grota-orange) / 0.9)); }
 }
 
 @keyframes flame-flicker {
@@ -78,12 +78,12 @@
     --input: 20 15% 20%;
     --ring: 16 90% 58%;
     --radius: 0.5rem;
-    --hellfire-orange: 16 90% 58%;
-    --hellfire-red: 0 70% 50%;
-    --hellfire-gold: 45 95% 55%;
-    --hellfire-ash: 20 10% 25%;
-    --hellfire-charcoal: 20 15% 10%;
-    --hellfire-ember: 30 60% 40%;
+    --fundo-da-grota-orange: 16 90% 58%;
+    --fundo-da-grota-red: 0 70% 50%;
+    --fundo-da-grota-gold: 45 95% 55%;
+    --fundo-da-grota-ash: 20 10% 25%;
+    --fundo-da-grota-charcoal: 20 15% 10%;
+    --fundo-da-grota-ember: 30 60% 40%;
   }
 
   * {
@@ -108,8 +108,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at 20% 80%, hsl(var(--hellfire-red) / 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, hsl(var(--hellfire-orange) / 0.1) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 20% 80%, hsl(var(--fundo-da-grota-red) / 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, hsl(var(--fundo-da-grota-orange) / 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
   animation: flame-flicker 8s ease-in-out infinite;
@@ -120,27 +120,27 @@ body::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--hellfire-charcoal));
+  background: hsl(var(--fundo-da-grota-charcoal));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--hellfire-orange));
+  background: hsl(var(--fundo-da-grota-orange));
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--hellfire-gold));
+  background: hsl(var(--fundo-da-grota-gold));
 }
 
 @layer utilities {
-  .text-gradient-hellfire {
-    background: linear-gradient(135deg, hsl(var(--hellfire-gold)) 0%, hsl(var(--hellfire-orange)) 50%, hsl(var(--hellfire-red)) 100%);
+  .text-gradient-fundo-da-grota {
+    background: linear-gradient(135deg, hsl(var(--fundo-da-grota-gold)) 0%, hsl(var(--fundo-da-grota-orange)) 50%, hsl(var(--fundo-da-grota-red)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .glow-hellfire {
-    box-shadow: 0 0 20px hsl(var(--hellfire-orange) / 0.3);
+  .glow-fundo-da-grota {
+    box-shadow: 0 0 20px hsl(var(--fundo-da-grota-orange) / 0.3);
   }
 }

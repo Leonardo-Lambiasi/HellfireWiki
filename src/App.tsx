@@ -18,6 +18,7 @@ import Sobre from "./pages/Sobre";
 import AlbumFigurinhas from "./pages/AlbumFigurinhas";
 import Regras from "./pages/Regras";
 import PersonagensTeste from "./pages/personagens_teste";
+import ThemeToggleBar from "./components/ThemeToggleBar";
 
 const navItems: NavItem[] = [
   { title: "Home",          url: "/",           icon: Flame     },
@@ -67,7 +68,7 @@ const App = () => {
         <aside className={`
           fixed h-full z-40 w-64
           bg-fundo-da-grota-charcoal/95 border-r-2 border-fundo-da-grota-orange
-          backdrop-blur-sm shadow-[4px_0_20px_rgba(255,107,53,0.3)]
+          backdrop-blur-sm shadow-[4px_0_20px_hsl(var(--fundo-da-grota-orange)/0.3)]
           overflow-y-auto transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
@@ -101,7 +102,7 @@ const App = () => {
         </button>
 
         {/* Conteúdo principal */}
-        <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8 relative z-10">
+        <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8 pb-20 md:pb-16 relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/personagens" element={<Navigate to="/personagens/pcs" replace />} />
@@ -119,6 +120,8 @@ const App = () => {
             <Route path="/personagens_teste" element={<PersonagensTeste />} />
           </Routes>
         </main>
+
+        <ThemeToggleBar />
       </div>
     </BrowserRouter>
   );

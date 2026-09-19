@@ -51,10 +51,12 @@ fundo-da-grota-wiki/
 │   │   ├── CharacterCard.tsx      # Card reutilizável para Heróis
 │   │   ├── GlobalSearch.tsx       # Barra de pesquisa global (sidebar) com dropdown
 │   │   ├── HeroCarousel.tsx       # Roleta 3D de personagens (protótipo, ver seção Páginas)
+│   │   ├── HeroInfoPanel.tsx      # Painel de nome + história com digitação (protótipo)
 │   │   ├── PageHeader.tsx         # Header de página com título, descrição e breadcrumb
 │   │   ├── PlayerCard.tsx         # Card de jogador com status ativo/ausente
 │   │   ├── SidebarNav.tsx         # Sidebar com suporte a subitems colapsáveis
-│   │   └── StoryCard.tsx          # Card de evento de lore
+│   │   ├── StoryCard.tsx          # Card de evento de lore
+│   │   └── ThemeToggleBar.tsx     # Barra fixa no rodapé: troca a paleta de cores (Padrão / Lilás-Roxo)
 │   ├── data/
 │   │   ├── historias.ts           # Eventos de lore por temporada e lore geral
 │   │   ├── jogadores.ts           # Players da mesa
@@ -199,23 +201,28 @@ Informações sobre a campanha:
 
 Vitrine experimental de personagens em formato de "roleta" 3D, acessível pelo menu em **Personagens → Roleta (Teste)**. Ainda não tem dados reais — cada carta é um placeholder mostrando só o texto **"Herói"**, servindo de base visual para quando os personagens forem definidos.
 
-Toda a lógica vive em `src/components/HeroCarousel.tsx`; a página (`src/pages/personagens_teste.tsx`) só monta o `PageHeader` + `<HeroCarousel />`.
+A página (`src/pages/personagens_teste.tsx`) guarda o índice do personagem em foco (`active`) e repassa para dois componentes: `HeroCarousel.tsx` (a roleta) e `HeroInfoPanel.tsx` (o painel de nome + história abaixo dela).
 
-**Layout:**
+**Layout — `HeroCarousel.tsx`:**
 - As cartas (proporção 5:7, estilo carta de tarot) ficam dispostas em arco usando `perspective` CSS: a carta em foco fica maior, centralizada e elevada, com borda dourada e brilho; as cartas ao redor ficam menores, giradas em `rotateY` e escurecidas, dando a impressão de profundidade.
 - Abaixo das cartas há uma base circular (`radial-gradient` + dois anéis girando em `animate-[spin_..s_linear_infinite]`, um em cada sentido) simulando um círculo de invocação — as cartas parecem pairar 40px acima dela.
 - O componente tem `overflow-x-hidden` porque as cartas dos extremos saem propositalmente da largura do container para o efeito de leque; sem isso, em telas estreitas o navegador cria scroll horizontal.
+- É controlado de fora: recebe `total`, `active` e `onChange`, não guarda o índice em foco sozinho.
 
-**Comportamento:**
-- Setas `<`/`>` (ou clicar numa carta lateral) trocam qual carta está em foco. A troca não reordena o DOM — cada carta recalcula seu próprio deslocamento (`transform`/`opacity`/`filter`) e a mudança anima via `transition` CSS de **800ms** (`cubic-bezier(0.22, 1, 0.36, 1)`), então a carta que sai do centro desliza suavemente para a lateral enquanto a próxima assume a frente.
+**Comportamento — `HeroCarousel.tsx`:**
+- Setas `<`/`>` (ou clicar numa carta lateral) chamam `onChange` com o novo índice. A troca não reordena o DOM — cada carta recalcula seu próprio deslocamento (`transform`/`opacity`/`filter`) e a mudança anima via `transition` CSS de **800ms** (`cubic-bezier(0.22, 1, 0.36, 1)`), então a carta que sai do centro desliza suavemente para a lateral enquanto a próxima assume a frente.
 - A distância "circular" entre cartas é calculada em `getOffset()`, que sempre retorna o caminho mais curto (ex: da carta 7 para a carta 1 anda +1, não -6), permitindo dar a volta na roleta nos dois sentidos.
 
+**Painel de história — `HeroInfoPanel.tsx`:**
+- Mostra o nome do herói em foco (placeholder `Herói I`..`Herói VII`, numeral romano) numa barra superior, e abaixo o campo **História** com um lorem ipsum fixo.
+- O texto da história é revelado caractere a caractere (efeito de digitação, com cursor piscando `|` enquanto digita) e a caixa cresce de altura acompanhando o texto — a altura real do conteúdo é medida via `ref.scrollHeight` e animada com `transition: height`, então o crescimento é sempre suave, nunca um salto brusco.
+- Sempre que `active` muda, o painel inteiro (nome + história) fecha por completo (altura → 0, ~420ms) antes de trocar o conteúdo; só depois de fechado ele troca para o novo nome, zera o texto digitado e reabre digitando a história do personagem em foco.
+- Cliques rápidos nas setas cancelam a troca pendente e reagendam para o índice mais recente, então o painel nunca fica "preso" mostrando um personagem que já não está mais em foco.
+
 **Para customizar:**
-- `TOTAL_CARDS` — quantidade de cartas na roleta.
-- `DEPTH_STYLES` — um item por "distância" da carta em foco (0 = em foco, 1 e 2 = laterais visíveis, 3 = fora de vista/invisível), controlando deslocamento horizontal/vertical, escala, rotação, opacidade e desfoque de cada camada.
-- `TRANSITION` — duração/curva da animação ao trocar de carta.
-- Tamanho das cartas: classe `w-[13.5rem] sm:w-[16.5rem]` no botão de cada carta (o `aspect-[5/7]` deriva a altura automaticamente).
-- Quando os personagens forem definidos, o próximo passo é trocar `CARD_IDS` por um array de dados reais (nome, classe, imagem) — similar ao `cards` de `AlbumFigurinhas.tsx` — e substituir o texto fixo "Herói" pelo conteúdo de cada personagem.
+- `HeroCarousel.tsx` → `DEPTH_STYLES` (deslocamento/escala/rotação/opacidade/desfoque por distância da carta em foco), `TRANSITION` (duração/curva da troca de carta), `w-[13.5rem] sm:w-[16.5rem]` (tamanho das cartas, `aspect-[5/7]` deriva a altura).
+- `HeroInfoPanel.tsx` → `HISTORIA_PLACEHOLDER` (texto), `CHARS_PER_TICK`/`TICK_MS` (velocidade da digitação), `CLOSE_MS` (duração do fechamento antes de trocar de personagem).
+- Quando os personagens forem definidos, o próximo passo é passar dados reais (nome, classe, imagem, história) para os dois componentes por props — similar ao `cards` de `AlbumFigurinhas.tsx` — no lugar dos placeholders fixos.
 
 ---
 
@@ -297,6 +304,28 @@ Paleta infernal baseada em CSS custom properties definidas em `src/index.css`:
 Tipografia: **Cinzel** (títulos) · **Crimson Pro** (corpo)
 
 Animações: `animate-ember-glow` · `animate-fade-in-up` · `animate-flame-flicker`
+
+### Paleta alternativa "Lilás / Roxo"
+
+Barra fixa no rodapé (`ThemeToggleBar.tsx`, renderizada uma vez em `App.tsx`, visível em todas as páginas) com 2 botões para trocar a paleta de cores do site inteiro:
+
+- **Padrão** — a paleta laranja/dourada de sempre.
+- **Lilás / Roxo** — mesma estrutura, tons de lilás/roxo no lugar do laranja/dourado/vermelho, incluindo os fundos (sidebar, cards, background).
+
+**Como funciona:** o botão só troca um atributo `data-theme="lilac"` no `<html>` e salva a escolha em `localStorage` (`fundo-da-grota-theme`). Nenhum componente precisa saber qual tema está ativo — todas as cores (inclusive os `--background`/`--card`/`--primary` etc. do shadcn) são CSS custom properties redefinidas em bloco só para esse atributo, em `src/index.css`:
+
+```css
+:root[data-theme="lilac"] {
+  --fundo-da-grota-orange: 274 70% 60%;
+  /* ...resto das variáveis, incluindo --background, --card, --primary etc. */
+}
+```
+
+Um script inline em `index.html` aplica o atributo salvo antes do React montar, pra não piscar a paleta errada ao carregar a página (FOUC).
+
+**Exceção proposital:** no Álbum ([AlbumFigurinhas.tsx](src/pages/AlbumFigurinhas.tsx)), a borda dourada dos heróis jogáveis ativos (`heroi: true`) funciona como selo de status e **não muda** com o tema — ela usa uma variável própria e fixa, `--pc-hero-gold`, definida uma única vez em `:root` e nunca redefinida no bloco `[data-theme="lilac"]`. A borda dos demais personagens do álbum (NPCs, ex-heróis) continua usando `--fundo-da-grota-ash`/`--fundo-da-grota-orange` normalmente, então essa sim muda com o tema.
+
+**Para adicionar um terceiro tema:** duplique o bloco `:root[data-theme="..."]` com um novo valor de atributo, defina as mesmas variáveis com a nova paleta, e adicione um terceiro botão em `ThemeToggleBar.tsx` chamando `escolher("nome-do-tema")`.
 
 ---
 

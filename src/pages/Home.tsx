@@ -71,7 +71,7 @@ const Home = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {navCards.map((card) => (
           <Link key={card.url} to={card.url}>
-            <Card className="group h-full hover:border-fundo-da-grota-orange/50 hover:shadow-[0_0_30px_rgba(255,107,53,0.12)] transition-all duration-300">
+            <Card className="group h-full hover:border-fundo-da-grota-orange/50 hover:shadow-[0_0_30px_hsl(var(--fundo-da-grota-orange)/0.12)] transition-all duration-300">
               <CardContent className="p-6 flex items-center gap-4">
                 <div className="p-3 rounded-lg bg-fundo-da-grota-orange/10 border border-fundo-da-grota-orange/20 shrink-0 group-hover:bg-fundo-da-grota-orange/20 transition-colors">
                   <card.icon className="w-6 h-6 text-fundo-da-grota-orange" />

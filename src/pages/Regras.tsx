@@ -545,7 +545,7 @@ const Regras = () => {
             onClick={() => changeTab(t.id)}
             className={`px-4 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all flex items-center gap-1.5 ${
               tab === t.id
-                ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
+                ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_hsl(var(--fundo-da-grota-orange)/0.3)]"
                 : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
             }`}
           >

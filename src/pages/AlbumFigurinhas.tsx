@@ -138,9 +138,10 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
 };
 
 const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void }) => {
+  // Heróis jogáveis (PCs) sempre têm borda dourada — é um selo de status, não muda com a paleta de cores do site.
   const borderClass = card.heroi
-    ? "border-fundo-da-grota-gold shadow-[0_0_14px_rgba(245,166,35,0.25)] hover:shadow-[0_0_28px_rgba(245,166,35,0.45)] hover:border-fundo-da-grota-gold"
-    : "border-fundo-da-grota-ash/60 hover:border-fundo-da-grota-orange/70 hover:shadow-[0_0_28px_rgba(255,107,53,0.25)]";
+    ? "border-[hsl(var(--pc-hero-gold))] shadow-[0_0_14px_hsl(var(--pc-hero-gold)/0.25)] hover:shadow-[0_0_28px_hsl(var(--pc-hero-gold)/0.45)] hover:border-[hsl(var(--pc-hero-gold))]"
+    : "border-fundo-da-grota-ash/60 hover:border-fundo-da-grota-orange/70 hover:shadow-[0_0_28px_hsl(var(--fundo-da-grota-orange)/0.25)]";
 
   return (
   <div

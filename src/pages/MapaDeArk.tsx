@@ -188,7 +188,7 @@ const MapaDeArk = () => {
       {/* Map container */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden rounded-xl border border-fundo-da-grota-ash/60 shadow-[0_0_40px_rgba(255,107,53,0.08)] select-none bg-fundo-da-grota-charcoal/40 cursor-grab active:cursor-grabbing"
+        className="relative overflow-hidden rounded-xl border border-fundo-da-grota-ash/60 shadow-[0_0_40px_hsl(var(--fundo-da-grota-orange)/0.08)] select-none bg-fundo-da-grota-charcoal/40 cursor-grab active:cursor-grabbing"
         style={{ height: fullscreen ? "100vh" : "calc(100vh - 220px)" }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}

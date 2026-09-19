@@ -58,7 +58,7 @@ const Historias = () => {
               onClick={() => setAba(t)}
               className={`px-5 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all ${
                 aba === t
-                  ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_rgba(255,107,53,0.3)]"
+                  ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_hsl(var(--fundo-da-grota-orange)/0.3)]"
                   : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
               }`}
             >
@@ -71,7 +71,7 @@ const Historias = () => {
               onClick={() => setAba("lore")}
               className={`px-5 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all ${
                 aba === "lore"
-                  ? "border-fundo-da-grota-gold bg-fundo-da-grota-gold/10 text-fundo-da-grota-gold shadow-[0_0_12px_rgba(255,200,50,0.2)]"
+                  ? "border-fundo-da-grota-gold bg-fundo-da-grota-gold/10 text-fundo-da-grota-gold shadow-[0_0_12px_hsl(var(--fundo-da-grota-gold)/0.2)]"
                   : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-gold/50 hover:text-foreground"
               }`}
             >

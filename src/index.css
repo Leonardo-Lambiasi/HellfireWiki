@@ -84,6 +84,36 @@
     --fundo-da-grota-ash: 20 10% 25%;
     --fundo-da-grota-charcoal: 20 15% 10%;
     --fundo-da-grota-ember: 30 60% 40%;
+
+    /* Selo fixo de "herói jogável" (borda dourada no Álbum) — não muda com o seletor de paleta */
+    --pc-hero-gold: 45 95% 55%;
+  }
+
+  /* Paleta alternativa "Lilás/Roxo", ativada via data-theme="lilac" no <html> pelo seletor no rodapé */
+  :root[data-theme="lilac"] {
+    --background: 265 22% 7%;
+    --foreground: 280 15% 92%;
+    --card: 265 20% 12%;
+    --card-foreground: 280 12% 90%;
+    --popover: 265 20% 12%;
+    --popover-foreground: 280 12% 90%;
+    --primary: 274 70% 60%;
+    --primary-foreground: 280 20% 98%;
+    --secondary: 268 15% 20%;
+    --secondary-foreground: 280 10% 88%;
+    --muted: 266 15% 18%;
+    --muted-foreground: 275 15% 68%;
+    --accent: 274 85% 78%;
+    --accent-foreground: 280 20% 15%;
+    --border: 268 15% 26%;
+    --input: 268 15% 22%;
+    --ring: 274 70% 60%;
+    --fundo-da-grota-orange: 274 70% 60%;
+    --fundo-da-grota-red: 300 55% 45%;
+    --fundo-da-grota-gold: 274 85% 78%;
+    --fundo-da-grota-ash: 270 15% 30%;
+    --fundo-da-grota-charcoal: 265 25% 10%;
+    --fundo-da-grota-ember: 280 25% 48%;
   }
 
   * {
@@ -93,6 +123,11 @@
   body {
     @apply bg-background text-foreground font-crimson;
     background: linear-gradient(135deg, #0a0a0a 0%, #2a1810 50%, #0a0a0a 100%);
+    background-attachment: fixed;
+  }
+
+  :root[data-theme="lilac"] body {
+    background: linear-gradient(135deg, #0a0a12 0%, #241333 50%, #0a0a12 100%);
     background-attachment: fixed;
   }
 

@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const TOTAL_CARDS = 7;
-const CARD_IDS = Array.from({ length: TOTAL_CARDS }, (_, i) => i);
+import HeroInfoPanel from "@/components/HeroInfoPanel";
 
 const TRANSITION =
   "transform 800ms cubic-bezier(0.22, 1, 0.36, 1), opacity 800ms ease, filter 800ms ease";
@@ -23,11 +20,17 @@ function getOffset(index: number, active: number, length: number) {
   return diff;
 }
 
-/** Roleta de personagens: cartas pairando sobre uma base circular, com transição lenta ao trocar o destaque. */
-const HeroCarousel = () => {
-  const [active, setActive] = useState(0);
+interface HeroCarouselProps {
+  total: number;
+  active: number;
+  onChange: (index: number) => void;
+}
 
-  const goTo = (i: number) => setActive(((i % TOTAL_CARDS) + TOTAL_CARDS) % TOTAL_CARDS);
+/** Roleta de personagens: cartas pairando sobre uma base circular, com transição lenta ao trocar o destaque. */
+const HeroCarousel = ({ total, active, onChange }: HeroCarouselProps) => {
+  const cardIds = Array.from({ length: total }, (_, i) => i);
+
+  const goTo = (i: number) => onChange(((i % total) + total) % total);
   const prev = () => goTo(active - 1);
   const next = () => goTo(active + 1);
 
@@ -49,8 +52,8 @@ const HeroCarousel = () => {
         </div>
 
         {/* Cartas */}
-        {CARD_IDS.map((id, i) => {
-          const offset = getOffset(i, active, TOTAL_CARDS);
+        {cardIds.map((id, i) => {
+          const offset = getOffset(i, active, total);
           const abs = Math.min(Math.abs(offset), DEPTH_STYLES.length - 1);
           const dir = Math.sign(offset);
           const depth = DEPTH_STYLES[abs];
@@ -66,7 +69,7 @@ const HeroCarousel = () => {
               className={cn(
                 "absolute left-1/2 top-1/2 w-[13.5rem] sm:w-[16.5rem] aspect-[5/7] rounded-2xl border-2 flex items-center justify-center",
                 isFront
-                  ? "border-fundo-da-grota-gold bg-gradient-to-b from-fundo-da-grota-charcoal via-card to-fundo-da-grota-charcoal shadow-[0_0_45px_rgba(245,166,35,0.45)] cursor-default"
+                  ? "border-fundo-da-grota-gold bg-gradient-to-b from-fundo-da-grota-charcoal via-card to-fundo-da-grota-charcoal shadow-[0_0_45px_hsl(var(--fundo-da-grota-gold)/0.45)] cursor-default"
                   : "border-fundo-da-grota-ash/50 bg-fundo-da-grota-charcoal/85 cursor-pointer hover:border-fundo-da-grota-orange/60"
               )}
               style={{
@@ -95,7 +98,7 @@ const HeroCarousel = () => {
           type="button"
           onClick={prev}
           aria-label="Personagem anterior"
-          className="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full border-2 border-fundo-da-grota-orange/60 bg-fundo-da-grota-charcoal/90 text-fundo-da-grota-orange transition-all duration-300 hover:border-fundo-da-grota-gold hover:text-fundo-da-grota-gold hover:shadow-[0_0_25px_rgba(245,166,35,0.5)]"
+          className="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full border-2 border-fundo-da-grota-orange/60 bg-fundo-da-grota-charcoal/90 text-fundo-da-grota-orange transition-all duration-300 hover:border-fundo-da-grota-gold hover:text-fundo-da-grota-gold hover:shadow-[0_0_25px_hsl(var(--fundo-da-grota-gold)/0.5)]"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -103,15 +106,17 @@ const HeroCarousel = () => {
           type="button"
           onClick={next}
           aria-label="Próximo personagem"
-          className="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full border-2 border-fundo-da-grota-orange/60 bg-fundo-da-grota-charcoal/90 text-fundo-da-grota-orange transition-all duration-300 hover:border-fundo-da-grota-gold hover:text-fundo-da-grota-gold hover:shadow-[0_0_25px_rgba(245,166,35,0.5)]"
+          className="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full border-2 border-fundo-da-grota-orange/60 bg-fundo-da-grota-charcoal/90 text-fundo-da-grota-orange transition-all duration-300 hover:border-fundo-da-grota-gold hover:text-fundo-da-grota-gold hover:shadow-[0_0_25px_hsl(var(--fundo-da-grota-gold)/0.5)]"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
       </div>
 
       <span className="text-xs text-muted-foreground tracking-wide">
-        {active + 1} / {TOTAL_CARDS}
+        {active + 1} / {total}
       </span>
+
+      <HeroInfoPanel active={active} total={total} />
     </div>
   );
 };

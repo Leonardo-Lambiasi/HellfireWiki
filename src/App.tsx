@@ -17,6 +17,7 @@ import MapaDeArk from "./pages/MapaDeArk";
 import Sobre from "./pages/Sobre";
 import AlbumFigurinhas from "./pages/AlbumFigurinhas";
 import Regras from "./pages/Regras";
+import PersonagensTeste from "./pages/personagens_teste";
 
 const navItems: NavItem[] = [
   { title: "Home",          url: "/",           icon: Flame     },
@@ -26,6 +27,7 @@ const navItems: NavItem[] = [
     subitems: [
       { title: "Heróis", url: "/personagens/pcs" },
       { title: "NPCs",   url: "/personagens/npcs" },
+      { title: "Roleta (Teste)", url: "/personagens_teste" },
     ],
   },
   { title: "Álbum dos Heróis", url: "/album",       icon: Sparkles  },
@@ -114,6 +116,7 @@ const App = () => {
             <Route path="/mapa-de-ark" element={<MapaDeArk />} />
             <Route path="/regras" element={<Regras />} />
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/personagens_teste" element={<PersonagensTeste />} />
           </Routes>
         </main>
       </div>

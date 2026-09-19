@@ -32,10 +32,10 @@ const HeroCarousel = () => {
   const next = () => goTo(active + 1);
 
   return (
-    <div className="relative w-full flex flex-col items-center gap-4">
-      <div className="relative w-full max-w-3xl h-[380px] sm:h-[440px]" style={{ perspective: "1400px" }}>
-        {/* Base circular de invocação */}
-        <div className="absolute left-1/2 bottom-6 -translate-x-1/2 w-[300px] h-[100px] sm:w-[420px] sm:h-[130px]">
+    <div className="relative w-full flex flex-col items-center gap-4 overflow-x-hidden">
+      <div className="relative w-full max-w-3xl h-[480px] sm:h-[600px]" style={{ perspective: "1400px" }}>
+        {/* Base circular de invocação — 40px mais afastada das cartas que pairam sobre ela */}
+        <div className="absolute left-1/2 bottom-6 -translate-x-1/2 translate-y-10 w-[300px] h-[100px] sm:w-[420px] sm:h-[130px]">
           <div
             className="absolute inset-0 rounded-[50%]"
             style={{
@@ -64,7 +64,7 @@ const HeroCarousel = () => {
               aria-label={isFront ? "Personagem em destaque" : `Trazer personagem ${i + 1} para o destaque`}
               tabIndex={abs <= 2 ? 0 : -1}
               className={cn(
-                "absolute left-1/2 top-1/2 w-36 sm:w-44 aspect-[5/7] rounded-2xl border-2 flex items-center justify-center",
+                "absolute left-1/2 top-1/2 w-[13.5rem] sm:w-[16.5rem] aspect-[5/7] rounded-2xl border-2 flex items-center justify-center",
                 isFront
                   ? "border-fundo-da-grota-gold bg-gradient-to-b from-fundo-da-grota-charcoal via-card to-fundo-da-grota-charcoal shadow-[0_0_45px_rgba(245,166,35,0.45)] cursor-default"
                   : "border-fundo-da-grota-ash/50 bg-fundo-da-grota-charcoal/85 cursor-pointer hover:border-fundo-da-grota-orange/60"

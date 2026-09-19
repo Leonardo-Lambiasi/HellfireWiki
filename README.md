@@ -50,6 +50,7 @@ fundo-da-grota-wiki/
 │   │   │   └── card.tsx           # Card com glow ao hover
 │   │   ├── CharacterCard.tsx      # Card reutilizável para Heróis
 │   │   ├── GlobalSearch.tsx       # Barra de pesquisa global (sidebar) com dropdown
+│   │   ├── HeroCarousel.tsx       # Roleta 3D de personagens (protótipo, ver seção Páginas)
 │   │   ├── PageHeader.tsx         # Header de página com título, descrição e breadcrumb
 │   │   ├── PlayerCard.tsx         # Card de jogador com status ativo/ausente
 │   │   ├── SidebarNav.tsx         # Sidebar com suporte a subitems colapsáveis
@@ -70,7 +71,8 @@ fundo-da-grota-wiki/
 │   │   ├── Historias.tsx          # Histórias por temporada + Lore Geral com busca
 │   │   ├── Mapas.tsx              # Regiões de Ark com busca
 │   │   ├── Regras.tsx             # Referência rápida D&D 5e + regras da mesa (8 abas)
-│   │   └── Sobre.tsx              # Sobre a campanha, heróis ativos, regras de mesa
+│   │   ├── Sobre.tsx              # Sobre a campanha, heróis ativos, regras de mesa
+│   │   └── personagens_teste.tsx  # Roleta 3D de heróis (protótipo/WIP)
 │   ├── App.tsx                    # Layout raiz: sidebar + rotas
 │   ├── index.css                  # Tema global e configuração Tailwind v4
 │   ├── main.tsx                   # Entry point React
@@ -98,6 +100,7 @@ fundo-da-grota-wiki/
 | `/mapas` | Mapas | Regiões de Ark com busca |
 | `/regras` | Regras | Referência D&D 5e + regras da mesa |
 | `/sobre` | Sobre | Campanha, heróis ativos, sessões e regras de casa |
+| `/personagens_teste` | personagens_teste | Protótipo: roleta 3D de personagens (WIP, sem dados reais ainda) |
 
 ---
 
@@ -189,6 +192,30 @@ Informações sobre a campanha:
 - Cards de sessões (frequência, horário, temporadas, tom, mortes)
 - Regras da casa
 - Sobre esta wiki
+
+---
+
+### `/personagens_teste` — Roleta de Heróis (protótipo)
+
+Vitrine experimental de personagens em formato de "roleta" 3D, acessível pelo menu em **Personagens → Roleta (Teste)**. Ainda não tem dados reais — cada carta é um placeholder mostrando só o texto **"Herói"**, servindo de base visual para quando os personagens forem definidos.
+
+Toda a lógica vive em `src/components/HeroCarousel.tsx`; a página (`src/pages/personagens_teste.tsx`) só monta o `PageHeader` + `<HeroCarousel />`.
+
+**Layout:**
+- As cartas (proporção 5:7, estilo carta de tarot) ficam dispostas em arco usando `perspective` CSS: a carta em foco fica maior, centralizada e elevada, com borda dourada e brilho; as cartas ao redor ficam menores, giradas em `rotateY` e escurecidas, dando a impressão de profundidade.
+- Abaixo das cartas há uma base circular (`radial-gradient` + dois anéis girando em `animate-[spin_..s_linear_infinite]`, um em cada sentido) simulando um círculo de invocação — as cartas parecem pairar 40px acima dela.
+- O componente tem `overflow-x-hidden` porque as cartas dos extremos saem propositalmente da largura do container para o efeito de leque; sem isso, em telas estreitas o navegador cria scroll horizontal.
+
+**Comportamento:**
+- Setas `<`/`>` (ou clicar numa carta lateral) trocam qual carta está em foco. A troca não reordena o DOM — cada carta recalcula seu próprio deslocamento (`transform`/`opacity`/`filter`) e a mudança anima via `transition` CSS de **800ms** (`cubic-bezier(0.22, 1, 0.36, 1)`), então a carta que sai do centro desliza suavemente para a lateral enquanto a próxima assume a frente.
+- A distância "circular" entre cartas é calculada em `getOffset()`, que sempre retorna o caminho mais curto (ex: da carta 7 para a carta 1 anda +1, não -6), permitindo dar a volta na roleta nos dois sentidos.
+
+**Para customizar:**
+- `TOTAL_CARDS` — quantidade de cartas na roleta.
+- `DEPTH_STYLES` — um item por "distância" da carta em foco (0 = em foco, 1 e 2 = laterais visíveis, 3 = fora de vista/invisível), controlando deslocamento horizontal/vertical, escala, rotação, opacidade e desfoque de cada camada.
+- `TRANSITION` — duração/curva da animação ao trocar de carta.
+- Tamanho das cartas: classe `w-[13.5rem] sm:w-[16.5rem]` no botão de cada carta (o `aspect-[5/7]` deriva a altura automaticamente).
+- Quando os personagens forem definidos, o próximo passo é trocar `CARD_IDS` por um array de dados reais (nome, classe, imagem) — similar ao `cards` de `AlbumFigurinhas.tsx` — e substituir o texto fixo "Herói" pelo conteúdo de cada personagem.
 
 ---
 

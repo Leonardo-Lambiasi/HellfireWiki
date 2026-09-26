@@ -1,0 +1,76 @@
+/* ==========================================================================
+   CAMPO DE BUSCA
+   Caixa de pesquisa com lupa à esquerda e botão "X" (limpar) à direita.
+   Usada nas páginas de lista e, em versão compacta, na barra lateral.
+
+   Estrutura:
+     <div className="campo-busca">
+       <Search className="campo-busca-icone icone-pequeno" />
+       <input className="campo-busca-input" />
+       <button className="campo-busca-limpar"><X /></button>
+     </div>
+
+   Variações (segunda classe):
+     .campo-busca-compacto            → versão menor da barra lateral (no <div>)
+     .campo-busca-input-sem-botao     → sem espaço para o "X" (no <input>)
+   ========================================================================== */
+
+.campo-busca {
+  position: relative;
+}
+
+/* Lupa: posicionada por cima do campo, centralizada na vertical */
+.campo-busca-icone {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  translate: 0 -50%;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none; /* clique "atravessa" o ícone e cai no campo */
+}
+
+.campo-busca-input {
+  width: 100%;
+  padding: 0.625rem 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--card));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--foreground));
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+.campo-busca-input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+.campo-busca-input:focus {
+  border-color: hsl(var(--fundo-da-grota-orange) / 0.7);
+  outline: none;
+}
+
+.campo-busca-input-sem-botao {
+  padding-right: 1rem;
+}
+
+.campo-busca-limpar {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  translate: 0 -50%;
+  color: hsl(var(--muted-foreground));
+  transition: color 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .campo-busca-limpar:hover {
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ── Versão compacta (barra lateral) ── */
+.campo-busca-compacto .campo-busca-input {
+  padding: 0.5rem 2rem 0.5rem 2.25rem;
+  background-color: hsl(var(--background) / 0.5);
+}
+.campo-busca-compacto .campo-busca-limpar {
+  right: 0.625rem;
+}

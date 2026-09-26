@@ -1,0 +1,208 @@
+/* ==========================================================================
+   PÁGINA SOBRE (pages/Sobre.tsx)
+   Seções: premissa da campanha, heróis vivos, sessões, regras da casa e
+   sobre a wiki. Todas as seções são <Card> (ver componentes/cartao.css).
+   ========================================================================== */
+
+/* ── Premissa (cartão em destaque, com degradê e borda laranja) ── */
+.sobre-premissa {
+  border-color: hsl(var(--fundo-da-grota-orange) / 0.6);
+  background-image: linear-gradient(to bottom right, hsl(var(--fundo-da-grota-charcoal)), hsl(var(--card)), hsl(var(--fundo-da-grota-charcoal)));
+}
+
+.sobre-premissa-conteudo {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.sobre-titulo-linha {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-premissa-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+.sobre-texto-destaque {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: hsl(var(--foreground));
+}
+
+/* Palavras destacadas dentro de um parágrafo */
+.sobre-destaque-ouro {
+  font-weight: 700;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+.sobre-destaque-claro {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.sobre-citacao {
+  padding-left: 1rem;
+  border-left: 2px solid hsl(var(--fundo-da-grota-orange) / 0.5);
+  font-style: italic;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+
+.sobre-texto {
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Título das demais seções: ícone + texto lado a lado */
+.sobre-secao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ── Heróis (1 coluna → 2 → 3) ── */
+.sobre-grade-herois {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 40rem) {
+  .sobre-grade-herois { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .sobre-grade-herois { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.sobre-heroi {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.5);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.4);
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .sobre-heroi:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.4);
+  }
+}
+.sobre-heroi-morto {
+  opacity: 0.6;
+}
+
+.sobre-heroi-icone {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.sobre-heroi-info {
+  min-width: 0;
+}
+
+.sobre-heroi-nome {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.sobre-heroi-classe {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Selo de status empurrado para a ponta direita */
+.sobre-heroi-selo {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* ── Sessões (2 colunas → 3 → 5) ── */
+.sobre-grade-sessoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+@media (min-width: 40rem) {
+  .sobre-grade-sessoes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .sobre-grade-sessoes { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.sobre-sessao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.3);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.3);
+}
+
+.sobre-sessao-rotulo {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.sobre-sessao-valor {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+.sobre-sessao-valor-destaque {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+/* ── Regras da casa (1 coluna → 2) ── */
+.sobre-grade-regras {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 40rem) {
+  .sobre-grade-regras { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.sobre-regra {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.3);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.3);
+}
+
+.sobre-regra-icone {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.sobre-regra-texto {
+  font-size: 0.875rem;
+  line-height: 1.375;
+  color: hsl(var(--muted-foreground));
+}

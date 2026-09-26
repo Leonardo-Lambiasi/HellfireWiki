@@ -20,30 +20,30 @@ const CharacterCarousel = ({ titulo, personagens }: CharacterCarouselProps) => {
   const proximo = () => setIndex(i => (i + 1) % personagens.length);
 
   return (
-    <Card className="w-full max-w-full overflow-hidden">
-      <CardContent className="p-6 space-y-4 w-full max-w-full">
-        <div className="flex items-center justify-between">
-          <h3 className="font-cinzel font-semibold text-fundo-da-grota-gold">{titulo}</h3>
-          <span className="text-xs text-muted-foreground">
+    <Card className="carrossel">
+      <CardContent className="carrossel-conteudo">
+        <div className="carrossel-topo">
+          <h3 className="carrossel-titulo texto-ouro">{titulo}</h3>
+          <span className="carrossel-contador">
             {index + 1} / {personagens.length}
           </span>
         </div>
 
-        <div className="flex items-center justify-center gap-3 sm:gap-6 w-full min-w-0">
+        <div className="carrossel-palco">
           <button
             type="button"
             onClick={anterior}
             aria-label="Personagem anterior"
-            className="shrink-0 p-2 rounded-full border border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/60 hover:text-fundo-da-grota-orange transition-colors"
+            className="carrossel-seta"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="icone-medio" />
           </button>
 
-          <div className="flex-1 min-w-0 max-w-xs flex flex-col items-center gap-3 text-center">
+          <div className="carrossel-destaque">
             <CharacterImageSlot imagem={atual.imagem} nome={atual.nome} icon={atual.icon} size="lg" />
-            <div className="min-w-0 max-w-full">
-              <p className="text-lg font-cinzel font-semibold text-fundo-da-grota-gold truncate">{atual.nome}</p>
-              <p className="text-sm text-muted-foreground truncate">{atual.classe} · {atual.raca}</p>
+            <div className="carrossel-identificacao">
+              <p className="carrossel-nome texto-ouro">{atual.nome}</p>
+              <p className="carrossel-detalhe">{atual.classe} · {atual.raca}</p>
             </div>
           </div>
 
@@ -51,24 +51,20 @@ const CharacterCarousel = ({ titulo, personagens }: CharacterCarouselProps) => {
             type="button"
             onClick={proximo}
             aria-label="Próximo personagem"
-            className="shrink-0 p-2 rounded-full border border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/60 hover:text-fundo-da-grota-orange transition-colors"
+            className="carrossel-seta"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="icone-medio" />
           </button>
         </div>
 
         {/* Lista deslizável para pular direto a um personagem — largura limitada, rola de lado para o resto */}
-        <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1 w-full max-w-md mx-auto">
+        <div className="carrossel-lista">
           {personagens.map((p, i) => (
             <button
               key={p.id}
               type="button"
               onClick={() => setIndex(i)}
-              className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs border transition-colors whitespace-nowrap ${
-                i === index
-                  ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold"
-                  : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
-              }`}
+              className={`carrossel-chip ${i === index ? "chip-ativo" : "chip-inativo"}`}
             >
               <span>{p.icon}</span>
               {p.nome}

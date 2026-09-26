@@ -1,0 +1,66 @@
+/* ==========================================================================
+   ESPAÇO DE IMAGEM DO PERSONAGEM (CharacterImageSlot.tsx)
+   Moldura com borda tracejada que mostra a foto do personagem ou, se ainda
+   não houver foto, o emoji + "Sem imagem".
+
+   .espaco-imagem + .espaco-imagem-pequeno | .espaco-imagem-grande
+   ========================================================================== */
+
+.espaco-imagem {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 2px dashed hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.4);
+}
+
+/* Tamanhos */
+.espaco-imagem-pequeno {
+  width: 5rem;
+  height: 5rem;
+}
+
+.espaco-imagem-grande {
+  width: 7rem;
+  aspect-ratio: 1 / 1; /* sempre quadrado: altura = largura */
+}
+@media (min-width: 40rem) {
+  .espaco-imagem-grande { width: 10rem; }
+}
+@media (min-width: 48rem) {
+  .espaco-imagem-grande { width: 14rem; }
+}
+
+/* Foto: preenche a moldura inteira, cortando o excesso */
+.espaco-imagem-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Quando não há foto */
+.espaco-imagem-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.espaco-imagem-emoji {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.espaco-imagem-grande .espaco-imagem-emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.espaco-imagem-legenda {
+  font-size: 10px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}

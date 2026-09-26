@@ -43,7 +43,7 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
   };
 
   return (
-    <nav className="p-4">
+    <nav className="menu-lateral">
       {items.map(item => {
         if (item.subitems) {
           const isExpanded = expanded.has(item.title);
@@ -52,37 +52,29 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
           );
 
           return (
-            <div key={item.title} className="mb-1">
+            <div key={item.title} className="menu-grupo">
               <button
                 onClick={() => toggle(item.title)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-md transition-all duration-200 ${
-                  isActive
-                    ? "bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold border-l-4 border-fundo-da-grota-gold"
-                    : "text-muted-foreground hover:bg-fundo-da-grota-ash hover:text-fundo-da-grota-orange hover:border-l-4 hover:border-fundo-da-grota-orange"
-                }`}
+                className={`menu-item menu-item-grupo ${isActive ? "menu-item-ativo" : "menu-item-inativo"}`}
               >
-                <div className="flex items-center gap-3">
-                  <item.icon className="w-5 h-5" />
-                  <span className="font-medium">{item.title}</span>
+                <div className="menu-item-rotulo">
+                  <item.icon className="icone-medio" />
+                  <span className="menu-item-texto">{item.title}</span>
                 </div>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                  className={`menu-seta ${isExpanded ? "menu-seta-aberta" : ""}`}
                 />
               </button>
 
               {isExpanded && (
-                <div className="ml-8 mt-1 space-y-1 border-l border-fundo-da-grota-ash/50 pl-3">
+                <div className="submenu">
                   {item.subitems.map(sub => (
                     <NavLink
                       key={sub.url}
                       to={sub.url}
                       onClick={onNavigate}
                       className={({ isActive }) =>
-                        `block px-3 py-2 rounded-md text-sm transition-all duration-200 ${
-                          isActive
-                            ? "text-fundo-da-grota-gold font-semibold"
-                            : "text-muted-foreground hover:text-fundo-da-grota-orange"
-                        }`
+                        `submenu-link ${isActive ? "submenu-link-ativo" : "submenu-link-inativo"}`
                       }
                     >
                       {sub.title}
@@ -101,15 +93,11 @@ const SidebarNav = ({ items, onNavigate }: SidebarNavProps) => {
             end={item.url === "/"}
             onClick={onNavigate}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-md mb-1 transition-all duration-200 ${
-                isActive
-                  ? "bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold border-l-4 border-fundo-da-grota-gold"
-                  : "text-muted-foreground hover:bg-fundo-da-grota-ash hover:text-fundo-da-grota-orange hover:border-l-4 hover:border-fundo-da-grota-orange"
-              }`
+              `menu-item menu-item-link ${isActive ? "menu-item-ativo" : "menu-item-inativo"}`
             }
           >
-            <item.icon className="w-5 h-5" />
-            <span className="font-medium">{item.title}</span>
+            <item.icon className="icone-medio" />
+            <span className="menu-item-texto">{item.title}</span>
           </NavLink>
         );
       })}

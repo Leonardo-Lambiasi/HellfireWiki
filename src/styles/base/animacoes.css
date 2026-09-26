@@ -1,0 +1,33 @@
+/* ==========================================================================
+   ANIMAÇÕES
+   Um @keyframes descreve os "quadros" de uma animação (de 0% a 100%).
+   Depois ela é usada com a propriedade  animation: nome duração curva repetições;
+   ========================================================================== */
+
+/* Aparece subindo 20px (usada na entrada de cada página) */
+@keyframes subir-e-aparecer {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Brilho pulsante do título "FUNDO DA GROTA" */
+@keyframes brilho-de-brasa {
+  0%, 100% { filter: drop-shadow(0 0 10px hsl(var(--fundo-da-grota-orange) / 0.6)); }
+  50%      { filter: drop-shadow(0 0 20px hsl(var(--fundo-da-grota-orange) / 0.9)); }
+}
+
+/* Cintilar das chamas no fundo da página */
+@keyframes tremular-chama {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 0.8; }
+}
+
+/* Piscar suave (etiqueta "Em Andamento", cursor de digitação) */
+@keyframes pulsar {
+  50% { opacity: 0.5; }
+}
+
+/* Giro completo (anéis da roleta, ícone de carregamento do mapa) */
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,119 @@
+/* ==========================================================================
+   ESTRUTURA DO SITE (App.tsx)
+   Barra lateral fixa à esquerda + área de conteúdo à direita.
+   No celular a barra lateral fica escondida e abre pelo botão de menu.
+
+   Pontos de quebra usados: 768px (tablet/desktop) = 48rem
+   ========================================================================== */
+
+/* Container que envolve tudo */
+.app {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Fundo escuro que cobre a tela quando o menu abre no celular */
+.menu-mobile-fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background-color: rgb(0 0 0 / 0.6);
+}
+@media (min-width: 48rem) {
+  .menu-mobile-fundo { display: none; }
+}
+
+/* ── Barra lateral ── */
+.barra-lateral {
+  position: fixed;
+  z-index: 40;
+  width: 16rem;
+  height: 100%;
+  overflow-y: auto;
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.95);
+  border-right: 2px solid hsl(var(--fundo-da-grota-orange));
+  box-shadow: 4px 0 20px hsl(var(--fundo-da-grota-orange) / 0.3);
+  backdrop-filter: blur(8px);
+  translate: -100% 0; /* escondida à esquerda (celular) */
+  transition: transform 300ms var(--suavizar), translate 300ms var(--suavizar);
+}
+.barra-lateral-aberta {
+  translate: 0 0; /* visível */
+}
+@media (min-width: 48rem) {
+  .barra-lateral { translate: 0 0; } /* no desktop está sempre visível */
+}
+
+/* Topo da barra lateral: logotipo + botão de fechar */
+.barra-lateral-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid hsl(var(--fundo-da-grota-ash));
+}
+
+.marca-titulo {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.marca-subtitulo {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.3em;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+.barra-lateral-fechar {
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .barra-lateral-fechar:hover {
+    color: hsl(var(--fundo-da-grota-orange));
+  }
+}
+@media (min-width: 48rem) {
+  .barra-lateral-fechar { display: none; }
+}
+
+/* Botão "hambúrguer" que abre o menu no celular */
+.botao-menu-mobile {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-orange));
+  background-color: hsl(var(--fundo-da-grota-charcoal));
+  color: hsl(var(--fundo-da-grota-orange));
+  box-shadow: var(--sombra-grande);
+}
+@media (min-width: 48rem) {
+  .botao-menu-mobile { display: none; }
+}
+
+/* Área onde as páginas aparecem */
+.conteudo-principal {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  padding: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 48rem) {
+  .conteudo-principal {
+    margin-left: 16rem; /* espaço da barra lateral */
+    padding: 2rem 2rem 4rem;
+  }
+}

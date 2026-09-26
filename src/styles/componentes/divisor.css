@@ -1,0 +1,38 @@
+/* ==========================================================================
+   DIVISOR COM ÍCONE
+   Linha fina com degradê que some nas pontas e um ícone/emoji no centro.
+
+     <div className="divisor">
+       <div className="divisor-conteudo"><Flame /></div>
+     </div>
+
+   .divisor-forte = linha mais viva, com mais espaço em volta (usada em Histórias)
+   ========================================================================== */
+
+.divisor {
+  position: relative;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, hsl(var(--fundo-da-grota-orange) / 0.5), transparent);
+}
+
+.divisor-forte {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  background-image: linear-gradient(to right, transparent, hsl(var(--fundo-da-grota-orange)), transparent);
+}
+
+/* Centraliza o ícone em cima da linha, com fundo para "cortar" a linha atrás dele */
+.divisor-conteudo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: hsl(var(--background));
+}
+
+.divisor-conteudo-emoji {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}

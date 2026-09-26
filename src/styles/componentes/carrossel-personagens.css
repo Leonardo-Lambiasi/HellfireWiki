@@ -1,0 +1,129 @@
+/* ==========================================================================
+   CARROSSEL DE PERSONAGENS (CharacterCarousel.tsx)
+   Vitrine com setas para trocar de personagem + lista rápida de "chips".
+   ========================================================================== */
+
+.carrossel {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carrossel-conteudo {
+  width: 100%;
+  max-width: 100%;
+  padding: 1.5rem;
+}
+.carrossel-conteudo > :where(:not(:last-child)) {
+  margin-bottom: 1rem;
+}
+
+/* Título "Vitrine de Heróis" + contador "1 / 7" */
+.carrossel-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carrossel-titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+}
+
+.carrossel-contador {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Palco: seta esquerda | personagem | seta direita */
+.carrossel-palco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
+}
+@media (min-width: 40rem) {
+  .carrossel-palco { gap: 1.5rem; }
+}
+
+.carrossel-seta {
+  flex-shrink: 0;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  color: hsl(var(--muted-foreground));
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .carrossel-seta:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.6);
+    color: hsl(var(--fundo-da-grota-orange));
+  }
+}
+
+/* Personagem em destaque (foto + nome) */
+.carrossel-destaque {
+  flex: 1;
+  min-width: 0;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.carrossel-identificacao {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.carrossel-nome {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--fonte-titulo);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.carrossel-detalhe {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Faixa de chips que rola de lado quando há muitos personagens */
+.carrossel-lista {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0.25rem 0.25rem;
+  overflow-x: auto;
+}
+
+/* Cada chip da lista (as cores vêm de .chip-ativo / .chip-inativo) */
+.carrossel-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}

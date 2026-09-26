@@ -3,28 +3,28 @@ import { Badge } from "@/components/ui/badge";
 import type { Jogador } from "@/data/jogadores";
 
 const PlayerCard = ({ jogador }: { jogador: Jogador }) => (
-  <Card className={`hover:scale-[1.02] transition-all ${!jogador.ativo ? "opacity-60" : ""}`}>
-    <CardContent className="p-6">
-      <div className="flex items-start gap-4">
-        <span className="text-5xl">{jogador.avatar}</span>
-        <div className="flex-1">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-2xl font-bold text-fundo-da-grota-gold">{jogador.nome}</h3>
+  <Card className={`cartao-zoom ${!jogador.ativo ? "cartao-esmaecido" : ""}`}>
+    <CardContent className="cartao-conteudo-completo">
+      <div className="jogador-linha">
+        <span className="jogador-avatar">{jogador.avatar}</span>
+        <div className="jogador-corpo">
+          <div className="jogador-cabecalho">
+            <h3 className="jogador-nome">{jogador.nome}</h3>
             <Badge variant={jogador.ativo ? "default" : "secondary"}>
               {jogador.ativo ? "Ativo" : "Ausente"}
             </Badge>
           </div>
 
-          <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+          <p className="jogador-bio">
             {jogador.bio}
           </p>
 
           {jogador.personagens.length > 0 && (
             <div>
-              <p className="text-xs text-muted-foreground mb-1.5">Personagens:</p>
-              <div className="flex flex-wrap gap-1.5">
+              <p className="jogador-rotulo">Personagens:</p>
+              <div className="jogador-personagens">
                 {jogador.personagens.map((p, i) => (
-                  <Badge key={i} variant="fundo-da-grota" className="text-xs">
+                  <Badge key={i} variant="fundo-da-grota">
                     {p}
                   </Badge>
                 ))}

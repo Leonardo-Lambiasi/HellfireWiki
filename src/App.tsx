@@ -54,39 +54,32 @@ const App = () => {
   return (
     <BrowserRouter>
       <ScrollToHash />
-      <div className="min-h-screen flex relative z-10">
+      <div className="app">
 
         {/* Overlay mobile */}
         {sidebarOpen && (
           <div
-            className="fixed inset-0 z-30 bg-black/60 md:hidden"
+            className="menu-mobile-fundo"
             onClick={() => setSidebarOpen(false)}
           />
         )}
 
         {/* Sidebar */}
-        <aside className={`
-          fixed h-full z-40 w-64
-          bg-fundo-da-grota-charcoal/95 border-r-2 border-fundo-da-grota-orange
-          backdrop-blur-sm shadow-[4px_0_20px_hsl(var(--fundo-da-grota-orange)/0.3)]
-          overflow-y-auto transition-transform duration-300
-          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0
-        `}>
-          <div className="p-6 border-b border-fundo-da-grota-ash flex items-center justify-between">
+        <aside className={`barra-lateral ${sidebarOpen ? "barra-lateral-aberta" : ""}`}>
+          <div className="barra-lateral-topo">
             <div>
-              <h1 className="text-3xl font-bold text-gradient-fundo-da-grota animate-ember-glow">
+              <h1 className="marca-titulo texto-degrade animar-brasa">
                 FUNDO DA GROTA
               </h1>
-              <p className="text-xs text-fundo-da-grota-gold tracking-[0.3em] mt-1">
+              <p className="marca-subtitulo">
                 D&D WIKI
               </p>
             </div>
             <button
-              className="md:hidden text-muted-foreground hover:text-fundo-da-grota-orange"
+              className="barra-lateral-fechar"
               onClick={() => setSidebarOpen(false)}
             >
-              <X className="w-5 h-5" />
+              <X className="icone-medio" />
             </button>
           </div>
           <GlobalSearch onNavigate={() => setSidebarOpen(false)} />
@@ -95,14 +88,14 @@ const App = () => {
 
         {/* Botão hamburger mobile */}
         <button
-          className="fixed top-4 left-4 z-50 md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-fundo-da-grota-charcoal border border-fundo-da-grota-orange text-fundo-da-grota-orange shadow-lg"
+          className="botao-menu-mobile"
           onClick={() => setSidebarOpen(true)}
         >
-          <Menu className="w-5 h-5" />
+          <Menu className="icone-medio" />
         </button>
 
         {/* Conteúdo principal */}
-        <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8 pb-20 md:pb-16 relative z-10">
+        <main className="conteudo-principal">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/personagens" element={<Navigate to="/personagens/pcs" replace />} />

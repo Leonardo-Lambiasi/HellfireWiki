@@ -1,0 +1,115 @@
+/* ==========================================================================
+   ABAS E CHIPS
+   Botões que alternam entre opções. Cada um tem 2 estados: ativo (a opção
+   escolhida) e inativo (as outras).
+
+   ABA  → botão retangular arredondado (temporadas da página Histórias,
+          seções da página Regras).
+            .aba + .aba-ativa | .aba-inativa
+            .aba + .aba-ouro-ativa | .aba-ouro-inativa   (versão dourada)
+            .aba-compacta = aba um pouco menor, com ícone ao lado do texto
+
+   CHIP → botão em formato de pílula, menor (lista do carrossel, botões de paleta)
+            .chip-ativo | .chip-inativo
+            .chip-lilas-ativo | .chip-lilas-inativo      (botão da paleta lilás)
+
+   Só o "esqueleto" (tamanho, fonte) fica na classe base; as cores ficam
+   nas classes de estado, assim dá para trocar só o estado no className.
+   ========================================================================== */
+
+/* ── Aba ── */
+
+.aba {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  border-width: 1px;
+  border-style: solid;
+  font-family: var(--fonte-titulo);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  transition: all 150ms var(--suavizar);
+}
+
+.aba-compacta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+}
+
+.aba-ativa {
+  border-color: hsl(var(--fundo-da-grota-orange));
+  background-color: hsl(var(--fundo-da-grota-orange) / 0.2);
+  color: hsl(var(--fundo-da-grota-gold));
+  box-shadow: 0 0 12px hsl(var(--fundo-da-grota-orange) / 0.3);
+}
+.aba-inativa {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.6);
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .aba-inativa:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.5);
+    color: hsl(var(--foreground));
+  }
+}
+
+.aba-ouro-ativa {
+  border-color: hsl(var(--fundo-da-grota-gold));
+  background-color: hsl(var(--fundo-da-grota-gold) / 0.1);
+  color: hsl(var(--fundo-da-grota-gold));
+  box-shadow: 0 0 12px hsl(var(--fundo-da-grota-gold) / 0.2);
+}
+.aba-ouro-inativa {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.6);
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .aba-ouro-inativa:hover {
+    border-color: hsl(var(--fundo-da-grota-gold) / 0.5);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ── Chip ── */
+
+.chip-ativo {
+  border-color: hsl(var(--fundo-da-grota-orange));
+  background-color: hsl(var(--fundo-da-grota-orange) / 0.2);
+  color: hsl(var(--fundo-da-grota-gold));
+}
+.chip-inativo {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.6);
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .chip-inativo:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.5);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Roxo fixo (#A855F7) — é a cor do botão "Lilás / Roxo", não muda com o tema */
+.chip-lilas-ativo {
+  border-color: #A855F7;
+  background-color: rgb(168 85 247 / 0.2);
+  color: #D8B4FE;
+}
+.chip-lilas-inativo {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.6);
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .chip-lilas-inativo:hover {
+    border-color: rgb(168 85 247 / 0.5);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Faixa que agrupa as abas lado a lado (quebra de linha se faltar espaço) */
+.abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

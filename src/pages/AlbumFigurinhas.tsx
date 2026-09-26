@@ -80,13 +80,13 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+      className="lightbox"
       onClick={() => { if (!zoomed) onClose(); }}
     >
       <div
         ref={containerRef}
-        className="relative flex items-center justify-center overflow-hidden"
-        style={{ width: "90vw", height: "90vh", cursor: zoomed ? "grab" : "zoom-in" }}
+        className="lightbox-area"
+        style={{ cursor: zoomed ? "grab" : "zoom-in" }}
         onClick={e => e.stopPropagation()}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -101,25 +101,21 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
           style={{
             transform: `scale(${scale}) translate(${pos.x / scale}px, ${pos.y / scale}px)`,
             transition: dragging.current ? "none" : "transform 0.15s ease",
-            maxHeight: "90vh",
-            maxWidth: "90vw",
-            objectFit: "contain",
-            userSelect: "none",
           }}
-          className="rounded-xl shadow-2xl"
+          className="lightbox-imagem"
         />
       </div>
 
       {/* Controles */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3">
-        <span className="text-xs text-white/50 bg-black/50 rounded-full px-3 py-1 select-none">
+      <div className="lightbox-dica">
+        <span className="lightbox-dica-texto">
           {zoomed ? "arraste · scroll para zoom · duplo-clique para resetar" : "scroll ou duplo-clique para zoom"}
         </span>
       </div>
 
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-fundo-da-grota-orange/80 transition-colors text-lg font-bold z-10"
+        className="lightbox-botao lightbox-fechar"
       >
         ✕
       </button>
@@ -127,7 +123,7 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
       {zoomed && (
         <button
           onClick={reset}
-          className="absolute top-4 right-16 w-9 h-9 flex items-center justify-center rounded-full bg-black/70 text-white hover:bg-fundo-da-grota-orange/80 transition-colors text-sm font-bold z-10"
+          className="lightbox-botao lightbox-resetar"
           title="Resetar zoom (0)"
         >
           ⊡
@@ -139,37 +135,35 @@ const Lightbox = ({ card, onClose }: { card: CardFigurinha; onClose: () => void 
 
 const Painel = ({ card, onClick }: { card: CardFigurinha; onClick: () => void }) => {
   // Heróis jogáveis (PCs) sempre têm borda dourada — é um selo de status, não muda com a paleta de cores do site.
-  const borderClass = card.heroi
-    ? "border-[hsl(var(--pc-hero-gold))] shadow-[0_0_14px_hsl(var(--pc-hero-gold)/0.25)] hover:shadow-[0_0_28px_hsl(var(--pc-hero-gold)/0.45)] hover:border-[hsl(var(--pc-hero-gold))]"
-    : "border-fundo-da-grota-ash/60 hover:border-fundo-da-grota-orange/70 hover:shadow-[0_0_28px_hsl(var(--fundo-da-grota-orange)/0.25)]";
+  const borderClass = card.heroi ? "figurinha-heroi" : "figurinha-comum";
 
   return (
   <div
-    className={`group relative rounded-xl overflow-hidden border bg-fundo-da-grota-charcoal transition-all duration-300 hover:scale-[1.02] select-none ${card.imagem ? "cursor-pointer" : "cursor-default"} ${borderClass}`}
+    className={`figurinha ${card.imagem ? "figurinha-clicavel" : "figurinha-estatica"} ${borderClass}`}
     onClick={card.imagem ? onClick : undefined}
   >
-    <div className="w-full aspect-[3/4] overflow-hidden bg-gradient-to-b from-fundo-da-grota-charcoal to-card relative">
+    <div className="figurinha-moldura">
       {card.imagem ? (
         <img
           src={card.imagem}
           alt={card.nome}
           loading="lazy"
-          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          className="figurinha-foto"
         />
       ) : (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-3">
-          <span className="text-7xl opacity-30">{card.icon}</span>
-          <span className="text-sm text-muted-foreground italic">Imagem em breve</span>
+        <div className="figurinha-vazia">
+          <span className="figurinha-vazia-emoji">{card.icon}</span>
+          <span className="figurinha-vazia-texto">Imagem em breve</span>
         </div>
       )}
-      <div className="absolute bottom-0 inset-x-0 h-2/5 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+      <div className="figurinha-sombra" />
     </div>
 
-    <div className="absolute bottom-0 inset-x-0 p-4">
-      <h3 className="font-cinzel font-bold text-fundo-da-grota-gold text-base leading-tight drop-shadow-lg">
+    <div className="figurinha-legenda">
+      <h3 className="figurinha-nome">
         {card.nome}
       </h3>
-      <p className="text-xs text-fundo-da-grota-ember mt-0.5 drop-shadow">{card.classe}</p>
+      <p className="figurinha-classe">{card.classe}</p>
     </div>
   </div>
   );
@@ -179,13 +173,13 @@ const AlbumFigurinhas = () => {
   const [aberto, setAberto] = useState<CardFigurinha | null>(null);
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="pagina">
       <PageHeader
         titulo="Painel de Personagens"
         descricao="Retratos dos heróis e figuras da campanha"
       />
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="album-grade">
         {cards.map(card => (
           <Painel key={card.id} card={card} onClick={() => setAberto(card)} />
         ))}

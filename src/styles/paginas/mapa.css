@@ -1,0 +1,234 @@
+/* ==========================================================================
+   MAPA DE ARK (pages/MapaDeArk.tsx)
+   Imagem do mapa que pode ser arrastada e ampliada, com botões de zoom,
+   tela cheia e avisos. A posição/zoom da imagem mudam o tempo todo e por
+   isso continuam no TSX (atributo style); o resto fica aqui.
+   ========================================================================== */
+
+/* ── Barra de ferramentas ── */
+.mapa-barra {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Espaçador: empurra o botão de tela cheia para a direita */
+.mapa-espaco {
+  flex: 1;
+}
+
+.mapa-controles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Botão quadrado com ícone */
+.mapa-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius);
+  border-width: 1px;
+  border-style: solid;
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+.mapa-botao-ativo {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.8);
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .mapa-botao-ativo:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.6);
+    color: hsl(var(--fundo-da-grota-orange));
+  }
+}
+.mapa-botao-ativo:active {
+  scale: 0.95; /* "afunda" um pouquinho ao clicar */
+}
+/* Botão desligado (zoom já no limite) */
+.mapa-botao-desativado {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.2);
+  background-color: transparent;
+  color: hsl(var(--fundo-da-grota-ash) / 0.3);
+  cursor: not-allowed;
+}
+
+/* Porcentagem do zoom: "100%" */
+.mapa-zoom-valor {
+  min-width: 52px;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.4);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.6);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-variant-numeric: tabular-nums; /* todos os dígitos com a mesma largura */
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Controles que aparecem sobre o mapa em tela cheia */
+.mapa-controles-tela-cheia {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+/* ── Janela do mapa ── */
+.mapa-area {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.4);
+  box-shadow: 0 0 40px hsl(var(--fundo-da-grota-orange) / 0.08);
+  user-select: none;
+  cursor: grab; /* mãozinha aberta */
+}
+.mapa-area:active {
+  cursor: grabbing; /* mãozinha fechada enquanto arrasta */
+}
+
+.mapa-imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Carregando ── */
+.mapa-carregando {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.6);
+}
+
+.mapa-spinner {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  border: 4px solid hsl(var(--fundo-da-grota-ash) / 0.3);
+  border-top-color: hsl(var(--fundo-da-grota-orange));
+  animation: girar 1s linear infinite;
+}
+
+.mapa-carregando-texto {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Erro ao carregar ── */
+.mapa-erro {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mapa-erro-corpo {
+  text-align: center;
+}
+.mapa-erro-corpo > :where(:not(:last-child)) {
+  margin-bottom: 0.5rem;
+}
+.mapa-erro-icone {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.mapa-erro-texto {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+}
+.mapa-erro-dica {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--fundo-da-grota-ash) / 0.6);
+}
+
+/* ── Dica de uso (some quando o usuário interage) ── */
+.mapa-dica {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.mapa-dica-caixa {
+  display: flex;
+  gap: 1rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  background-color: rgb(0 0 0 / 0.55);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--sombra-extra);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  color: rgb(255 255 255 / 0.75);
+}
+.mapa-dica-separador {
+  color: rgb(255 255 255 / 0.3);
+}
+
+/* ── Avisos "Zoom máximo" / "Zoom mínimo" ── */
+.mapa-aviso {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.mapa-aviso-etiqueta {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.mapa-aviso-maximo {
+  border-color: hsl(var(--fundo-da-grota-orange) / 0.4);
+  background-color: hsl(var(--fundo-da-grota-orange) / 0.2);
+  color: hsl(var(--fundo-da-grota-orange));
+}
+.mapa-aviso-minimo {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.4);
+  background-color: hsl(var(--fundo-da-grota-ash) / 0.2);
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Legenda dos atalhos de teclado ── */
+.mapa-legenda {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.025em;
+  text-align: center;
+  color: hsl(var(--fundo-da-grota-ash) / 0.5);
+}
+
+/* Tecla desenhada como um botãozinho: <kbd> */
+.mapa-tecla {
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.3);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.6);
+  font-family: var(--fonte-codigo);
+}

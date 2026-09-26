@@ -11,7 +11,7 @@ Wiki estática para a campanha de D&D **Fundo da Grota**. Centraliza heróis, NP
 | React | 19 | UI e componentização |
 | TypeScript | 6 | Tipagem estática |
 | Vite | 8 | Build e dev server |
-| Tailwind CSS | 4 | Estilização utilitária (`@tailwindcss/vite`) |
+| Tailwind CSS | 4 | Apenas o *reset* do navegador (`@tailwindcss/vite`); os estilos são CSS próprio em `src/styles/` |
 | React Router DOM | 7 | Roteamento client-side |
 | Lucide React | — | Ícones |
 | shadcn/ui (base) | — | Componentes Card e Badge |
@@ -76,7 +76,7 @@ fundo-da-grota-wiki/
 │   │   ├── Sobre.tsx              # Sobre a campanha, heróis ativos, regras de mesa
 │   │   └── personagens_teste.tsx  # Roleta 3D de heróis (protótipo/WIP)
 │   ├── App.tsx                    # Layout raiz: sidebar + rotas
-│   ├── index.css                  # Tema global e configuração Tailwind v4
+│   ├── styles/                    # Todo o CSS, separado por base/layout/componentes/páginas (veja "Estilos")
 │   ├── main.tsx                   # Entry point React
 │   └── vite-env.d.ts              # Tipos Vite
 ├── QUESTIONARIO.md                # Guia para popular o site com dados reais
@@ -205,8 +205,8 @@ A página (`src/pages/personagens_teste.tsx`) guarda o índice do personagem em 
 
 **Layout — `HeroCarousel.tsx`:**
 - As cartas (proporção 5:7, estilo carta de tarot) ficam dispostas em arco usando `perspective` CSS: a carta em foco fica maior, centralizada e elevada, com borda dourada e brilho; as cartas ao redor ficam menores, giradas em `rotateY` e escurecidas, dando a impressão de profundidade.
-- Abaixo das cartas há uma base circular (`radial-gradient` + dois anéis girando em `animate-[spin_..s_linear_infinite]`, um em cada sentido) simulando um círculo de invocação — as cartas parecem pairar 40px acima dela.
-- O componente tem `overflow-x-hidden` porque as cartas dos extremos saem propositalmente da largura do container para o efeito de leque; sem isso, em telas estreitas o navegador cria scroll horizontal.
+- Abaixo das cartas há uma base circular (`radial-gradient` + dois anéis girando com `animation: girar ..s linear infinite`, um em cada sentido) simulando um círculo de invocação — as cartas parecem pairar 40px acima dela.
+- O componente tem `overflow-x: hidden` porque as cartas dos extremos saem propositalmente da largura do container para o efeito de leque; sem isso, em telas estreitas o navegador cria scroll horizontal.
 - É controlado de fora: recebe `total`, `active` e `onChange`, não guarda o índice em foco sozinho.
 
 **Comportamento — `HeroCarousel.tsx`:**
@@ -288,9 +288,37 @@ Disponível em: Heróis, NPCs, Histórias, Mapas.
 
 ---
 
+## Estilos (CSS)
+
+Todo o CSS fica separado do TSX na pasta `src/styles/`. Os componentes só usam nomes de classe (`className="cartao-personagem"`); quem define o visual é o arquivo `.css` correspondente. O `main.tsx` importa apenas `src/styles/index.css`, que carrega os demais na ordem certa.
+
+```
+src/styles/
+├── index.css            # Entrada: só importa os outros arquivos (a ordem importa)
+├── base/
+│   ├── tema.css         # Variáveis de cor/fonte/sombra + paleta lilás (data-theme="lilac")
+│   ├── animacoes.css    # @keyframes (subir-e-aparecer, brilho-de-brasa, girar...)
+│   ├── global.css       # body, títulos, barra de rolagem, camada de brasas do fundo
+│   └── auxiliares.css   # texto-degrade, texto-ouro, icone-*, .pagina, grades reutilizáveis
+├── layout/              # Barra lateral, menu, busca global, barra de paleta
+├── componentes/         # Cartão, selo, abas/chips, campo de busca, roleta, carrossel...
+└── paginas/             # Home, Álbum, Mapa, Regras, Sobre, Histórias...
+```
+
+**Convenção de nomes** (em português, kebab-case, do geral para o específico):
+
+- `cartao` → o componente; `cartao-cabecalho`, `cartao-titulo` → partes dele.
+- `selo-status-vivo`, `chip-ativo`, `aba-inativa` → variações/estados (a segunda parte diz qual).
+- `home-estatistica`, `mapa-botao`, `regra-caixa` → classes de uma página (prefixo = página ou componente).
+- `icone-pequeno`, `texto-ouro`, `animar-entrada` → classes auxiliares combináveis (`auxiliares.css`).
+
+O Tailwind continua instalado apenas pelo *reset* do navegador (`@import "tailwindcss"` no `index.css`); nenhuma classe utilitária do Tailwind é usada nos componentes. O que precisa ser calculado em tempo de execução (posição/zoom do mapa, transformações das cartas da roleta, altura do painel do herói) continua no atributo `style` do TSX.
+
+---
+
 ## Tema visual
 
-Paleta infernal baseada em CSS custom properties definidas em `src/index.css`:
+Paleta infernal baseada em CSS custom properties definidas em `src/styles/base/tema.css`:
 
 | Variável | Uso |
 |---|---|
@@ -303,7 +331,7 @@ Paleta infernal baseada em CSS custom properties definidas em `src/index.css`:
 
 Tipografia: **Cinzel** (títulos) · **Crimson Pro** (corpo)
 
-Animações: `animate-ember-glow` · `animate-fade-in-up` · `animate-flame-flicker`
+Animações (`src/styles/base/animacoes.css`): `brilho-de-brasa` · `subir-e-aparecer` · `tremular-chama`
 
 ### Paleta alternativa "Lilás / Roxo"
 
@@ -312,7 +340,7 @@ Barra fixa no rodapé (`ThemeToggleBar.tsx`, renderizada uma vez em `App.tsx`, v
 - **Padrão** — a paleta laranja/dourada de sempre.
 - **Lilás / Roxo** — mesma estrutura, tons de lilás/roxo no lugar do laranja/dourado/vermelho, incluindo os fundos (sidebar, cards, background).
 
-**Como funciona:** o botão só troca um atributo `data-theme="lilac"` no `<html>` e salva a escolha em `localStorage` (`fundo-da-grota-theme`). Nenhum componente precisa saber qual tema está ativo — todas as cores (inclusive os `--background`/`--card`/`--primary` etc. do shadcn) são CSS custom properties redefinidas em bloco só para esse atributo, em `src/index.css`:
+**Como funciona:** o botão só troca um atributo `data-theme="lilac"` no `<html>` e salva a escolha em `localStorage` (`fundo-da-grota-theme`). Nenhum componente precisa saber qual tema está ativo — todas as cores (inclusive os `--background`/`--card`/`--primary` etc. do shadcn) são CSS custom properties redefinidas em bloco só para esse atributo, em `src/styles/base/tema.css`:
 
 ```css
 :root[data-theme="lilac"] {

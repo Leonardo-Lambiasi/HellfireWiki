@@ -1,0 +1,19 @@
+/* ==========================================================================
+   PÁGINA DE HISTÓRIAS (pages/Historias.tsx)
+   Busca, abas de temporada, contador e lista de cartões (StoryCard).
+   As abas usam .abas / .aba de componentes/aba-e-chip.css.
+   ========================================================================== */
+
+/* "Temporada 1", "12 resultados para ..." — pequeno, em maiúsculas e espaçado */
+.historias-contador {
+  margin-top: -0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+.historias-lista > :where(:not(:last-child)) {
+  margin-bottom: 1.5rem;
+}

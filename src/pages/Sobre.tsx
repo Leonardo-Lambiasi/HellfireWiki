@@ -5,10 +5,10 @@ import PageHeader from "@/components/PageHeader";
 import { herois } from "@/data/personagens";
 
 const statusColor: Record<string, string> = {
-  Vivo:         "bg-green-700",
-  Desconhecido: "bg-purple-700",
-  MIA:          "bg-yellow-700",
-  Morto:        "bg-red-700",
+  Vivo:         "selo-status-vivo",
+  Desconhecido: "selo-status-desconhecido",
+  MIA:          "selo-status-mia",
+  Morto:        "selo-status-morto",
 };
 
 const regrasCasa = [
@@ -21,27 +21,27 @@ const regrasCasa = [
 ];
 
 const Sobre = () => (
-  <div className="space-y-10 animate-fade-in-up">
+  <div className="pagina pagina-espacada">
     <PageHeader
       titulo="Sobre"
       descricao="A campanha, o mundo e os heróis de Fundo da Grota"
     />
 
     {/* ── Premissa ────────────────────────────────────────────────────────── */}
-    <Card className="border-fundo-da-grota-orange/60 bg-gradient-to-br from-fundo-da-grota-charcoal via-card to-fundo-da-grota-charcoal">
-      <CardContent className="pt-8 pb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <Flame className="w-6 h-6 text-fundo-da-grota-orange" />
-          <h3 className="text-xl font-cinzel font-bold text-fundo-da-grota-gold">A Campanha</h3>
+    <Card className="sobre-premissa">
+      <CardContent className="sobre-premissa-conteudo">
+        <div className="sobre-titulo-linha">
+          <Flame className="icone-grande texto-laranja" />
+          <h3 className="sobre-premissa-titulo">A Campanha</h3>
         </div>
-        <p className="text-lg text-foreground leading-relaxed mb-4">
-          <span className="text-fundo-da-grota-gold font-bold">Fundo da Grota</span> é uma campanha de{" "}
-          <span className="text-fundo-da-grota-orange">D&D 5ª Edição</span> ambientada em{" "}
-          <span className="text-fundo-da-grota-gold font-bold">Ark</span> — um mundo de guerra, política
+        <p className="sobre-texto-destaque">
+          <span className="sobre-destaque-ouro">Fundo da Grota</span> é uma campanha de{" "}
+          <span className="texto-laranja">D&D 5ª Edição</span> ambientada em{" "}
+          <span className="sobre-destaque-ouro">Ark</span> — um mundo de guerra, política
           e escolhas que custam caro. Heróis de histórias quebradas se encontram no momento errado,
           pelo motivo certo, e descobrem que o destino raramente pede permissão.
         </p>
-        <p className="text-muted-foreground leading-relaxed italic border-l-2 border-fundo-da-grota-orange/50 pl-4">
+        <p className="sobre-citacao">
           "Hehehe... Magia...." Krusk - Ano: 1244
         </p>
       </CardContent>
@@ -50,24 +50,24 @@ const Sobre = () => (
     {/* ── Os Heróis ───────────────────────────────────────────────────────── */}
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-3 text-fundo-da-grota-gold">
-          <Sword className="w-5 h-5 text-fundo-da-grota-orange" />
+        <CardTitle className="sobre-secao-titulo texto-ouro">
+          <Sword className="icone-medio texto-laranja" />
           Os Heróis
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="sobre-grade-herois">
           {herois.filter(h => h.status === "Vivo").map(h => (
             <div
               key={h.nome}
-              className={`flex items-center gap-3 p-3 rounded-lg border border-fundo-da-grota-ash/50 bg-fundo-da-grota-charcoal/40 hover:border-fundo-da-grota-orange/40 transition-colors ${h.status === "Morto" ? "opacity-60" : ""}`}
+              className={`sobre-heroi ${h.status === "Morto" ? "sobre-heroi-morto" : ""}`}
             >
-              <span className="text-3xl">{h.icon}</span>
-              <div className="min-w-0">
-                <p className="font-semibold text-foreground text-sm truncate">{h.nome}</p>
-                <p className="text-xs text-muted-foreground truncate">{h.classe}</p>
+              <span className="sobre-heroi-icone">{h.icon}</span>
+              <div className="sobre-heroi-info">
+                <p className="sobre-heroi-nome">{h.nome}</p>
+                <p className="sobre-heroi-classe">{h.classe}</p>
               </div>
-              <Badge className={`${statusColor[h.status]} text-white text-xs ml-auto shrink-0`}>
+              <Badge className={`selo-status ${statusColor[h.status]} sobre-heroi-selo`}>
                 {h.status}
               </Badge>
             </div>
@@ -79,13 +79,13 @@ const Sobre = () => (
     {/* ── Sessões ─────────────────────────────────────────────────────────── */}
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-3 text-fundo-da-grota-gold">
-          <BookOpen className="w-5 h-5 text-fundo-da-grota-orange" />
+        <CardTitle className="sobre-secao-titulo texto-ouro">
+          <BookOpen className="icone-medio texto-laranja" />
           Sessões
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-sm text-center">
+        <div className="sobre-grade-sessoes">
           {[
             { label: "Frequência",  valor: "Semanal"                              },
             { label: "Horário",     valor: "Quartas à noite"                      },
@@ -93,9 +93,9 @@ const Sobre = () => (
             { label: "Tom",         valor: "Drama · Humor · História"             },
             { label: "Mortes",      valor: "Possíveis - Bem Possíveis"        },
           ].map(item => (
-            <div key={item.label} className="flex flex-col gap-1 p-3 rounded-lg border border-fundo-da-grota-ash/30 bg-fundo-da-grota-charcoal/30">
-              <span className="text-muted-foreground text-xs">{item.label}</span>
-              <span className={`font-semibold ${item.destaque ? "text-fundo-da-grota-gold text-lg" : "text-foreground"}`}>
+            <div key={item.label} className="sobre-sessao">
+              <span className="sobre-sessao-rotulo">{item.label}</span>
+              <span className={`sobre-sessao-valor ${item.destaque ? "sobre-sessao-valor-destaque" : ""}`}>
                 {item.valor}
               </span>
             </div>
@@ -107,17 +107,17 @@ const Sobre = () => (
     {/* ── Regras da Casa ──────────────────────────────────────────────────── */}
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-3 text-fundo-da-grota-gold">
-          <Shield className="w-5 h-5 text-fundo-da-grota-orange" />
+        <CardTitle className="sobre-secao-titulo texto-ouro">
+          <Shield className="icone-medio texto-laranja" />
           Regras da Casa
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="sobre-grade-regras">
           {regrasCasa.map((r, i) => (
-            <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-fundo-da-grota-charcoal/30 border border-fundo-da-grota-ash/30">
-              <span className="text-xl shrink-0">{r.icone}</span>
-              <p className="text-sm text-muted-foreground leading-snug">{r.regra}</p>
+            <div key={i} className="sobre-regra">
+              <span className="sobre-regra-icone">{r.icone}</span>
+              <p className="sobre-regra-texto">{r.regra}</p>
             </div>
           ))}
         </div>
@@ -127,15 +127,15 @@ const Sobre = () => (
     {/* ── Sobre esta Wiki ─────────────────────────────────────────────────── */}
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-3 text-fundo-da-grota-gold">
-          <Scroll className="w-5 h-5 text-fundo-da-grota-orange" />
+        <CardTitle className="sobre-secao-titulo texto-ouro">
+          <Scroll className="icone-medio texto-laranja" />
           Sobre esta Wiki
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="sobre-texto">
           Esta wiki é o{" "}
-          <span className="text-foreground font-semibold">registro oficial da campanha Fundo da Grota</span>.
+          <span className="sobre-destaque-claro">registro oficial da campanha Fundo da Grota</span>.
           Tudo aqui — heróis, NPCs, histórias, regiões — reflete os eventos canônicos da mesa. Em caso de conflito entre a wiki e a memória dos jogadores, o Mestre tem palavra final.
         </p>
       </CardContent>

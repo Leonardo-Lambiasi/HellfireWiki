@@ -1,0 +1,33 @@
+/* ==========================================================================
+   CABEÇALHO DE PÁGINA (PageHeader.tsx)
+   Título grande + descrição, com uma linha embaixo. Aparece no topo de
+   todas as páginas.
+   ========================================================================== */
+
+.cabecalho-pagina {
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid hsl(var(--fundo-da-grota-ash));
+}
+
+/* Caminho de navegação: "Personagens / Heróis" */
+.cabecalho-pagina-trilha {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+  color: hsl(var(--muted-foreground));
+}
+
+.cabecalho-pagina-titulo {
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+.cabecalho-pagina-descricao {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: hsl(var(--muted-foreground));
+}

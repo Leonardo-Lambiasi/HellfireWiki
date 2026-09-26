@@ -8,7 +8,7 @@ const PersonagensTeste = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="space-y-10 animate-fade-in-up">
+    <div className="pagina pagina-espacada">
       <PageHeader
         titulo="Roleta de Heróis"
         descricao="Protótipo da vitrine de personagens — em construção"

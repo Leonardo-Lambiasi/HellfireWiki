@@ -1,0 +1,19 @@
+/* ==========================================================================
+   PÁGINA DE REGIÕES (pages/Regioes.tsx)
+   ========================================================================== */
+
+/* Ícone de mapa + nome da região */
+.regiao-titulo-linha {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.regiao-nome {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.regiao-descricao {
+  color: hsl(var(--muted-foreground));
+}

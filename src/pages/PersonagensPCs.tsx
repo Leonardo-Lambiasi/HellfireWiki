@@ -14,45 +14,45 @@ const PersonagensPCs = () => {
   });
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="pagina">
       <PageHeader
         titulo="Heróis"
         descricao="Os heróis que forjam seu destino nas terras de Ark"
         breadcrumb="Personagens / Heróis"
       />
 
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+      <div className="campo-busca">
+        <Search className="campo-busca-icone icone-pequeno" />
         <input
           type="text"
           placeholder="Pesquisar por nome, classe, raça, origem, status..."
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-card border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
+          className="campo-busca-input"
         />
         {query && (
-          <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors">
-            <X className="w-4 h-4" />
+          <button onClick={() => setQuery("")} className="campo-busca-limpar">
+            <X className="icone-pequeno" />
           </button>
         )}
       </div>
 
       {query.trim() && (
-        <p className="text-xs text-muted-foreground -mt-4">
+        <p className="contador-resultados">
           {filtrados.length} {filtrados.length === 1 ? "resultado" : "resultados"} para "{query}"
         </p>
       )}
 
       {filtrados.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grade-cartoes">
           {filtrados.map(heroi => (
             <CharacterCard key={heroi.id} personagem={heroi} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-muted-foreground">
-          <p className="text-4xl mb-4">🔍</p>
-          <p className="italic">Nenhum herói encontrado para "{query}".</p>
+        <div className="estado-vazio">
+          <p className="estado-vazio-icone">🔍</p>
+          <p className="estado-vazio-texto">Nenhum herói encontrado para "{query}".</p>
         </div>
       )}
     </div>

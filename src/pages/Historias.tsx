@@ -23,44 +23,40 @@ const Historias = () => {
       );
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="pagina">
       <PageHeader
         titulo="Histórias"
         descricao="Os eventos e lendas que moldaram o mundo"
       />
 
       {/* Search */}
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+      <div className="campo-busca">
+        <Search className="campo-busca-icone icone-pequeno" />
         <input
           type="text"
           placeholder="Pesquisar em todas as histórias e lore..."
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-card border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
+          className="campo-busca-input"
         />
         {query && (
           <button
             onClick={() => setQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+            className="campo-busca-limpar"
           >
-            <X className="w-4 h-4" />
+            <X className="icone-pequeno" />
           </button>
         )}
       </div>
 
       {/* Tabs — ocultos durante busca */}
       {!buscando && (
-        <div className="flex flex-wrap gap-2">
+        <div className="abas">
           {TEMPORADAS.map(t => (
             <button
               key={t}
               onClick={() => setAba(t)}
-              className={`px-5 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all ${
-                aba === t
-                  ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_hsl(var(--fundo-da-grota-orange)/0.3)]"
-                  : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
-              }`}
+              className={`aba ${aba === t ? "aba-ativa" : "aba-inativa"}`}
             >
               Temporada {t}
             </button>
@@ -69,11 +65,7 @@ const Historias = () => {
           {hasLoreGeral && (
             <button
               onClick={() => setAba("lore")}
-              className={`px-5 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all ${
-                aba === "lore"
-                  ? "border-fundo-da-grota-gold bg-fundo-da-grota-gold/10 text-fundo-da-grota-gold shadow-[0_0_12px_hsl(var(--fundo-da-grota-gold)/0.2)]"
-                  : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-gold/50 hover:text-foreground"
-              }`}
+              className={`aba ${aba === "lore" ? "aba-ouro-ativa" : "aba-ouro-inativa"}`}
             >
               📜 Lore Geral
             </button>
@@ -82,7 +74,7 @@ const Historias = () => {
       )}
 
       {/* Contador */}
-      <p className="text-xs tracking-widest text-muted-foreground uppercase -mt-2">
+      <p className="historias-contador">
         {buscando
           ? `${filtradas.length} ${filtradas.length === 1 ? "resultado" : "resultados"} para "${query}"`
           : aba === "lore"
@@ -93,15 +85,15 @@ const Historias = () => {
 
       {/* Cards */}
       {filtradas.length > 0 ? (
-        <div className="space-y-6">
+        <div className="historias-lista">
           {filtradas.map(historia => (
             <StoryCard key={historia.id} historia={historia} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-muted-foreground">
-          <p className="text-4xl mb-4">{buscando ? "🔍" : "📖"}</p>
-          <p className="italic">
+        <div className="estado-vazio">
+          <p className="estado-vazio-icone">{buscando ? "🔍" : "📖"}</p>
+          <p className="estado-vazio-texto">
             {buscando
               ? `Nenhuma história encontrada para "${query}".`
               : "Nenhuma história registrada nesta temporada ainda."
@@ -111,8 +103,8 @@ const Historias = () => {
       )}
 
 
-      <div className="relative h-px bg-gradient-to-r from-transparent via-fundo-da-grota-orange to-transparent my-12">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4 text-2xl">
+      <div className="divisor divisor-forte">
+        <div className="divisor-conteudo divisor-conteudo-emoji">
           🔥
         </div>
       </div>

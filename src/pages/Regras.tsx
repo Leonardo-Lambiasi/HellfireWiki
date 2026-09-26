@@ -26,14 +26,14 @@ interface AtribGrupo { atributo: string; cor: string; pericias: Entrada[] }
 
 const ATRIBUTOS: AtribGrupo[] = [
   {
-    atributo: "Força", cor: "border-red-700",
+    atributo: "Força", cor: "atributo-cor-forca",
     pericias: [
       { nome: "Força", tag: "Atributo", descricao: "Mede potência física, força bruta e capacidade de levantar, empurrar e quebrar objetos.", bullets: ["Forçar portas emperradas ou trancadas", "Libertar-se de amarras", "Tombar estátuas ou segurar grandes objetos"], fonte: "LDJ pg. 175" },
       { nome: "Atletismo", tag: "Perícia de Força", descricao: "Situações difíceis ao escalar, saltar ou nadar.", bullets: ["Escalar superfícies perigosas ou escorregadias", "Saltos de distância ou altura excepcionais", "Nadar em corredeiras ou áreas com algas espessas"], fonte: "LDJ pg. 175" },
     ],
   },
   {
-    atributo: "Destreza", cor: "border-green-700",
+    atributo: "Destreza", cor: "atributo-cor-destreza",
     pericias: [
       { nome: "Destreza", tag: "Atributo", descricao: "Mede agilidade, reflexos e equilíbrio.", bullets: ["Controlar carruagem em ladeira", "Abrir fechaduras ou desarmar armadilhas", "Tocar instrumento de cordas"], fonte: "LDJ pg. 177" },
       { nome: "Acrobacia", tag: "Perícia de Destreza", descricao: "Permanecer de pé em situações complicadas e realizar acrobacias.", bullets: ["Correr sobre gelo ou equilibrar em corda bamba", "Saltos mortais e cambalhotas"], fonte: "LDJ pg. 176" },
@@ -42,13 +42,13 @@ const ATRIBUTOS: AtribGrupo[] = [
     ],
   },
   {
-    atributo: "Constituição", cor: "border-orange-700",
+    atributo: "Constituição", cor: "atributo-cor-constituicao",
     pericias: [
       { nome: "Constituição", tag: "Atributo", descricao: "Mede saúde, resistência e força vital. Testes são incomuns e representam ir além dos limites.", bullets: ["Segurar a respiração", "Marchar ou trabalhar sem descanso por horas", "Sobreviver sem comida ou água"], fonte: "LDJ pg. 177" },
     ],
   },
   {
-    atributo: "Inteligência", cor: "border-blue-700",
+    atributo: "Inteligência", cor: "atributo-cor-inteligencia",
     pericias: [
       { nome: "Inteligência", tag: "Atributo", descricao: "Mede acuidade mental, memória e raciocínio lógico.", bullets: ["Comunicar-se sem palavras", "Estimar valor de itens preciosos", "Forjar documentos ou disfarces"], fonte: "LDJ pg. 177" },
       { nome: "Arcanismo",   tag: "Perícia de Int.", descricao: "Conhecimento sobre magias, itens mágicos, símbolos, tradições e planos de existência.", fonte: "PHB pg. 177" },
@@ -59,7 +59,7 @@ const ATRIBUTOS: AtribGrupo[] = [
     ],
   },
   {
-    atributo: "Sabedoria", cor: "border-emerald-700",
+    atributo: "Sabedoria", cor: "atributo-cor-sabedoria",
     pericias: [
       { nome: "Sabedoria", tag: "Atributo", descricao: "Sintonia com o mundo, percepção e intuição.", bullets: ["Obter pressentimento sobre o que fazer", "Discernir se uma criatura é morto-vivo"], fonte: "LDJ pg. 178" },
       { nome: "Adestrar Animais", tag: "Perícia de Sab.", descricao: "Acalmar animais domesticados, impedir montaria de se assustar e controlar montaria em manobras arriscadas.", fonte: "PHB pg. 178" },
@@ -70,7 +70,7 @@ const ATRIBUTOS: AtribGrupo[] = [
     ],
   },
   {
-    atributo: "Carisma", cor: "border-purple-700",
+    atributo: "Carisma", cor: "atributo-cor-carisma",
     pericias: [
       { nome: "Carisma",     tag: "Atributo", descricao: "Capacidade de interagir eficazmente — confiança, eloquência e personalidade.", bullets: ["Achar a melhor pessoa para obter rumores", "Misturar-se na multidão para colher informações"], fonte: "LDJ pg. 178" },
       { nome: "Atuação",     tag: "Perícia de Car.", descricao: "Entreter uma plateia com música, dança, atuação ou contação de histórias.", fonte: "PHB pg. 178" },
@@ -327,57 +327,57 @@ const REGRAS_MESA: RegrasCasa[] = [
 // ─── Sub-componentes ──────────────────────────────────────────────────────────
 
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`rounded-xl border border-fundo-da-grota-ash/60 bg-card p-4 ${className}`}>{children}</div>
+  <div className={`regra-caixa ${className}`}>{children}</div>
 );
 
 const TagBadge = ({ text }: { text: string }) => (
-  <span className="text-[10px] font-cinzel tracking-wider px-2 py-0.5 rounded bg-fundo-da-grota-orange/15 text-fundo-da-grota-ember border border-fundo-da-grota-orange/20">
+  <span className="regra-tag">
     {text}
   </span>
 );
 
 const EntradaCard = ({ e }: { e: Entrada }) => (
   <Card>
-    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-      <h3 className="font-cinzel font-bold text-fundo-da-grota-gold text-sm">{e.nome}</h3>
+    <div className="regra-topo">
+      <h3 className="regra-nome">{e.nome}</h3>
       {e.tag && <TagBadge text={e.tag} />}
     </div>
-    <p className="text-xs text-muted-foreground leading-relaxed mb-2">{e.descricao}</p>
+    <p className="regra-descricao">{e.descricao}</p>
     {e.bullets && (
-      <ul className="space-y-1">
+      <ul className="regra-lista">
         {e.bullets.map((b, i) => (
-          <li key={i} className="text-xs text-muted-foreground flex gap-2">
-            <span className="text-fundo-da-grota-ember shrink-0">›</span>{b}
+          <li key={i} className="regra-item">
+            <span className="regra-marcador">›</span>{b}
           </li>
         ))}
       </ul>
     )}
-    {e.fonte && <p className="text-[10px] text-fundo-da-grota-ash mt-2 italic">{e.fonte}</p>}
+    {e.fonte && <p className="regra-fonte">{e.fonte}</p>}
   </Card>
 );
 
 
 const WeaponTable = ({ title, armas }: { title: string; armas: ArmaTbl[] }) => (
-  <div className="col-span-full">
-    <h3 className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-3">{title}</h3>
-    <div className="overflow-x-auto rounded-xl border border-fundo-da-grota-ash/60">
-      <table className="w-full text-xs min-w-[600px]">
+  <div className="armas-bloco">
+    <h3 className="armas-titulo">{title}</h3>
+    <div className="armas-rolagem">
+      <table className="armas-tabela">
         <thead>
-          <tr className="bg-fundo-da-grota-charcoal border-b border-fundo-da-grota-ash/60">
+          <tr className="armas-cabecalho-linha">
             {["Arma", "Dano", "Propriedades", "Maestria", "Peso", "Custo"].map(h => (
-              <th key={h} className="text-left px-3 py-2 font-cinzel text-fundo-da-grota-gold">{h}</th>
+              <th key={h} className="armas-cabecalho-celula">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {armas.map((a, i) => (
-            <tr key={i} className={i % 2 === 0 ? "bg-card" : "bg-fundo-da-grota-charcoal/40"}>
-              <td className="px-3 py-2 font-semibold text-foreground whitespace-nowrap">{a.nome}</td>
-              <td className="px-3 py-2 text-fundo-da-grota-ember whitespace-nowrap">{a.dano}</td>
-              <td className="px-3 py-2 text-muted-foreground">{a.props}</td>
-              <td className="px-3 py-2"><TagBadge text={a.maestria} /></td>
-              <td className="px-3 py-2 text-muted-foreground whitespace-nowrap">{a.peso}</td>
-              <td className="px-3 py-2 text-muted-foreground whitespace-nowrap">{a.custo}</td>
+            <tr key={i} className={i % 2 === 0 ? "armas-linha-par" : "armas-linha-impar"}>
+              <td className="armas-celula armas-celula-nome">{a.nome}</td>
+              <td className="armas-celula armas-celula-dano">{a.dano}</td>
+              <td className="armas-celula armas-celula-texto">{a.props}</td>
+              <td className="armas-celula"><TagBadge text={a.maestria} /></td>
+              <td className="armas-celula armas-celula-texto armas-celula-curta">{a.peso}</td>
+              <td className="armas-celula armas-celula-texto armas-celula-curta">{a.custo}</td>
             </tr>
           ))}
         </tbody>
@@ -389,13 +389,13 @@ const WeaponTable = ({ title, armas }: { title: string; armas: ArmaTbl[] }) => (
 // ─── Conteúdo por aba ─────────────────────────────────────────────────────────
 
 const TabAtributos = () => (
-  <div className="space-y-8">
+  <div className="regras-pilha">
     {ATRIBUTOS.map(g => (
       <div key={g.atributo}>
-        <div className={`inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-lg border-l-4 ${g.cor} bg-fundo-da-grota-charcoal/60`}>
-          <h3 className="font-cinzel font-bold text-fundo-da-grota-gold">{g.atributo}</h3>
+        <div className={`atributo-titulo ${g.cor}`}>
+          <h3 className="atributo-nome">{g.atributo}</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="regras-grade">
           {g.pericias.map(e => <EntradaCard key={e.nome} e={e} />)}
         </div>
       </div>
@@ -404,28 +404,28 @@ const TabAtributos = () => (
 );
 
 const TabCombate = () => (
-  <div className="space-y-8">
+  <div className="regras-pilha">
     <div>
-      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Testes e Jogadas</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <p className="regras-subtitulo">Testes e Jogadas</p>
+      <div className="regras-grade">
         {TESTES.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
     <div>
-      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Ações</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <p className="regras-subtitulo">Ações</p>
+      <div className="regras-grade">
         {ACOES.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
     <div>
-      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Ações Bônus</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <p className="regras-subtitulo">Ações Bônus</p>
+      <div className="regras-grade">
         {BONUS.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
     <div>
-      <p className="font-cinzel font-bold text-fundo-da-grota-orange text-sm tracking-widest uppercase mb-4">Reações</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <p className="regras-subtitulo">Reações</p>
+      <div className="regras-grade">
         {REACOES.map(e => <EntradaCard key={e.nome} e={e} />)}
       </div>
     </div>
@@ -433,36 +433,36 @@ const TabCombate = () => (
 );
 
 const TabMovimento = () => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <div className="regras-grade">
     {MOVIMENTOS.map(e => <EntradaCard key={e.nome} e={e} />)}
   </div>
 );
 
 const TabCondicoes = () => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <div className="regras-grade">
     {CONDICOES.map(e => <EntradaCard key={e.nome} e={e} />)}
   </div>
 );
 
 const TabAmbiente = () => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <div className="regras-grade">
     {AMBIENTE.map(e => <EntradaCard key={e.nome} e={e} />)}
   </div>
 );
 
 const TabDominio = () => (
-  <div className="space-y-4">
-    <p className="text-sm text-muted-foreground leading-relaxed border-l-2 border-fundo-da-grota-orange pl-4">
-      Cada arma possui uma <strong className="text-foreground">Propriedade de Domínio</strong>. O personagem pode usar um número de maestrias igual ao seu <strong className="text-foreground">modificador de Inteligência</strong>.
+  <div className="regras-pilha-compacta">
+    <p className="regras-introducao">
+      Cada arma possui uma <strong className="texto-claro">Propriedade de Domínio</strong>. O personagem pode usar um número de maestrias igual ao seu <strong className="texto-claro">modificador de Inteligência</strong>.
     </p>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="regras-grade">
       {DOMINIO.map(e => <EntradaCard key={e.nome} e={e} />)}
     </div>
   </div>
 );
 
 const TabArmas = () => (
-  <div className="space-y-8">
+  <div className="regras-pilha">
     <WeaponTable title="Armas Simples — Corpo a Corpo" armas={SIMPLES_MELEE} />
     <WeaponTable title="Armas Simples — À Distância"  armas={SIMPLES_RANGED} />
     <WeaponTable title="Armas Marciais — Corpo a Corpo" armas={MARCIAL_MELEE} />
@@ -471,23 +471,23 @@ const TabArmas = () => (
 );
 
 const TabMesa = () => (
-  <div className="space-y-4">
-    <p className="text-sm text-muted-foreground leading-relaxed border-l-2 border-fundo-da-grota-gold pl-4">
+  <div className="regras-pilha-compacta">
+    <p className="regras-introducao regras-introducao-ouro">
       Regras customizadas desta mesa. Prevalecem sobre o manual padrão quando há conflito.
     </p>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="regras-grade">
       {REGRAS_MESA.map(r => (
-        <div key={r.titulo} className="rounded-xl border border-fundo-da-grota-gold/40 bg-fundo-da-grota-gold/5 p-4">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-xl">{r.icon}</span>
-            <h3 className="font-cinzel font-bold text-fundo-da-grota-gold text-sm">{r.titulo}</h3>
+        <div key={r.titulo} className="regra-caixa-mesa">
+          <div className="regra-mesa-topo">
+            <span className="regra-mesa-icone">{r.icon}</span>
+            <h3 className="regra-nome">{r.titulo}</h3>
           </div>
-          <p className="text-xs text-muted-foreground leading-relaxed mb-2">{r.descricao}</p>
+          <p className="regra-descricao">{r.descricao}</p>
           {r.bullets && (
-            <ul className="space-y-1">
+            <ul className="regra-lista">
               {r.bullets.map((b, i) => (
-                <li key={i} className="text-xs text-muted-foreground flex gap-2">
-                  <span className="text-fundo-da-grota-gold shrink-0">›</span>{b}
+                <li key={i} className="regra-item">
+                  <span className="regra-marcador regra-marcador-ouro">›</span>{b}
                 </li>
               ))}
             </ul>
@@ -534,20 +534,16 @@ const Regras = () => {
   }, [visible]);
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="pagina">
       <PageHeader titulo="Regras" descricao="Referência rápida de D&D 5e + regras da mesa" />
 
       {/* Tab bar */}
-      <div className="flex flex-wrap gap-2">
+      <div className="abas">
         {TABS.map(t => (
           <button
             key={t.id}
             onClick={() => changeTab(t.id)}
-            className={`px-4 py-2 rounded-lg border text-sm font-cinzel font-semibold transition-all flex items-center gap-1.5 ${
-              tab === t.id
-                ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold shadow-[0_0_12px_hsl(var(--fundo-da-grota-orange)/0.3)]"
-                : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
-            }`}
+            className={`aba aba-compacta ${tab === t.id ? "aba-ativa" : "aba-inativa"}`}
           >
             <span>{t.icon}</span>
             {t.label}
@@ -556,13 +552,7 @@ const Regras = () => {
       </div>
 
       {/* Content com fade */}
-      <div
-        style={{
-          opacity:    visible ? 1 : 0,
-          transform:  visible ? "translateY(0)" : "translateY(6px)",
-          transition: "opacity 0.12s ease, transform 0.12s ease",
-        }}
-      >
+      <div className={`regras-conteudo ${visible ? "" : "regras-conteudo-oculto"}`}>
         {CONTENT[tab]}
       </div>
     </div>

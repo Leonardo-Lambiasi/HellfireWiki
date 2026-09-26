@@ -1,0 +1,22 @@
+/* ==========================================================================
+   PÁGINAS DE PERSONAGENS (PersonagensNPCs.tsx)
+   Os heróis usam o cartão pronto de componentes/cartao-personagem.css; só o
+   cartão simples de NPC tem estilos próprios aqui.
+   ========================================================================== */
+
+.npc-titulo {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.npc-origem {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--fundo-da-grota-ember));
+}
+
+.npc-descricao {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}

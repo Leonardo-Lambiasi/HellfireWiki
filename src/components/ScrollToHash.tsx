@@ -12,8 +12,8 @@ const ScrollToHash = () => {
     if (!el) return;
 
     el.scrollIntoView({ behavior: "smooth", block: "center" });
-    el.classList.add("ring-2", "ring-fundo-da-grota-orange");
-    const timeout = setTimeout(() => el.classList.remove("ring-2", "ring-fundo-da-grota-orange"), 2000);
+    el.classList.add("destaque-ancora");
+    const timeout = setTimeout(() => el.classList.remove("destaque-ancora"), 2000);
 
     return () => clearTimeout(timeout);
   }, [hash]);

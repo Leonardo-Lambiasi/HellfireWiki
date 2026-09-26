@@ -1,0 +1,30 @@
+/* ==========================================================================
+   ESTADO VAZIO E CONTADOR DE RESULTADOS
+   Mensagens que aparecem nas páginas de lista com busca.
+   ========================================================================== */
+
+/* "Nenhum herói encontrado para ..." — emoji grande + frase em itálico */
+.estado-vazio {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+
+.estado-vazio-icone {
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.estado-vazio-texto {
+  font-style: italic;
+}
+
+/* "3 resultados para ..." — a margem negativa aproxima do campo de busca acima */
+.contador-resultados {
+  margin-top: -1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}

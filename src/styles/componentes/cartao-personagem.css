@@ -1,0 +1,60 @@
+/* ==========================================================================
+   CARTÃO DE PERSONAGEM (CharacterCard.tsx e StoryCharacterCard.tsx)
+   Nome, raça, selos de classe/status, descrição e origem.
+   Construído em cima do <Card> (ver cartao.css).
+   ========================================================================== */
+
+/* Linha de cima: identidade à esquerda, selos à direita */
+.personagem-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+/* Ícone/foto + nome + raça */
+.personagem-identidade {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.personagem-icone {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.personagem-nome {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.personagem-raca {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Coluna de selos (classe em cima, status embaixo), alinhada à direita */
+.personagem-selos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.personagem-descricao {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+
+.personagem-origem {
+  padding-top: 1rem;
+  border-top: 1px solid hsl(var(--border));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}

@@ -1,0 +1,60 @@
+/* ==========================================================================
+   ENTRADA DOS ESTILOS
+   Este é o único arquivo CSS importado pelo main.tsx. Ele só carrega os outros,
+   na ordem certa. A ordem importa: quando duas regras têm o mesmo peso, a que
+   vem DEPOIS vence — por isso "base" vem primeiro e "paginas" por último.
+
+   Regra de :hover — todo :hover fica dentro de  @media (hover: hover) { ... }
+   Assim o efeito só existe com mouse; em telas de toque (celular) ele não
+   "gruda" depois do toque. (É o mesmo comportamento que o Tailwind usava.)
+
+   Estrutura da pasta:
+     base/         tema (cores, fontes), animações, estilos globais e classes auxiliares
+     layout/       esqueleto do site: barra lateral, menu, busca, rodapé de paleta
+     componentes/  peças reutilizáveis: cartão, selo, abas, campo de busca...
+     paginas/      estilos que só existem em uma página
+   ========================================================================== */
+
+/* Fontes do Google (precisa ser a primeira linha de import) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap');
+
+/* Reset do navegador (remove margens, define box-sizing etc.). Não gera classes. */
+@import "tailwindcss";
+
+/* 1. Base */
+@import "./base/tema.css";
+@import "./base/animacoes.css";
+@import "./base/global.css";
+@import "./base/auxiliares.css";
+
+/* 2. Layout */
+@import "./layout/estrutura.css";
+@import "./layout/menu-lateral.css";
+@import "./layout/busca-global.css";
+@import "./layout/barra-paleta.css";
+
+/* 3. Componentes reutilizáveis */
+@import "./componentes/cartao.css";
+@import "./componentes/selo.css";
+@import "./componentes/aba-e-chip.css";
+@import "./componentes/campo-busca.css";
+@import "./componentes/cabecalho-pagina.css";
+@import "./componentes/estado-vazio.css";
+@import "./componentes/divisor.css";
+@import "./componentes/espaco-imagem.css";
+@import "./componentes/cartao-personagem.css";
+@import "./componentes/cartao-historia.css";
+@import "./componentes/cartao-jogador.css";
+@import "./componentes/carrossel-personagens.css";
+@import "./componentes/roleta-herois.css";
+@import "./componentes/painel-heroi.css";
+
+/* 4. Páginas */
+@import "./paginas/home.css";
+@import "./paginas/album.css";
+@import "./paginas/historias.css";
+@import "./paginas/personagens.css";
+@import "./paginas/regioes.css";
+@import "./paginas/sobre.css";
+@import "./paginas/mapa.css";
+@import "./paginas/regras.css";

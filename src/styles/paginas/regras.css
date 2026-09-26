@@ -1,0 +1,244 @@
+/* ==========================================================================
+   PÁGINA DE REGRAS (pages/Regras.tsx)
+   Abas (Atributos, Combate, Movimento...) e o conteúdo de cada uma:
+   cartões de regra, tabelas de armas e regras da mesa.
+   As abas usam .abas / .aba de componentes/aba-e-chip.css.
+   ========================================================================== */
+
+/* ── Troca de aba: o conteúdo some e reaparece com um deslizinho ── */
+.regras-conteudo {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.regras-conteudo-oculto {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* ── Empilhamento vertical das seções dentro de uma aba ── */
+.regras-pilha > :where(:not(:last-child)) {
+  margin-bottom: 2rem;
+}
+.regras-pilha-compacta > :where(:not(:last-child)) {
+  margin-bottom: 1rem;
+}
+
+/* Grade de cartões: 1 coluna no celular, 2 a partir de 768px */
+.regras-grade {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 48rem) {
+  .regras-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Subtítulo de grupo: "AÇÕES", "REAÇÕES"... */
+.regras-subtitulo {
+  margin-bottom: 1rem;
+  font-family: var(--fonte-titulo);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(var(--fundo-da-grota-orange));
+}
+
+/* Parágrafo de introdução com uma barrinha colorida à esquerda */
+.regras-introducao {
+  padding-left: 1rem;
+  border-left: 2px solid hsl(var(--fundo-da-grota-orange));
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+.regras-introducao-ouro {
+  border-left-color: hsl(var(--fundo-da-grota-gold));
+}
+
+/* ── Atributos: faixa com o nome do atributo e uma barra colorida à esquerda ── */
+.atributo-titulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius);
+  border-left-width: 4px;
+  border-left-style: solid;
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.6);
+}
+.atributo-cor-forca        { border-left-color: var(--color-red-700); }
+.atributo-cor-destreza     { border-left-color: var(--color-green-700); }
+.atributo-cor-constituicao { border-left-color: var(--color-orange-700); }
+.atributo-cor-inteligencia { border-left-color: var(--color-blue-700); }
+.atributo-cor-sabedoria    { border-left-color: var(--color-emerald-700); }
+.atributo-cor-carisma      { border-left-color: var(--color-purple-700); }
+
+.atributo-nome {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+/* ── Cartão de regra ── */
+.regra-caixa {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--card));
+}
+
+/* Nome à esquerda, etiqueta (tag) à direita */
+.regra-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.regra-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+.regra-descricao {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+
+.regra-lista > :where(:not(:last-child)) {
+  margin-bottom: 0.25rem;
+}
+
+.regra-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* O "›" antes de cada item */
+.regra-marcador {
+  flex-shrink: 0;
+  color: hsl(var(--fundo-da-grota-ember));
+}
+.regra-marcador-ouro {
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+.regra-fonte {
+  margin-top: 0.5rem;
+  font-size: 10px;
+  font-style: italic;
+  color: hsl(var(--fundo-da-grota-ash));
+}
+
+/* Etiqueta pequena ("Ação", "d20 + mod + prof") */
+.regra-tag {
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid hsl(var(--fundo-da-grota-orange) / 0.2);
+  background-color: hsl(var(--fundo-da-grota-orange) / 0.15);
+  font-family: var(--fonte-titulo);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: hsl(var(--fundo-da-grota-ember));
+}
+
+/* ── Regras da mesa (cartão dourado) ── */
+.regra-caixa-mesa {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--fundo-da-grota-gold) / 0.4);
+  background-color: hsl(var(--fundo-da-grota-gold) / 0.05);
+}
+
+.regra-mesa-topo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.regra-mesa-icone {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+/* ── Tabelas de armas ── */
+.armas-bloco {
+  grid-column: 1 / -1;
+}
+
+.armas-titulo {
+  margin-bottom: 0.75rem;
+  font-family: var(--fonte-titulo);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(var(--fundo-da-grota-orange));
+}
+
+/* Em telas estreitas a tabela rola de lado em vez de estourar a página */
+.armas-rolagem {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+}
+
+.armas-tabela {
+  width: 100%;
+  min-width: 600px;
+  font-size: 0.75rem;
+  /* Sem unidade = múltiplo do tamanho da fonte (1 ÷ 0.75 = 16px ÷ 12px). Assim a etiqueta de
+     10px dentro da tabela herda uma altura proporcional ao próprio tamanho, e não fixa em 16px. */
+  line-height: calc(1 / 0.75);
+}
+
+.armas-cabecalho-linha {
+  border-bottom: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--fundo-da-grota-charcoal));
+}
+
+.armas-cabecalho-celula {
+  padding: 0.5rem 0.75rem;
+  font-family: var(--fonte-titulo);
+  text-align: left;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+/* Linhas alternadas (zebra) para facilitar a leitura */
+.armas-linha-par   { background-color: hsl(var(--card)); }
+.armas-linha-impar { background-color: hsl(var(--fundo-da-grota-charcoal) / 0.4); }
+
+.armas-celula {
+  padding: 0.5rem 0.75rem;
+}
+.armas-celula-nome {
+  font-weight: 600;
+  white-space: nowrap;
+  color: hsl(var(--foreground));
+}
+.armas-celula-dano {
+  white-space: nowrap;
+  color: hsl(var(--fundo-da-grota-ember));
+}
+.armas-celula-texto {
+  color: hsl(var(--muted-foreground));
+}
+.armas-celula-curta {
+  white-space: nowrap;
+}

@@ -7,12 +7,12 @@ import { jogadores } from "@/data/jogadores";
 import { regioes, temporadas } from "@/data/mapas";
 
 const stats = [
-  { label: "Heróis",           value: herois.length,                         color: "text-fundo-da-grota-orange" },
-  { label: "NPCs",             value: npcs.length,                           color: "text-fundo-da-grota-gold"   },
-  { label: "Histórias",        value: historias.length,                      color: "text-fundo-da-grota-red"    },
-  { label: "Jogadores ativos", value: jogadores.filter(j => j.ativo).length, color: "text-fundo-da-grota-ember"  },
-  { label: "Regiões",          value: regioes.length,                        color: "text-fundo-da-grota-gold"   },
-  { label: "Temporadas",       value: temporadas,                            color: "text-fundo-da-grota-orange" },
+  { label: "Heróis",           value: herois.length,                         color: "home-estatistica-numero-laranja" },
+  { label: "NPCs",             value: npcs.length,                           color: "home-estatistica-numero-ouro" },
+  { label: "Histórias",        value: historias.length,                      color: "home-estatistica-numero-vermelho" },
+  { label: "Jogadores ativos", value: jogadores.filter(j => j.ativo).length, color: "home-estatistica-numero-brasa" },
+  { label: "Regiões",          value: regioes.length,                        color: "home-estatistica-numero-ouro" },
+  { label: "Temporadas",       value: temporadas,                            color: "home-estatistica-numero-laranja" },
 ];
 
 const navCards = [
@@ -27,64 +27,64 @@ const navCards = [
 ];
 
 const Home = () => (
-  <div className="space-y-16 animate-fade-in-up">
+  <div className="home">
 
     {/* Hero */}
-    <div className="text-center pt-6">
-      <p className="text-xs tracking-[0.4em] text-fundo-da-grota-gold uppercase mb-4">
+    <div className="home-topo">
+      <p className="home-sobretitulo">
         Campanha de D&D
       </p>
-      <h1 className="text-7xl font-bold text-gradient-fundo-da-grota mb-6 animate-ember-glow tracking-widest">
+      <h1 className="home-titulo texto-degrade animar-brasa">
         FUNDO DA GROTA
       </h1>
-      <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
+      <p className="home-descricao">
         Crônicas das chamas eternas — onde heróis são forjados e destinos queimam nas terras de Ark
       </p>
 
       {/* Stats grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-4xl mx-auto gap-3">
+      <div className="home-estatisticas">
         {stats.map((stat) => (
-          <div key={stat.label} className="border border-fundo-da-grota-ash/60 rounded-xl bg-card/40 backdrop-blur py-7 text-center">
+          <div key={stat.label} className="home-estatistica">
             {stat.value > 0 ? (
-              <p className={`text-5xl font-bold ${stat.color}`}>{stat.value}</p>
+              <p className={`home-estatistica-numero ${stat.color}`}>{stat.value}</p>
             ) : (
-              <p className="text-5xl font-bold text-fundo-da-grota-ash/40">—</p>
+              <p className="home-estatistica-numero home-estatistica-numero-vazio">—</p>
             )}
-            <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
+            <p className="home-estatistica-rotulo">{stat.label}</p>
           </div>
         ))}
       </div>
     </div>
 
     {/* Flame divider */}
-    <div className="relative h-px bg-gradient-to-r from-transparent via-fundo-da-grota-orange/50 to-transparent">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-4">
-        <Flame className="w-4 h-4 text-fundo-da-grota-orange" />
+    <div className="divisor">
+      <div className="divisor-conteudo">
+        <Flame className="icone-pequeno texto-laranja" />
       </div>
     </div>
 
     {/* Navigation cards */}
     <div>
-      <p className="text-xs tracking-[0.3em] text-muted-foreground uppercase mb-6">
+      <p className="home-secao-titulo">
         Explorar o mundo
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="home-atalhos">
         {navCards.map((card) => (
           <Link key={card.url} to={card.url}>
-            <Card className="group h-full hover:border-fundo-da-grota-orange/50 hover:shadow-[0_0_30px_hsl(var(--fundo-da-grota-orange)/0.12)] transition-all duration-300">
-              <CardContent className="p-6 flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-fundo-da-grota-orange/10 border border-fundo-da-grota-orange/20 shrink-0 group-hover:bg-fundo-da-grota-orange/20 transition-colors">
-                  <card.icon className="w-6 h-6 text-fundo-da-grota-orange" />
+            <Card className="atalho">
+              <CardContent className="atalho-conteudo">
+                <div className="atalho-icone">
+                  <card.icon className="icone-grande texto-laranja" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-foreground mb-0.5 group-hover:text-fundo-da-grota-gold transition-colors">
+                <div className="atalho-texto">
+                  <h3 className="atalho-titulo">
                     {card.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="atalho-descricao">
                     {card.description}
                   </p>
                 </div>
-                <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0 group-hover:text-fundo-da-grota-orange group-hover:translate-x-1 transition-all" />
+                <ChevronRight className="atalho-seta" />
               </CardContent>
             </Card>
           </Link>

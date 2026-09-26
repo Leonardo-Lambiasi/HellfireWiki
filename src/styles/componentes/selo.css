@@ -1,0 +1,120 @@
+/* ==========================================================================
+   SELO (components/ui/badge.tsx)
+   Etiqueta arredondada pequena: "Ativo", "Vivo", "Guerreiro"...
+
+   Uso:  .selo + uma variante (.selo-padrao, .selo-secundario, ...)
+   Selos de personagem ganham ainda:
+     .selo-classe + .selo-classe-<nome>   → cor da classe (Mago, Clérigo...)
+     .selo-status + .selo-status-<nome>   → cor da situação (Vivo, Morto...)
+   ========================================================================== */
+
+.selo {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--border));
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+/* anel de foco (herdado do shadcn/ui; o <div> do selo normalmente nem recebe foco) */
+.selo:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px hsl(var(--ring));
+}
+
+/* ── Variantes ── */
+
+.selo-padrao {
+  border-color: transparent;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+@media (hover: hover) {
+  .selo-padrao:hover {
+    background-color: hsl(var(--primary) / 0.8);
+  }
+}
+
+.selo-secundario {
+  border-color: transparent;
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+@media (hover: hover) {
+  .selo-secundario:hover {
+    background-color: hsl(var(--secondary) / 0.8);
+  }
+}
+
+.selo-destrutivo {
+  border-color: transparent;
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+@media (hover: hover) {
+  .selo-destrutivo:hover {
+    background-color: hsl(var(--destructive) / 0.8);
+  }
+}
+
+/* Só o contorno, sem preenchimento */
+.selo-contorno {
+  color: hsl(var(--foreground));
+}
+
+/* Degradê laranja → vermelho */
+.selo-grota {
+  border-color: transparent;
+  background-image: linear-gradient(to right, hsl(var(--fundo-da-grota-orange)), hsl(var(--fundo-da-grota-red)));
+  color: #fff;
+}
+
+.selo-dourado {
+  border-color: transparent;
+  background-color: hsl(var(--fundo-da-grota-gold));
+  color: hsl(var(--fundo-da-grota-charcoal));
+  font-weight: 700;
+}
+
+/* ── Selo de CLASSE do personagem ────────────────────────────────────────────
+   Cada classe define 3 variáveis (fundo, texto, borda) e a regra ".selo-classe"
+   usa as três. As cores (--color-amber-600 etc.) vêm da paleta do Tailwind.
+   color-mix(... 80%, transparent) = mesma cor com 80% de opacidade. */
+
+.selo-classe {
+  background-color: color-mix(in oklab, var(--selo-fundo) 80%, transparent);
+  color: var(--selo-texto);
+  border-color: color-mix(in oklab, var(--selo-borda) 60%, transparent);
+}
+
+.selo-classe-clerigo     { --selo-fundo: var(--color-amber-600);   --selo-texto: var(--color-amber-50);   --selo-borda: var(--color-amber-500); }
+.selo-classe-mago        { --selo-fundo: var(--color-violet-700);  --selo-texto: var(--color-violet-100); --selo-borda: var(--color-violet-500); }
+.selo-classe-bruxo       { --selo-fundo: var(--color-indigo-800);  --selo-texto: var(--color-indigo-200); --selo-borda: var(--color-indigo-600); }
+.selo-classe-bruxa       { --selo-fundo: var(--color-emerald-900); --selo-texto: var(--color-emerald-200); --selo-borda: var(--color-emerald-700); }
+.selo-classe-feiticeiro  { --selo-fundo: var(--color-pink-700);    --selo-texto: var(--color-pink-100);   --selo-borda: var(--color-pink-500); }
+.selo-classe-guerreiro   { --selo-fundo: var(--color-red-700);     --selo-texto: var(--color-red-100);    --selo-borda: var(--color-red-600); }
+.selo-classe-barbaro     { --selo-fundo: var(--color-orange-700);  --selo-texto: var(--color-orange-100); --selo-borda: var(--color-orange-600); }
+.selo-classe-ladino      { --selo-fundo: var(--color-teal-700);    --selo-texto: var(--color-teal-100);   --selo-borda: var(--color-teal-600); }
+.selo-classe-patrulheiro { --selo-fundo: var(--color-green-700);   --selo-texto: var(--color-green-100);  --selo-borda: var(--color-green-600); }
+.selo-classe-artifice    { --selo-fundo: var(--color-cyan-700);    --selo-texto: var(--color-cyan-100);   --selo-borda: var(--color-cyan-600); }
+.selo-classe-xama        { --selo-fundo: var(--color-lime-800);    --selo-texto: var(--color-lime-100);   --selo-borda: var(--color-lime-700); }
+.selo-classe-nobre       { --selo-fundo: var(--color-yellow-600);  --selo-texto: var(--color-yellow-50);  --selo-borda: var(--color-yellow-500); }
+.selo-classe-morto-vivo  { --selo-fundo: var(--color-slate-700);   --selo-texto: var(--color-slate-200);  --selo-borda: var(--color-slate-500); }
+.selo-classe-padrao      { --selo-fundo: var(--color-zinc-700);    --selo-texto: var(--color-zinc-200);   --selo-borda: var(--color-zinc-600); }
+
+/* ── Selo de STATUS do personagem (texto branco sobre uma cor sólida) ── */
+
+.selo-status {
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.selo-status-vivo        { background-color: var(--color-green-700); }
+.selo-status-mia         { background-color: var(--color-yellow-700); }
+.selo-status-morto       { background-color: var(--color-red-700); }
+.selo-status-aliado      { background-color: var(--color-blue-700); }
+.selo-status-desconhecido{ background-color: var(--color-purple-700); }
+.selo-status-padrao      { background-color: var(--color-gray-700); }

@@ -1,0 +1,179 @@
+/* ==========================================================================
+   PÁGINA INICIAL (pages/Home.tsx)
+   Topo com título e números da campanha + atalhos para as outras páginas.
+   ========================================================================== */
+
+.home {
+  animation: subir-e-aparecer 0.6s ease-out;
+}
+.home > :where(:not(:last-child)) {
+  margin-bottom: 4rem;
+}
+
+/* ── Topo ── */
+.home-topo {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.home-sobretitulo {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: hsl(var(--fundo-da-grota-gold));
+}
+
+.home-titulo {
+  margin-bottom: 1.5rem;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.home-descricao {
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Quadradinhos com os números (2 colunas → 3 → 6 conforme a tela cresce) ── */
+.home-estatisticas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 48rem) {
+  .home-estatisticas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .home-estatisticas { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+.home-estatistica {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--card) / 0.4);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.home-estatistica-numero {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+}
+/* Cor de cada número */
+.home-estatistica-numero-laranja  { color: hsl(var(--fundo-da-grota-orange)); }
+.home-estatistica-numero-ouro     { color: hsl(var(--fundo-da-grota-gold)); }
+.home-estatistica-numero-vermelho { color: hsl(var(--fundo-da-grota-red)); }
+.home-estatistica-numero-brasa    { color: hsl(var(--fundo-da-grota-ember)); }
+/* Quando o valor é zero, mostra um traço apagado */
+.home-estatistica-numero-vazio    { color: hsl(var(--fundo-da-grota-ash) / 0.4); }
+
+.home-estatistica-rotulo {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Atalhos "Explorar o mundo" ── */
+.home-secao-titulo {
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+.home-atalhos {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (min-width: 48rem) {
+  .home-atalhos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 64rem) {
+  .home-atalhos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Cartão de atalho (é um <Card> com a classe extra "atalho") */
+.atalho {
+  height: 100%;
+}
+@media (hover: hover) {
+  .atalho:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.5);
+    box-shadow: 0 0 30px hsl(var(--fundo-da-grota-orange) / 0.12);
+  }
+}
+
+.atalho-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.atalho-icone {
+  flex-shrink: 0;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-orange) / 0.2);
+  background-color: hsl(var(--fundo-da-grota-orange) / 0.1);
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .atalho:hover .atalho-icone {
+    background-color: hsl(var(--fundo-da-grota-orange) / 0.2);
+  }
+}
+
+.atalho-texto {
+  flex: 1;
+}
+
+.atalho-titulo {
+  margin-bottom: 0.125rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  transition: color 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .atalho:hover .atalho-titulo {
+    color: hsl(var(--fundo-da-grota-gold));
+  }
+}
+
+.atalho-descricao {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Setinha ">" à direita: anda um pouco para o lado ao passar o mouse */
+.atalho-seta {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: hsl(var(--muted-foreground));
+  transition: all 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .atalho:hover .atalho-seta {
+    color: hsl(var(--fundo-da-grota-orange));
+    translate: 0.25rem 0;
+  }
+}

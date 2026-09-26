@@ -1,0 +1,53 @@
+/* ==========================================================================
+   BARRA DE PALETA (ThemeToggleBar.tsx)
+   Faixa fixa no rodapé com os botões que trocam as cores do site.
+   Os botões usam os estados "chip-*" de aba-e-chip.css.
+   ========================================================================== */
+
+.barra-paleta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.95);
+  border-top: 2px solid hsl(var(--fundo-da-grota-orange) / 0.4);
+  backdrop-filter: blur(8px);
+}
+@media (min-width: 40rem) {
+  .barra-paleta { gap: 0.75rem; }
+}
+@media (min-width: 48rem) {
+  .barra-paleta { left: 16rem; } /* não passa por baixo da barra lateral */
+}
+
+/* Texto "Paleta:" — escondido no celular */
+.barra-paleta-rotulo {
+  display: none;
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+@media (min-width: 40rem) {
+  .barra-paleta-rotulo { display: inline; }
+}
+
+.botao-paleta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border-width: 1px; /* a cor vem das classes chip-* */
+  border-style: solid;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}

@@ -2,9 +2,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import HeroInfoPanel from "@/components/HeroInfoPanel";
 
-const TRANSITION =
-  "transform 800ms cubic-bezier(0.22, 1, 0.36, 1), opacity 800ms ease, filter 800ms ease";
-
 /** Aparência de cada carta conforme a distância (0 = em foco, 1/2 = nas laterais, 3+ = fora de vista). */
 const DEPTH_STYLES = [
   { x: 0, y: -34, scale: 1, rotate: 0, opacity: 1, blur: 0, dim: 1 },
@@ -35,20 +32,13 @@ const HeroCarousel = ({ total, active, onChange }: HeroCarouselProps) => {
   const next = () => goTo(active + 1);
 
   return (
-    <div className="relative w-full flex flex-col items-center gap-4 overflow-x-hidden">
-      <div className="relative w-full max-w-3xl h-[480px] sm:h-[600px]" style={{ perspective: "1400px" }}>
+    <div className="roleta">
+      <div className="roleta-palco">
         {/* Base circular de invocação — 40px mais afastada das cartas que pairam sobre ela */}
-        <div className="absolute left-1/2 bottom-6 -translate-x-1/2 translate-y-10 w-[300px] h-[100px] sm:w-[420px] sm:h-[130px]">
-          <div
-            className="absolute inset-0 rounded-[50%]"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, hsl(var(--fundo-da-grota-orange) / 0.3) 0%, hsl(var(--fundo-da-grota-gold) / 0.14) 45%, transparent 75%)",
-              filter: "blur(3px)",
-            }}
-          />
-          <div className="absolute inset-0 rounded-[50%] border border-fundo-da-grota-gold/30 animate-[spin_26s_linear_infinite]" />
-          <div className="absolute inset-6 rounded-[50%] border border-dashed border-fundo-da-grota-orange/25 animate-[spin_18s_linear_infinite_reverse]" />
+        <div className="roleta-base">
+          <div className="roleta-base-brilho" />
+          <div className="roleta-base-anel" />
+          <div className="roleta-base-anel-interno" />
         </div>
 
         {/* Cartas */}
@@ -67,26 +57,23 @@ const HeroCarousel = ({ total, active, onChange }: HeroCarouselProps) => {
               aria-label={isFront ? "Personagem em destaque" : `Trazer personagem ${i + 1} para o destaque`}
               tabIndex={abs <= 2 ? 0 : -1}
               className={cn(
-                "absolute left-1/2 top-1/2 w-[13.5rem] sm:w-[16.5rem] aspect-[5/7] rounded-2xl border-2 flex items-center justify-center",
-                isFront
-                  ? "border-fundo-da-grota-gold bg-gradient-to-b from-fundo-da-grota-charcoal via-card to-fundo-da-grota-charcoal shadow-[0_0_45px_hsl(var(--fundo-da-grota-gold)/0.45)] cursor-default"
-                  : "border-fundo-da-grota-ash/50 bg-fundo-da-grota-charcoal/85 cursor-pointer hover:border-fundo-da-grota-orange/60"
+                "roleta-carta",
+                isFront ? "roleta-carta-frente" : "roleta-carta-lateral"
               )}
               style={{
                 transform: `translate(-50%, -50%) translateX(${dir * depth.x}px) translateY(${depth.y}px) rotateY(${dir * depth.rotate}deg) scale(${depth.scale})`,
                 opacity: depth.opacity,
                 zIndex: 40 - abs * 10,
                 filter: `blur(${depth.blur}px) brightness(${depth.dim})`,
-                transition: TRANSITION,
                 pointerEvents: abs <= 2 ? "auto" : "none",
               }}
             >
-              <div className="absolute inset-2 rounded-xl border border-fundo-da-grota-gold/20" />
-              <span className="absolute top-3 left-3 w-1.5 h-1.5 rotate-45 bg-fundo-da-grota-gold/30" />
-              <span className="absolute top-3 right-3 w-1.5 h-1.5 rotate-45 bg-fundo-da-grota-gold/30" />
-              <span className="absolute bottom-3 left-3 w-1.5 h-1.5 rotate-45 bg-fundo-da-grota-gold/30" />
-              <span className="absolute bottom-3 right-3 w-1.5 h-1.5 rotate-45 bg-fundo-da-grota-gold/30" />
-              <span className="font-cinzel font-semibold text-fundo-da-grota-gold text-base sm:text-lg tracking-wide drop-shadow">
+              <div className="roleta-carta-moldura" />
+              <span className="roleta-canto roleta-canto-sup-esq" />
+              <span className="roleta-canto roleta-canto-sup-dir" />
+              <span className="roleta-canto roleta-canto-inf-esq" />
+              <span className="roleta-canto roleta-canto-inf-dir" />
+              <span className="roleta-carta-titulo">
                 Herói
               </span>
             </button>
@@ -98,21 +85,21 @@ const HeroCarousel = ({ total, active, onChange }: HeroCarouselProps) => {
           type="button"
           onClick={prev}
           aria-label="Personagem anterior"
-          className="absolute left-0 sm:-left-3 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full border-2 border-fundo-da-grota-orange/60 bg-fundo-da-grota-charcoal/90 text-fundo-da-grota-orange transition-all duration-300 hover:border-fundo-da-grota-gold hover:text-fundo-da-grota-gold hover:shadow-[0_0_25px_hsl(var(--fundo-da-grota-gold)/0.5)]"
+          className="roleta-seta roleta-seta-esquerda"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="icone-grande" />
         </button>
         <button
           type="button"
           onClick={next}
           aria-label="Próximo personagem"
-          className="absolute right-0 sm:-right-3 top-1/2 -translate-y-1/2 z-50 w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center rounded-full border-2 border-fundo-da-grota-orange/60 bg-fundo-da-grota-charcoal/90 text-fundo-da-grota-orange transition-all duration-300 hover:border-fundo-da-grota-gold hover:text-fundo-da-grota-gold hover:shadow-[0_0_25px_hsl(var(--fundo-da-grota-gold)/0.5)]"
+          className="roleta-seta roleta-seta-direita"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="icone-grande" />
         </button>
       </div>
 
-      <span className="text-xs text-muted-foreground tracking-wide">
+      <span className="roleta-contador">
         {active + 1} / {total}
       </span>
 

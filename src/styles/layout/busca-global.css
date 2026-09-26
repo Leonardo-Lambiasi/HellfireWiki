@@ -1,0 +1,100 @@
+/* ==========================================================================
+   BUSCA GLOBAL (GlobalSearch.tsx)
+   Campo de pesquisa no topo da barra lateral + lista de resultados que
+   aparece logo abaixo. O campo em si usa as classes de "campo-busca.css".
+   ========================================================================== */
+
+.busca-global {
+  position: relative;
+  padding: 0.25rem 1rem 0.75rem;
+}
+
+/* Caixa flutuante com os resultados */
+.busca-global-resultados {
+  position: absolute;
+  top: 100%;
+  left: 1rem;
+  right: 1rem;
+  z-index: 50;
+  margin-top: 0.25rem;
+  max-height: 18rem;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--fundo-da-grota-ash) / 0.6);
+  background-color: hsl(var(--fundo-da-grota-charcoal));
+  box-shadow: var(--sombra-enorme);
+}
+
+.busca-global-vazio {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-style: italic;
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Uma linha de resultado */
+.busca-global-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid hsl(var(--fundo-da-grota-ash) / 0.2);
+  transition: color 150ms var(--suavizar), background-color 150ms var(--suavizar), border-color 150ms var(--suavizar);
+}
+@media (hover: hover) {
+  .busca-global-item:hover {
+    background-color: hsl(var(--fundo-da-grota-ash) / 0.4);
+  }
+}
+.busca-global-item:last-child {
+  border-bottom-width: 0;
+}
+
+.busca-global-icone {
+  flex-shrink: 0;
+  width: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.busca-global-texto {
+  flex: 1;
+  min-width: 0; /* permite o texto ser cortado com "…" em vez de esticar a caixa */
+}
+
+.busca-global-titulo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.busca-global-meta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Etiqueta com a categoria (Herói, NPC, História...) */
+.busca-global-categoria {
+  flex-shrink: 0;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  border: 1px solid hsl(var(--fundo-da-grota-orange) / 0.3);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  color: hsl(var(--fundo-da-grota-orange));
+}

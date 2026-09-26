@@ -5,52 +5,52 @@ import { personagemAnchor, type Personagem } from "@/data/personagens";
 
 function getClasseStyle(classe: string): string {
   const c = classe.toLowerCase();
-  if (c.includes("clér"))              return "bg-amber-600/80    text-amber-50    border-amber-500/60";
-  if (c.includes("mago") || c.includes("maga")) return "bg-violet-700/80 text-violet-100  border-violet-500/60";
-  if (c.includes("bruxo"))             return "bg-indigo-800/80   text-indigo-200  border-indigo-600/60";
-  if (c.includes("bruxa"))             return "bg-emerald-900/80  text-emerald-200 border-emerald-700/60";
-  if (c.includes("feitiç"))            return "bg-pink-700/80     text-pink-100    border-pink-500/60";
-  if (c.includes("guerr"))             return "bg-red-700/80      text-red-100     border-red-600/60";
-  if (c.includes("bárb") || c.includes("barb")) return "bg-orange-700/80 text-orange-100 border-orange-600/60";
-  if (c.includes("ladino"))            return "bg-teal-700/80     text-teal-100    border-teal-600/60";
-  if (c.includes("patrulh") || c.includes("ranger")) return "bg-green-700/80 text-green-100 border-green-600/60";
-  if (c.includes("artif"))             return "bg-cyan-700/80     text-cyan-100    border-cyan-600/60";
-  if (c.includes("xamã") || c.includes("xama")) return "bg-lime-800/80 text-lime-100 border-lime-700/60";
-  if (c.includes("nobre"))             return "bg-yellow-600/80   text-yellow-50   border-yellow-500/60";
-  if (c.includes("morto-vivo"))        return "bg-slate-700/80    text-slate-200   border-slate-500/60";
-  return                                      "bg-zinc-700/80     text-zinc-200    border-zinc-600/60";
+  if (c.includes("clér"))                            return "selo-classe selo-classe-clerigo";
+  if (c.includes("mago") || c.includes("maga"))      return "selo-classe selo-classe-mago";
+  if (c.includes("bruxo"))                           return "selo-classe selo-classe-bruxo";
+  if (c.includes("bruxa"))                           return "selo-classe selo-classe-bruxa";
+  if (c.includes("feitiç"))                          return "selo-classe selo-classe-feiticeiro";
+  if (c.includes("guerr"))                           return "selo-classe selo-classe-guerreiro";
+  if (c.includes("bárb") || c.includes("barb"))      return "selo-classe selo-classe-barbaro";
+  if (c.includes("ladino"))                          return "selo-classe selo-classe-ladino";
+  if (c.includes("patrulh") || c.includes("ranger")) return "selo-classe selo-classe-patrulheiro";
+  if (c.includes("artif"))                           return "selo-classe selo-classe-artifice";
+  if (c.includes("xamã") || c.includes("xama"))      return "selo-classe selo-classe-xama";
+  if (c.includes("nobre"))                           return "selo-classe selo-classe-nobre";
+  if (c.includes("morto-vivo"))                      return "selo-classe selo-classe-morto-vivo";
+  return                                                    "selo-classe selo-classe-padrao";
 }
 
 function getStatusColor(status: string): string {
   switch (status) {
-    case "Vivo":         return "bg-green-700";
-    case "MIA":          return "bg-yellow-700";
-    case "Morto":        return "bg-red-700";
-    case "Aliado":       return "bg-blue-700";
-    case "Desconhecido": return "bg-purple-700";
-    default:             return "bg-gray-700";
+    case "Vivo":         return "selo-status-vivo";
+    case "MIA":          return "selo-status-mia";
+    case "Morto":        return "selo-status-morto";
+    case "Aliado":       return "selo-status-aliado";
+    case "Desconhecido": return "selo-status-desconhecido";
+    default:             return "selo-status-padrao";
   }
 }
 
 /** Card de personagem para as páginas de história — inclui o slot de imagem e a âncora usada pelos links das histórias. */
 const StoryCharacterCard = ({ personagem }: { personagem: Personagem }) => (
-  <Card id={personagemAnchor(personagem.id)} className="scroll-mt-24 hover:scale-[1.02] transition-all">
+  <Card id={personagemAnchor(personagem.id)} className="cartao-com-ancora cartao-zoom">
     <CardHeader>
-      <div className="flex justify-between items-start mb-3">
-        <div className="flex items-center gap-3">
+      <div className="personagem-topo">
+        <div className="personagem-identidade">
           <CharacterImageSlot imagem={personagem.imagem} nome={personagem.nome} icon={personagem.icon} size="sm" />
           <div>
-            <CardTitle className="text-2xl text-fundo-da-grota-gold">
+            <CardTitle className="personagem-nome texto-ouro">
               {personagem.nome}
             </CardTitle>
-            <p className="text-sm text-muted-foreground mt-1">{personagem.raca}</p>
+            <p className="personagem-raca">{personagem.raca}</p>
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-end">
+        <div className="personagem-selos">
           <Badge variant="outline" className={getClasseStyle(personagem.classe)}>
             {personagem.classe}
           </Badge>
-          <Badge className={`${getStatusColor(personagem.status)} text-white text-xs`}>
+          <Badge className={`selo-status ${getStatusColor(personagem.status)}`}>
             {personagem.status}
           </Badge>
         </div>
@@ -58,11 +58,11 @@ const StoryCharacterCard = ({ personagem }: { personagem: Personagem }) => (
     </CardHeader>
 
     <CardContent>
-      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+      <p className="personagem-descricao">
         {personagem.descricao}
       </p>
 
-      <div className="pt-4 border-t border-border text-sm text-muted-foreground">
+      <div className="personagem-origem">
         <strong>Origem:</strong> {personagem.origem}
       </div>
     </CardContent>

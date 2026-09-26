@@ -1,0 +1,61 @@
+/* ==========================================================================
+   ESTILOS GLOBAIS
+   Regras que valem para elementos HTML "puros" (body, h1, ::-webkit-scrollbar...)
+   e não para uma classe específica.
+   ========================================================================== */
+
+@layer base {
+  /* Toda borda usa, por padrão, a cor de borda do tema */
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    color: hsl(var(--foreground));
+    font-family: var(--fonte-texto);
+    background: linear-gradient(135deg, #0a0a0a 0%, #2a1810 50%, #0a0a0a 100%);
+    background-attachment: fixed;
+  }
+
+  :root[data-theme="lilac"] body {
+    background: linear-gradient(135deg, #0a0a12 0%, #241333 50%, #0a0a12 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulo);
+  }
+}
+
+/* Camada de "brasas" que fica por cima do fundo, sem atrapalhar cliques */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 20% 80%, hsl(var(--fundo-da-grota-red) / 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, hsl(var(--fundo-da-grota-orange) / 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: tremular-chama 8s ease-in-out infinite;
+}
+
+/* Barra de rolagem personalizada (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--fundo-da-grota-charcoal));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--fundo-da-grota-orange));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--fundo-da-grota-gold));
+}

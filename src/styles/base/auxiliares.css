@@ -1,0 +1,96 @@
+/* ==========================================================================
+   CLASSES AUXILIARES
+   Pequenas classes usadas em vários lugares, combinadas com outras no className.
+   Exemplo:  <h1 className="marca-titulo texto-degrade animar-brasa">
+   ========================================================================== */
+
+/* ── Texto e brilho ─────────────────────────────────────────────────────── */
+
+/* Texto com degradê dourado → laranja → vermelho.
+   O truque: pinta o fundo, recorta o fundo no formato das letras (background-clip: text)
+   e deixa a cor da letra transparente para o degradê aparecer. */
+.texto-degrade {
+  background: linear-gradient(135deg, hsl(var(--fundo-da-grota-gold)) 0%, hsl(var(--fundo-da-grota-orange)) 50%, hsl(var(--fundo-da-grota-red)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Halo laranja ao redor de um elemento */
+.brilho-grota {
+  box-shadow: 0 0 20px hsl(var(--fundo-da-grota-orange) / 0.3);
+}
+
+/* Cores de texto mais usadas */
+.texto-ouro    { color: hsl(var(--fundo-da-grota-gold)); }
+.texto-laranja { color: hsl(var(--fundo-da-grota-orange)); }
+.texto-brasa   { color: hsl(var(--fundo-da-grota-ember)); }
+.texto-suave   { color: hsl(var(--muted-foreground)); }
+.texto-claro   { color: hsl(var(--foreground)); }
+
+/* ── Animações prontas ──────────────────────────────────────────────────── */
+
+.animar-entrada { animation: subir-e-aparecer 0.6s ease-out; }
+.animar-brasa   { animation: brilho-de-brasa 3s ease-in-out infinite; }
+
+/* ── Tamanhos de ícone (os ícones vêm da biblioteca lucide-react, são <svg>) ── */
+
+.icone-mini    { width: 0.875rem; height: 0.875rem; } /* 14px */
+.icone-pequeno { width: 1rem;     height: 1rem; }     /* 16px */
+.icone-medio   { width: 1.25rem;  height: 1.25rem; }  /* 20px */
+.icone-grande  { width: 1.5rem;   height: 1.5rem; }   /* 24px */
+
+/* Esconde da tela mas continua disponível para leitores de tela (acessibilidade) */
+.somente-leitor-de-tela {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Container de página ────────────────────────────────────────────────────
+   Todas as páginas começam com <div className="pagina">.
+   A regra "> :where(:not(:last-child))" significa: "todo filho direto, menos o
+   último, ganha margem embaixo" — é o espaçamento entre as seções da página. */
+
+.pagina {
+  animation: subir-e-aparecer 0.6s ease-out;
+}
+.pagina > :where(:not(:last-child)) {
+  margin-bottom: 2rem;
+}
+
+.pagina-espacada > :where(:not(:last-child)) { margin-bottom: 2.5rem; }
+.pagina-compacta > :where(:not(:last-child)) { margin-bottom: 1rem; }
+.pagina-sem-animacao { animation: none; }
+
+/* ── Grades de cartões ──────────────────────────────────────────────────────
+   1 coluna no celular, 2 colunas a partir de 768px (md) ou 1024px (lg). */
+
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+@media (min-width: 48rem) {
+  .grade-cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.grade-cartoes-lg {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+@media (min-width: 64rem) {
+  .grade-cartoes-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Anima ao destacar um personagem vindo de um link de história (ver ScrollToHash.tsx) */
+.destaque-ancora {
+  outline: 2px solid hsl(var(--fundo-da-grota-orange));
+}

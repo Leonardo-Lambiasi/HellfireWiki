@@ -72,31 +72,31 @@ const HeroInfoPanel = ({ active, total }: HeroInfoPanelProps) => {
 
   return (
     <div
-      className="w-full max-w-3xl mx-auto rounded-2xl border-2 border-fundo-da-grota-ash/60 bg-fundo-da-grota-charcoal/60 overflow-hidden"
-      style={{ height, transition: "height 420ms cubic-bezier(0.65, 0, 0.35, 1)" }}
+      className="painel-heroi"
+      style={{ height }}
       aria-live="polite"
     >
-      <div ref={contentRef} className="p-3 sm:p-4">
-        <div className="rounded-xl border border-fundo-da-grota-gold/40 bg-fundo-da-grota-charcoal px-4 py-2.5 mb-3">
-          <h3 className="font-cinzel font-semibold text-fundo-da-grota-gold text-center text-lg tracking-wide">
+      <div ref={contentRef} className="painel-heroi-interno">
+        <div className="painel-heroi-nome-caixa">
+          <h3 className="painel-heroi-nome">
             {nome}
           </h3>
         </div>
 
-        <div className="rounded-xl border border-fundo-da-grota-ash/50 bg-fundo-da-grota-charcoal/70 px-4 py-3">
-          <p className="text-xs text-fundo-da-grota-orange/70 uppercase tracking-[0.2em] mb-1.5">
+        <div className="painel-heroi-historia-caixa">
+          <p className="painel-heroi-rotulo">
             História
           </p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <p className="painel-heroi-texto">
             {historiaVisivel}
             {!terminouDeDigitar && (
-              <span className="inline-block w-[2px] h-4 align-middle bg-fundo-da-grota-orange ml-0.5 animate-pulse" />
+              <span className="painel-heroi-cursor" />
             )}
           </p>
         </div>
       </div>
 
-      <span className="sr-only">
+      <span className="somente-leitor-de-tela">
         Personagem {renderedIndex + 1} de {total}
       </span>
     </div>

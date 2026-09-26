@@ -33,21 +33,19 @@ const ThemeToggleBar = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 md:left-64 z-40 flex items-center justify-center gap-2 sm:gap-3 py-2.5 px-4 bg-fundo-da-grota-charcoal/95 border-t-2 border-fundo-da-grota-orange/40 backdrop-blur-sm">
-      <span className="text-xs text-muted-foreground hidden sm:inline mr-1">Paleta:</span>
+    <div className="barra-paleta">
+      <span className="barra-paleta-rotulo">Paleta:</span>
 
       <button
         type="button"
         onClick={() => escolher("default")}
         aria-pressed={theme === "default"}
         className={cn(
-          "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors",
-          theme === "default"
-            ? "border-fundo-da-grota-orange bg-fundo-da-grota-orange/20 text-fundo-da-grota-gold"
-            : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-fundo-da-grota-orange/50 hover:text-foreground"
+          "botao-paleta",
+          theme === "default" ? "chip-ativo" : "chip-inativo"
         )}
       >
-        <Flame className="w-3.5 h-3.5" />
+        <Flame className="icone-mini" />
         Padrão
       </button>
 
@@ -56,13 +54,11 @@ const ThemeToggleBar = () => {
         onClick={() => escolher("lilac")}
         aria-pressed={theme === "lilac"}
         className={cn(
-          "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors",
-          theme === "lilac"
-            ? "border-[#A855F7] bg-[#A855F7]/20 text-[#D8B4FE]"
-            : "border-fundo-da-grota-ash/60 text-muted-foreground hover:border-[#A855F7]/50 hover:text-foreground"
+          "botao-paleta",
+          theme === "lilac" ? "chip-lilas-ativo" : "chip-lilas-inativo"
         )}
       >
-        <Sparkles className="w-3.5 h-3.5" />
+        <Sparkles className="icone-mini" />
         Lilás / Roxo
       </button>
     </div>

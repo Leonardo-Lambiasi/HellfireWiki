@@ -8,21 +8,21 @@ interface CharacterImageSlotProps {
 }
 
 const SIZE_CLASSES: Record<NonNullable<CharacterImageSlotProps["size"]>, string> = {
-  sm: "w-20 h-20",
-  lg: "w-28 sm:w-40 md:w-56 aspect-square",
+  sm: "espaco-imagem-pequeno",
+  lg: "espaco-imagem-grande",
 };
 
 /** Card de imagem do personagem — pronto para receber `imagem`, sem exigir uma agora. */
 const CharacterImageSlot = ({ imagem, nome, icon, size = "sm" }: CharacterImageSlotProps) => (
   <div
-    className={`${SIZE_CLASSES[size]} shrink-0 rounded-lg border-2 border-dashed border-fundo-da-grota-ash/60 bg-fundo-da-grota-charcoal/40 flex items-center justify-center overflow-hidden`}
+    className={`espaco-imagem ${SIZE_CLASSES[size]}`}
   >
     {imagem ? (
-      <img src={imagem} alt={nome} className="w-full h-full object-cover" />
+      <img src={imagem} alt={nome} className="espaco-imagem-foto" />
     ) : (
-      <div className="flex flex-col items-center gap-1 text-muted-foreground/60">
-        {icon ? <span className={size === "lg" ? "text-5xl" : "text-2xl"}>{icon}</span> : <ImageOff className="w-5 h-5" />}
-        <span className="text-[10px] uppercase tracking-wide">Sem imagem</span>
+      <div className="espaco-imagem-vazio">
+        {icon ? <span className="espaco-imagem-emoji">{icon}</span> : <ImageOff className="icone-medio" />}
+        <span className="espaco-imagem-legenda">Sem imagem</span>
       </div>
     )}
   </div>

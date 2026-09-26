@@ -1,0 +1,105 @@
+/* ==========================================================================
+   MENU LATERAL (SidebarNav.tsx)
+   Lista de links da barra lateral; alguns itens abrem um submenu.
+   ========================================================================== */
+
+.menu-lateral {
+  padding: 1rem;
+}
+
+.menu-grupo {
+  margin-bottom: 0.25rem;
+}
+
+/* ── Item do menu (serve tanto para o botão de grupo quanto para o link simples) ── */
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  transition: all 200ms var(--suavizar);
+}
+
+/* Botão que abre/fecha um grupo: ocupa a largura toda e empurra a seta para a direita */
+.menu-item-grupo {
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Link simples (sem submenu) */
+.menu-item-link {
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Estado: página atual */
+.menu-item-ativo {
+  background-color: hsl(var(--fundo-da-grota-orange) / 0.2);
+  color: hsl(var(--fundo-da-grota-gold));
+  border-left: 4px solid hsl(var(--fundo-da-grota-gold));
+}
+
+/* Estado: não é a página atual */
+.menu-item-inativo {
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .menu-item-inativo:hover {
+    background-color: hsl(var(--fundo-da-grota-ash));
+    color: hsl(var(--fundo-da-grota-orange));
+    border-left: 4px solid hsl(var(--fundo-da-grota-orange));
+  }
+}
+
+/* Ícone + nome, lado a lado */
+.menu-item-rotulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menu-item-texto {
+  font-weight: 500;
+}
+
+/* Setinha do grupo: gira 180° quando o grupo está aberto */
+.menu-seta {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 200ms var(--suavizar), rotate 200ms var(--suavizar);
+}
+.menu-seta-aberta {
+  rotate: 180deg;
+}
+
+/* ── Submenu ── */
+.submenu {
+  margin-left: 2rem;
+  margin-top: 0.25rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid hsl(var(--fundo-da-grota-ash) / 0.5);
+}
+.submenu > :where(:not(:last-child)) {
+  margin-bottom: 0.25rem;
+}
+
+.submenu-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: all 200ms var(--suavizar);
+}
+.submenu-link-ativo {
+  color: hsl(var(--fundo-da-grota-gold));
+  font-weight: 600;
+}
+.submenu-link-inativo {
+  color: hsl(var(--muted-foreground));
+}
+@media (hover: hover) {
+  .submenu-link-inativo:hover {
+    color: hsl(var(--fundo-da-grota-orange));
+  }
+}

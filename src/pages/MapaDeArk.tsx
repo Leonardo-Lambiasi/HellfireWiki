@@ -148,47 +148,44 @@ const MapaDeArk = () => {
   const atMax = t.scale >= MAX - 0.01;
 
   const btnClass = (disabled = false) =>
-    `flex items-center justify-center w-9 h-9 rounded-lg border transition-colors
-    ${disabled
-      ? "border-fundo-da-grota-ash/20 bg-transparent text-fundo-da-grota-ash/30 cursor-not-allowed"
-      : "border-fundo-da-grota-ash/60 bg-fundo-da-grota-charcoal/80 text-muted-foreground hover:border-fundo-da-grota-orange/60 hover:text-fundo-da-grota-orange active:scale-95"}`;
+    `mapa-botao ${disabled ? "mapa-botao-desativado" : "mapa-botao-ativo"}`;
 
   const Controls = ({ overlay = false }) => (
-    <div className={`flex items-center gap-2 ${overlay ? "" : ""}`}>
-      <button onClick={() => doZoom(STEP)}  disabled={atMax} className={btnClass(atMax)} title="Zoom in  (+)"><ZoomIn    className="w-4 h-4" /></button>
-      <button onClick={() => doZoom(-STEP)} disabled={atMin} className={btnClass(atMin)} title="Zoom out (-)"><ZoomOut   className="w-4 h-4" /></button>
-      <button onClick={doReset}                               className={btnClass()}      title="Resetar  (R)"><RotateCcw className="w-4 h-4" /></button>
-      <span className="text-xs tabular-nums text-center px-2 py-1 rounded-lg border border-fundo-da-grota-ash/40 bg-fundo-da-grota-charcoal/60 text-muted-foreground min-w-[52px]">
+    <div className="mapa-controles">
+      <button onClick={() => doZoom(STEP)}  disabled={atMax} className={btnClass(atMax)} title="Zoom in  (+)"><ZoomIn    className="icone-pequeno" /></button>
+      <button onClick={() => doZoom(-STEP)} disabled={atMin} className={btnClass(atMin)} title="Zoom out (-)"><ZoomOut   className="icone-pequeno" /></button>
+      <button onClick={doReset}                               className={btnClass()}      title="Resetar  (R)"><RotateCcw className="icone-pequeno" /></button>
+      <span className="mapa-zoom-valor">
         {Math.round(t.scale * 100)}%
       </span>
       {overlay && (
         <button onClick={toggleFs} className={btnClass()} title="Sair (F)">
-          <Minimize className="w-4 h-4" />
+          <Minimize className="icone-pequeno" />
         </button>
       )}
     </div>
   );
 
   return (
-    <div className="space-y-4 animate-fade-in-up">
+    <div className="pagina pagina-compacta">
       <PageHeader
         titulo="Mapa de Ark"
         descricao="O mundo conhecido — continentes, reinos e fronteiras"
       />
 
       {/* Toolbar */}
-      <div className="flex items-center gap-2">
+      <div className="mapa-barra">
         <Controls />
-        <div className="flex-1" />
+        <div className="mapa-espaco" />
         <button onClick={toggleFs} className={btnClass()} title={fullscreen ? "Sair da tela cheia (F)" : "Tela cheia (F)"}>
-          {fullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+          {fullscreen ? <Minimize className="icone-pequeno" /> : <Maximize className="icone-pequeno" />}
         </button>
       </div>
 
       {/* Map container */}
       <div
         ref={containerRef}
-        className="relative overflow-hidden rounded-xl border border-fundo-da-grota-ash/60 shadow-[0_0_40px_hsl(var(--fundo-da-grota-orange)/0.08)] select-none bg-fundo-da-grota-charcoal/40 cursor-grab active:cursor-grabbing"
+        className="mapa-area"
         style={{ height: fullscreen ? "100vh" : "calc(100vh - 220px)" }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -201,31 +198,31 @@ const MapaDeArk = () => {
 
         {/* Loading skeleton */}
         {!loaded && !imgError && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-fundo-da-grota-charcoal/60 z-10">
-            <div className="w-12 h-12 rounded-full border-4 border-fundo-da-grota-ash/30 border-t-fundo-da-grota-orange animate-spin" />
-            <p className="text-sm text-muted-foreground tracking-widest uppercase">Carregando mapa…</p>
+          <div className="mapa-carregando">
+            <div className="mapa-spinner" />
+            <p className="mapa-carregando-texto">Carregando mapa…</p>
           </div>
         )}
 
         {/* Error state */}
         {imgError && (
-          <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="text-center space-y-2">
-              <p className="text-3xl">🗺️</p>
-              <p className="text-muted-foreground italic text-sm">Não foi possível carregar o mapa.</p>
-              <p className="text-xs text-fundo-da-grota-ash/60">Verifique se o arquivo existe em <code>public/mapas/</code></p>
+          <div className="mapa-erro">
+            <div className="mapa-erro-corpo">
+              <p className="mapa-erro-icone">🗺️</p>
+              <p className="mapa-erro-texto">Não foi possível carregar o mapa.</p>
+              <p className="mapa-erro-dica">Verifique se o arquivo existe em <code>public/mapas/</code></p>
             </div>
           </div>
         )}
 
         {/* Hint overlay */}
         {hint && loaded && (
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-            <div className="flex gap-4 px-5 py-2.5 rounded-full bg-black/55 backdrop-blur-sm text-xs text-white/75 whitespace-nowrap shadow-xl">
+          <div className="mapa-dica">
+            <div className="mapa-dica-caixa">
               <span>🖱 Scroll · zoom</span>
-              <span className="text-white/30">|</span>
+              <span className="mapa-dica-separador">|</span>
               <span>✋ Arrastar · mover</span>
-              <span className="text-white/30">|</span>
+              <span className="mapa-dica-separador">|</span>
               <span>⌨ +/− · R · F</span>
             </div>
           </div>
@@ -233,15 +230,15 @@ const MapaDeArk = () => {
 
         {/* Zoom limit indicators */}
         {atMax && (
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-            <span className="px-3 py-1 rounded-full bg-fundo-da-grota-orange/20 border border-fundo-da-grota-orange/40 text-xs text-fundo-da-grota-orange">
+          <div className="mapa-aviso">
+            <span className="mapa-aviso-etiqueta mapa-aviso-maximo">
               Zoom máximo
             </span>
           </div>
         )}
         {atMin && (
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-            <span className="px-3 py-1 rounded-full bg-fundo-da-grota-ash/20 border border-fundo-da-grota-ash/40 text-xs text-muted-foreground">
+          <div className="mapa-aviso">
+            <span className="mapa-aviso-etiqueta mapa-aviso-minimo">
               Zoom mínimo
             </span>
           </div>
@@ -249,7 +246,7 @@ const MapaDeArk = () => {
 
         {/* Fullscreen overlay controls */}
         {fullscreen && (
-          <div className="absolute top-4 right-4 z-10">
+          <div className="mapa-controles-tela-cheia">
             <Controls overlay />
           </div>
         )}
@@ -258,7 +255,7 @@ const MapaDeArk = () => {
           src="/mapas/Reinos do norte.jpeg"
           alt="Mapa de Ark"
           draggable={false}
-          className="w-full h-full object-contain"
+          className="mapa-imagem"
           style={{
             transform: `translate(${t.x}px, ${t.y}px) scale(${t.scale})`,
             transformOrigin: "center center",
@@ -272,12 +269,12 @@ const MapaDeArk = () => {
 
       {/* Keyboard shortcuts legend */}
       {!fullscreen && loaded && (
-        <p className="text-xs text-fundo-da-grota-ash/50 text-center tracking-wide">
-          <kbd className="px-1.5 py-0.5 rounded border border-fundo-da-grota-ash/30 bg-fundo-da-grota-charcoal/60 font-mono">+</kbd> zoom in &nbsp;
-          <kbd className="px-1.5 py-0.5 rounded border border-fundo-da-grota-ash/30 bg-fundo-da-grota-charcoal/60 font-mono">-</kbd> zoom out &nbsp;
-          <kbd className="px-1.5 py-0.5 rounded border border-fundo-da-grota-ash/30 bg-fundo-da-grota-charcoal/60 font-mono">R</kbd> reset &nbsp;
-          <kbd className="px-1.5 py-0.5 rounded border border-fundo-da-grota-ash/30 bg-fundo-da-grota-charcoal/60 font-mono">F</kbd> tela cheia &nbsp;
-          <kbd className="px-1.5 py-0.5 rounded border border-fundo-da-grota-ash/30 bg-fundo-da-grota-charcoal/60 font-mono">↑↓←→</kbd> mover
+        <p className="mapa-legenda">
+          <kbd className="mapa-tecla">+</kbd> zoom in &nbsp;
+          <kbd className="mapa-tecla">-</kbd> zoom out &nbsp;
+          <kbd className="mapa-tecla">R</kbd> reset &nbsp;
+          <kbd className="mapa-tecla">F</kbd> tela cheia &nbsp;
+          <kbd className="mapa-tecla">↑↓←→</kbd> mover
         </p>
       )}
     </div>

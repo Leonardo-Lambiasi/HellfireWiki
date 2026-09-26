@@ -92,31 +92,31 @@ const GlobalSearch = ({ onNavigate }: { onNavigate?: () => void }) => {
   };
 
   return (
-    <div ref={ref} className="relative px-4 pb-3 pt-1">
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+    <div ref={ref} className="busca-global">
+      <div className="campo-busca campo-busca-compacto">
+        <Search className="campo-busca-icone icone-pequeno" />
         <input
           type="text"
           placeholder="Pesquisar no mundo..."
           value={query}
           onChange={e => { setQuery(e.target.value); setAberto(true); }}
           onFocus={() => setAberto(true)}
-          className="w-full pl-9 pr-8 py-2 text-sm rounded-lg bg-background/50 border border-fundo-da-grota-ash/60 focus:border-fundo-da-grota-orange/70 focus:outline-none text-foreground placeholder:text-muted-foreground transition-colors"
+          className="campo-busca-input"
         />
         {query && (
           <button
             onClick={() => { setQuery(""); setAberto(false); }}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+            className="campo-busca-limpar"
           >
-            <X className="w-3.5 h-3.5" />
+            <X className="icone-mini" />
           </button>
         )}
       </div>
 
       {aberto && query.length >= 2 && (
-        <div className="absolute left-4 right-4 top-full z-50 mt-1 rounded-lg border border-fundo-da-grota-ash/60 bg-fundo-da-grota-charcoal shadow-2xl overflow-hidden max-h-72 overflow-y-auto">
+        <div className="busca-global-resultados">
           {resultados.length === 0 ? (
-            <p className="px-4 py-3 text-sm text-muted-foreground italic text-center">
+            <p className="busca-global-vazio">
               Nenhum resultado para "{query}"
             </p>
           ) : (
@@ -124,14 +124,14 @@ const GlobalSearch = ({ onNavigate }: { onNavigate?: () => void }) => {
               <button
                 key={r.id}
                 onClick={() => ir(r.url)}
-                className="w-full flex items-center gap-3 px-3 py-2.5 hover:bg-fundo-da-grota-ash/40 transition-colors text-left border-b border-fundo-da-grota-ash/20 last:border-0"
+                className="busca-global-item"
               >
-                <span className="text-base shrink-0 w-6 text-center">{r.icon}</span>
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-foreground truncate">{r.titulo}</p>
-                  <p className="text-xs text-muted-foreground truncate">{r.meta}</p>
+                <span className="busca-global-icone">{r.icon}</span>
+                <div className="busca-global-texto">
+                  <p className="busca-global-titulo">{r.titulo}</p>
+                  <p className="busca-global-meta">{r.meta}</p>
                 </div>
-                <span className="text-xs text-fundo-da-grota-orange shrink-0 border border-fundo-da-grota-orange/30 px-1.5 py-0.5 rounded font-medium">
+                <span className="busca-global-categoria">
                   {r.categoria}
                 </span>
               </button>

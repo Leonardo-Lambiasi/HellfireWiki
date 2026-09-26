@@ -1,0 +1,180 @@
+/* ==========================================================================
+   ROLETA DE HERÓIS (HeroCarousel.tsx)
+   Cartas em 3D pairando sobre uma base circular. A posição, rotação, escala
+   e transparência de cada carta mudam conforme a distância até a carta em
+   foco — esses valores mudam o tempo todo, então continuam no TSX (atributo
+   style). Aqui ficam só as partes que nunca mudam.
+   ========================================================================== */
+
+.roleta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Palco onde as cartas ficam. "perspective" cria a sensação de profundidade 3D. */
+.roleta-palco {
+  position: relative;
+  width: 100%;
+  max-width: 48rem;
+  height: 480px;
+  perspective: 1400px;
+}
+@media (min-width: 40rem) {
+  .roleta-palco { height: 600px; }
+}
+
+/* ── Base circular de invocação ── */
+.roleta-base {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  translate: -50% 2.5rem;
+  width: 300px;
+  height: 100px;
+}
+@media (min-width: 40rem) {
+  .roleta-base { width: 420px; height: 130px; }
+}
+
+.roleta-base-brilho {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, hsl(var(--fundo-da-grota-orange) / 0.3) 0%, hsl(var(--fundo-da-grota-gold) / 0.14) 45%, transparent 75%);
+  filter: blur(3px);
+}
+
+/* Anéis que giram (um em cada sentido) */
+.roleta-base-anel {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--fundo-da-grota-gold) / 0.3);
+  animation: girar 26s linear infinite;
+}
+
+.roleta-base-anel-interno {
+  position: absolute;
+  inset: 1.5rem;
+  border-radius: 50%;
+  border: 1px dashed hsl(var(--fundo-da-grota-orange) / 0.25);
+  animation: girar 18s linear infinite reverse;
+}
+
+/* ── Cartas ── */
+.roleta-carta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13.5rem;
+  aspect-ratio: 5 / 7;
+  border-radius: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  /* Movimento suave ao trocar a carta em foco */
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1), opacity 800ms ease, filter 800ms ease;
+}
+@media (min-width: 40rem) {
+  .roleta-carta { width: 16.5rem; }
+}
+
+/* Carta em foco (a da frente) */
+.roleta-carta-frente {
+  border-color: hsl(var(--fundo-da-grota-gold));
+  background-image: linear-gradient(to bottom, hsl(var(--fundo-da-grota-charcoal)), hsl(var(--card)), hsl(var(--fundo-da-grota-charcoal)));
+  box-shadow: 0 0 45px hsl(var(--fundo-da-grota-gold) / 0.45);
+  cursor: default;
+}
+
+/* Cartas nas laterais (clicar traz para o foco) */
+.roleta-carta-lateral {
+  border-color: hsl(var(--fundo-da-grota-ash) / 0.5);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.85);
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .roleta-carta-lateral:hover {
+    border-color: hsl(var(--fundo-da-grota-orange) / 0.6);
+  }
+}
+
+/* Moldura interna da carta */
+.roleta-carta-moldura {
+  position: absolute;
+  inset: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--fundo-da-grota-gold) / 0.2);
+}
+
+/* Losangos decorativos nos 4 cantos (um quadradinho girado 45°) */
+.roleta-canto {
+  position: absolute;
+  width: 0.375rem;
+  height: 0.375rem;
+  rotate: 45deg;
+  background-color: hsl(var(--fundo-da-grota-gold) / 0.3);
+}
+.roleta-canto-sup-esq { top: 0.75rem;    left: 0.75rem; }
+.roleta-canto-sup-dir { top: 0.75rem;    right: 0.75rem; }
+.roleta-canto-inf-esq { bottom: 0.75rem; left: 0.75rem; }
+.roleta-canto-inf-dir { bottom: 0.75rem; right: 0.75rem; }
+
+.roleta-carta-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  color: hsl(var(--fundo-da-grota-gold));
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+}
+@media (min-width: 40rem) {
+  .roleta-carta-titulo { font-size: 1.125rem; line-height: 1.75rem; }
+}
+
+/* ── Setas ── */
+.roleta-seta {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 2px solid hsl(var(--fundo-da-grota-orange) / 0.6);
+  background-color: hsl(var(--fundo-da-grota-charcoal) / 0.9);
+  color: hsl(var(--fundo-da-grota-orange));
+  transition: all 300ms var(--suavizar);
+}
+@media (hover: hover) {
+  .roleta-seta:hover {
+    border-color: hsl(var(--fundo-da-grota-gold));
+    color: hsl(var(--fundo-da-grota-gold));
+    box-shadow: 0 0 25px hsl(var(--fundo-da-grota-gold) / 0.5);
+  }
+}
+.roleta-seta-esquerda { left: 0; }
+.roleta-seta-direita  { right: 0; }
+@media (min-width: 40rem) {
+  .roleta-seta { width: 3.25rem; height: 3.25rem; }
+  .roleta-seta-esquerda { left: -0.75rem; }
+  .roleta-seta-direita  { right: -0.75rem; }
+}
+
+.roleta-contador {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.025em;
+  color: hsl(var(--muted-foreground));
+}
